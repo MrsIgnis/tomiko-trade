@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'feedback',
     'rest_framework',
     'parsers',
+    'cars_app',
 ]
 
 REST_FRAMEWORK = {
