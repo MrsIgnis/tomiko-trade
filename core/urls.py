@@ -15,29 +15,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path, include
-#from rest_framework import routers
 from . import views
 
-#router = routers.DefaultRouter()
-#router.register(r'brands', views.BrandViewSet)
-
 urlpatterns = [
-    path('', views.empty, name='empty'),
-    # HTML
-    #path('', views.main, name='main'),
-    path('japan/', views.cars_catalog, name='japan'),
+    path('', views.main, name='main'),
+    path('<str:country>/', views.cars_catalog, name='cars_catalog'),
+    path('<str:country>/get_models_by_brand/', views.get_models_by_brand, name='get_models_by_brand'),
 
-
-
-
-
-
-
-
-    #path('korea/', , name='korea'),
-
-    # API
-    #path('', include(router.urls)),
-    #path('cars/', views.CarsCatalog.as_view(), name='cars'),
-    #path('brands/<int:brand__id>/models/', views.CarsModel.as_view(), name='car_models')
+    #path('', views.empty, name='empty'),
 ]

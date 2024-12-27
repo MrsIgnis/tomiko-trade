@@ -22,10 +22,10 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('core.urls')),
     path('feedback/', include('feedback.urls')),
     path('success/', lambda request: render(request, 'success.html'), name='success'),
 
-    path('api/', include('core.urls')),
+    path('', include('core.urls')),
+    #path('api/', include('core.urls')),
 ]
 

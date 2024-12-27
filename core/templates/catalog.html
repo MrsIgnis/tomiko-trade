@@ -34,7 +34,7 @@
 
 
 <body>
-    <h1>Список машин</h1>
+    <h1>Автомобили из {% if current_country == 'japan' %}Японии{% elif current_country == 'korea' %}Кореи{% elif current_country == 'china' %}Китая{% endif %}</h1>
 
     <form method="get">
         <div class="filter-container">
