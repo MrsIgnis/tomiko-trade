@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'core',
     'feedback',
+    'cars_app',
     'rest_framework',
     'parsers',
 ]

@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('feedback/', include('feedback.urls')),
     path('success/', lambda request: render(request, 'success.html'), name='success'),
+    path('cars/', include('cars_app.urls')),
 
     path('', include('core.urls')),
     #path('api/', include('core.urls')),
