@@ -27,9 +27,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="#">Корея</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Япония</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Китай</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'cars_catalog' country='korea' %}">Корея</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'cars_catalog' country='japan' %}">Япония</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'cars_catalog' country='china' %}">Китай</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Контакты</a></li>
                     </ul>
                 </div>
@@ -47,9 +47,9 @@
     <footer class="bg-light mt-3">
         <div class="container py-4">
             <div class="row">
-                <div class="col-md-2"><a href="#">Корея</a></div>
-                <div class="col-md-2"><a href="#">Япония</a></div>
-                <div class="col-md-2"><a href="#">Китай</a></div>
+                <div class="col-md-2"><a href="{% url 'cars_catalog' country='korea' %}">Корея</a></div>
+                <div class="col-md-2"><a href="{% url 'cars_catalog' country='japan' %}">Япония</a></div>
+                <div class="col-md-2"><a href="{% url 'cars_catalog' country='china' %}">Китай</a></div>
                 <div class="col-md-2"><a href="#">Доставка</a></div>
                 <div class="col-md-2"><a href="#">Отзывы</a></div>
                 <div class="col-md-2"><a href="#">Информация о компании</a></div>

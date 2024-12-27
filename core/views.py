@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from .models import Cars, Brands
-from django.db.models import Value, CharField
-from django.db.models.functions import Concat
+from django.db.models import Value, CharField, IntegerField
+from django.db.models.functions import Concat, Cast
 from django.core.paginator import Paginator, PageNotAnInteger
+from django.http import JsonResponse
 
 def main(request):
     return render(request, 'main.html')
@@ -45,7 +46,33 @@ def get_mileage_values():
 
     return list(range(min_val, max_val, 10000))
 
-def cars_catalog(request):
+def get_country_dict():
+    """Возвращает словарь стран."""
+    country_dict = {
+        'japan': 'Япония',
+        'korea': 'Корея',
+        'china': 'Китай',
+    }
+
+    return country_dict
+
+def get_models_by_brand(request, country):
+    brand_name = request.GET.get('brand')
+    country = get_country_dict().get(country)
+
+    if brand_name and country:
+        try:
+            brand_obj = Brands.objects.get(brand=brand_name, country__iexact=country)
+            models = Cars.objects.filter(brand_country=brand_obj).values_list('model', flat=True).distinct().order_by('model')
+            return JsonResponse(list(models), safe=False)
+
+        except Brands.DoesNotExist:
+            return JsonResponse([], safe=False)
+
+    else:
+        return JsonResponse([], safe=False)
+
+def cars_catalog(request, country):
     """ Отображает список автомобилей с сортировкой и пагинации. """
 
     # Параметры фильтрации
@@ -75,6 +102,8 @@ def cars_catalog(request):
     if transmission: filters['transmission'] = transmission
     if color: filters['color'] = color
 
+    if country: filters['brand_country__country__iexact'] = get_country_dict().get(country)
+
     # Параметры сортировки
     sort_option = request.GET.get('sort', 'None')
     sort_fields = get_sort_order(sort_option)
@@ -103,12 +132,8 @@ def cars_catalog(request):
 
     # Получаем уникальные данные для фильтра
     available_brands = Brands.objects.values_list('brand', flat=True).distinct().order_by('brand')
-
-    if brand: available_models = Cars.objects.filter(brand_country__brand=brand).values_list('model', flat=True).distinct().order_by('model')
-    else: available_models = []
-
     available_years = Cars.objects.values_list('year', flat=True).distinct().order_by('year')
-    available_volumes = Cars.objects.values_list('engine_volume', flat=True).distinct().order_by('engine_volume')
+    available_volumes = Cars.objects.annotate(int_volume=Cast('engine_volume', IntegerField())).values_list('int_volume', flat=True).distinct().order_by('int_volume')
     available_drives = Cars.objects.values_list('drive', flat=True).distinct().order_by('drive')
     available_mileages = get_mileage_values()
     available_transmissions = Cars.objects.values_list('transmission', flat=True).distinct().order_by('transmission')
@@ -118,14 +143,13 @@ def cars_catalog(request):
         'cars_page': cars_page,
         'sort_option': sort_option,
         'available_brands': available_brands,
-        'available_models': available_models,
-
         'available_years': available_years,
         'available_volumes': available_volumes,
         'available_drives': available_drives,
         'available_mileages': available_mileages,
         'available_transmissions': available_transmissions,
         'available_colors': available_colors,
+        'current_country': country,
     }
 
-    return render(request, 'auto/auto_japan.html', context)
+    return render(request, 'catalog.html', context)
