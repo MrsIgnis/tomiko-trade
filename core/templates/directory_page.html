@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <title>Dogy-food</title>
+      <link rel="stylesheet" href="css/bee.css">
+      <link rel="stylesheet" href="code.js">
+      <link rel="stylesheet" href="popup.js">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
+      <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+      <script src="https://kit.fontawesome.com/2eb1ff35d2.js" crossorigin="anonymous"></script>
+    </head>
+  <body>
+    <header class="header" id = "header">
+        <div class="container">
+
+            <div class="header_inner">
+                <div class="header_left">
+
+                    <div class="header_logo">
+                        <a href="#"><img src="logo.png" alt="Tomiko Trade" class="logo"></a>
+                    </div>
+
+                    <nav class="nav">
+                        <a class="nav_link" href="#">Авто из Кореи</a>
+                        <a class="nav_link" href="#">Авто из Китая</a>
+                        <a class="nav_link" href="#">Авто из Японии</a>
+                        <a class="nav_link" href="#">Акции</a>
+                        <a class="nav_link" href="#">Контакты</a>
+                    </nav>
+                </div>
+
+                <div class="header_right">
+                    <div class="number">
+                        <p>8 (800) 500-49-46</p>
+                    </div>
+
+                    <div class="social">
+                        <a class="social_item" href="#" target="_blank"><i class="fa-brands fa-telegram"></i>
+                        </a>
+                        <a class="social_item" href="#" target="_blank"><i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </header>
+
+    <div class="intro" id = "intro">
+        <div class="container">
+            <div class="intro_inner">
+                <h1 class="intro_title">Автомобили под заказ из Южной Кореи, Китая, Японии</h1>
+                <h2 class="intro_subtitle">Подберем. Купим. Доставим. Растаможим. Отправим в любой регион России.</h2>
+
+                <a class="intro_btn" href="#">Рассчитать стоимость</a>
+            </div>
+
+            <div class="intro_info">
+                <div class="intro_info_item">
+                    <span class="info_num">5+</span>
+                    <div class="info_text">
+                        Лет на рынке
+                    </div>
+                </div>
+                <div class="intro_info_item">
+                    <span class="info_num">4 000+</span>
+                    <div class="info_text">
+                        довольных клиентов
+                    </div>
+                </div>
+                <div class="intro_info_item">
+                    <span class="info_num">
+                        <i class="fa-sharp fa-solid fa-star"></i>4.6
+                    </span>
+                </div>
+            </div>
+
+            <div class="intro_over">
+                <div class="intro_over_top">
+                    <p>Экономия до
+                        <span class="info_perc">30%</span>
+                        <br> от рынка авто в наличии
+                    </p>
+                </div>
+                <div class = "btn_pop_up">
+                  <a class="over_btn" href="#" id = "open_pop_up">Смотреть пример</a>
+                </div>
+                <div class="pop_up" id = "pop_up">
+                  <div class="pop_up_container">
+                    <div class="pop_up_body" id ="pop_up_body">
+                      <div class="pop_up_close" id = "pop_up_close">
+                        <i class="fa-solid fa-xmark"></i>
+
+                      </div>
+                      <p>Экономия до<span class="info_perc">30%</span> от рынка авто в наличии</p>
+                      <div class="pop_up_body_image">
+                        <div class="pop_body_image_item_1">
+                          <img src="image 360.png" alt = "картинка">
+                        </div>
+                        <div class="pop_body_image_item_2">
+                          <img src="6b36a2c1bba415534f1005dbecce0fe2.png" alt="картинка">
+                        </div>
+                        <div class="pop_body_strelka">
+                          <img src="Group 1202.png" alt="картинка">
+                        </div>
+                      </div>
+                      <div class="about_button btn_econom">
+                        Получить консультацию
+                        <img src = "wtshpbtn.png">
+
+                      </div>
+                      <img src="cta_button_12.png" alt="wdwd" id = "btn_econom_teleg">
+                    </div>
+                  </div>
+                </div>
+
+
+
+            </div>
+
+          <div class="intro_bottom_item"></div>
+
+        </div>
+    </div>
+
+
+<section class = "section">
+  <div class="container">
+    <div class="slider_up_text">
+      ПОПУЛЯРНЫЕ АВТО <span>ИЗ КОРЕИ</span><img src="korea.png" alt="картинка">
+    </div>
+    <div class="wrapper">
+
+    <div class="image-slider swiper-container"><!-- Главный контейнер слайдера !-->
+    <div class="image-slider__wraper swiper-wrapper"><!-- Обязательная оболочка !-->
+
+
+      <div class="image-slider_slide swiper-slide"> <!-- Слайды !-->
+        <div class="image-slider_image">
+          <div class="slider_text">
+            Subaru LEVORG VN5
+            <p>2021 • Гибрит • 10 000 км</p>
+          </div>
+          <img src="2024-11-14_13_VGhlFmY.webp" alt="Картинка">
+        </div>
+      </div>
+
+      <div class="image-slider_slide swiper-slide"> <!-- Слайды !-->
+        <div class="image-slider_image">
+          <div class="slider_text">
+            Subaru LEVORG VN5
+            <p>2021 • Гибрит • 10 000 км</p>
+          </div>
+          <img src="2024-11-14_13_VGhlFmY.webp" alt="Картинка">
+        </div>
+      </div>
+
+      <div class="image-slider_slide swiper-slide"> <!-- Слайды !-->
+        <div class="image-slider_image">
+          <div class="slider_text">
+            Subaru LEVORG VN5
+            <p>2021 • Гибрит • 10 000 км</p>
+          </div>
+          <img src="2024-11-14_13_VGhlFmY.webp" alt="Картинка">
+        </div>
+      </div>
+
+      <div class="image-slider_slide swiper-slide"> <!-- Слайды !-->
+        <div class="image-slider_image">
+          <div class="slider_text">
+            Subaru LEVORG VN5
+            <p>2021 • Гибрит • 10 000 км</p>
+          </div>
+          <img src="2024-11-14_13_VGhlFmY.webp" alt="Картинка">
+        </div>
+      </div>
+
+      <div class="image-slider_slide swiper-slide"> <!-- Слайды !-->
+        <div class="image-slider_image">
+          <div class="slider_text">
+            Subaru LEVORG VN5
+            <p>2021 • Гибрит • 10 000 км</p>
+          </div>
+          <img src="2024-11-14_13_VGhlFmY.webp" alt="Картинка">
+        </div>
+      </div>
+
+      <div class="image-slider_slide swiper-slide"> <!-- Слайды !-->
+        <div class="image-slider_image">
+          <div class="slider_text">
+            Subaru LEVORG VN5
+            <p>2021 • Гибрит • 10 000 км</p>
+          </div>
+          <img src="2024-11-14_13_VGhlFmY.webp" alt="Картинка">
+        </div>
+      </div>
+
+      <div class="image-slider_slide swiper-slide"> <!-- Слайды !-->
+        <div class="image-slider_image">
+          <div class="slider_text">
+            Subaru LEVORG VN5
+            <p>2021 • Гибрит • 10 000 км</p>
+          </div>
+          <img src="2024-11-14_13_VGhlFmY.webp" alt="Картинка">
+        </div>
+      </div>
+
+      <div class="image-slider_slide swiper-slide"> <!-- Слайды !-->
+        <div class="image-slider_image">
+          <div class="slider_text">
+            Subaru LEVORG VN5
+            <p>2021 • Гибрит • 10 000 км</p>
+          </div>
+          <img src="2024-11-14_13_VGhlFmY.webp" alt="Картинка">
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+  <div class="container">
+    <div class="stage_work">
+      <div class="stage_title">
+        <p><span>ЭТАПЫ</span> РАБОТЫ<p>
+          <div class="stage_subtitle">
+            Прозрачное ценообразование с подробным разъяснением затрат на каждом этапе
+          </div>
+      </div>
+      <div class="stage_description">
+        <div class="stage_icon">
+          <div class="stage_icon_item">
+            <img src="images\Frame 1351.png">
+          </div>
+          <div class="stage_icon_item">
+            <img src="images\Frame 1351-1.png">
+          </div>
+          <div class="stage_icon_item">
+            <img src="images\Frame 1351-2.png">
+          </div>
+          <div class="stage_icon_item">
+            <img src="images\Frame 1351-3.png">
+          </div>
+        </div>
+      </div>
+      <div class="stage_icon_text">
+        <div class="stage_item_icon_text">
+          <p>ЗАЯВКА</p>
+          Оставьте заявку,чтобы получить  индивидуальную консультацию
+        </div>
+
+        <div class="stage_item_icon_text">
+          <p>ПОДБОР АВТО</p>
+          Подберем автомобиль под ваши критерии
+        </div>
+
+        <div class="stage_item_icon_text">
+          <p>ОФОРМЛЕНИЕ</p>
+          Согласуем бюджет и заключим договор на авто
+        </div>
+
+        <div class="stage_item_icon_text">
+          <p>ДОСТАВКА ПО РФ</p>
+          После доставки в г. Владивосток, мы отправим автомобиль в ваш город
+        </div>
+      </div>
+      <div class="stage_consultaion">
+        <button type="button" name="button" class = "consultaion">Получить констульатцию</button>
+        <a href="#"><img src = "whtp.png"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="about">
+      <div class="about_text">
+        <div class="about_title">
+          О НАС
+        </div>
+        <div class="about_subtitle">
+          Компания «Правый руль» предлагает широкий выбор автомобилей от ведущих мировых производителей. Мы специализируемся на продаже новых и подержанных авто. Наша команда профессионалов поможет вам выбрать идеальный автомобиль, учитывая ваши потребности и бюджет.
+        </div>
+        <div class="about_button">
+          Получить консультацию
+          <img src = "wtshpbtn.png">
+        </div>
+      </div>
+      <div class="about_photo">
+        <img src="3b010e3249293ae0ccddc5922335f2b1.png">
+      </div>
+    </div>
+    <div class="about_footer">
+      <div class="about_stag_footer">
+        5+
+        <p>Лет на рынке</p>
+      </div>
+      <div class="about_like_footer">
+        4000+
+        <p>довольных клиентов</p>
+      </div>
+      <div class="about_footer_1">
+        <div class="about_like"><img src="like.png"></div><span>Прозрачное ценообразование с подробным разъяснением затрат на каждом этапе</span>
+      </div>
+      <div class="about_footer_2">
+        <div class="about_doc"><img src = "doc.png"></div><span>Полное сопровождение и предоставление фото/видео отчета на протяжение всей сделки</span>
+      </div>
+      <div class="about_footer_3">
+        <div class="about_rukopogatie"><img src = "rukopogatie.png"></div><span>Проверенные поставщики</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="reviews_up">
+      <div class="reviews_title">
+        Отзывы <span>⭐</span> 4.9
+      </div>
+      <div class="reviews_link">
+        <nav>
+          <a href="#">VL справочник</a>
+          <a href="#">2ГИС</a>
+          <a href="#">Яндекс карты</a>
+        </nav>
+      </div>
+    </div>
+    <div class="reviews_down">
+      <div class="comment_rov">
+        <div class="comment_item">
+          <div class="commnet_photo">
+            <img src="268a0c3f24ae8c3bf1ad6f0bac7cbd79.png">
+          </div>
+          <div class="comment_name">
+            Ивнова Ольга
+          </div>
+          <div class="comment_mark">
+            <div class="comment_star">
+              <span>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+              </span>
+              <div class="comment_data">
+                21 октября 2023г.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="comment_item">
+          <div class="commnet_photo">
+            <img src="268a0c3f24ae8c3bf1ad6f0bac7cbd79.png">
+          </div>
+          <div class="comment_name">
+            Ивнова Ольга
+          </div>
+          <div class="comment_mark">
+            <div class="comment_star">
+              <span>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+              </span>
+              <div class="comment_data">
+                21 октября 2023г.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="comment_item">
+          <div class="commnet_photo">
+            <img src="268a0c3f24ae8c3bf1ad6f0bac7cbd79.png">
+          </div>
+          <div class="comment_name">
+            Ивнова Ольга
+          </div>
+          <div class="comment_mark">
+            <div class="comment_star">
+              <span>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+              </span>
+              <div class="comment_data">
+                21 октября 2023г.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="comment_item">
+          <div class="commnet_photo">
+            <img src="268a0c3f24ae8c3bf1ad6f0bac7cbd79.png">
+          </div>
+          <div class="comment_name">
+            Ивнова Ольга
+          </div>
+          <div class="comment_mark">
+            <div class="comment_star">
+              <span>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+              </span>
+              <div class="comment_data">
+                21 октября 2023г.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="comment_rov">
+        <div class="comment_item">
+          <div class="commnet_photo">
+            <img src="268a0c3f24ae8c3bf1ad6f0bac7cbd79.png">
+          </div>
+          <div class="comment_name">
+            Ивнова Ольга
+          </div>
+          <div class="comment_mark">
+            <div class="comment_star">
+              <span>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+              </span>
+              <div class="comment_data">
+                21 октября 2023г.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="comment_item">
+          <div class="commnet_photo">
+            <img src="268a0c3f24ae8c3bf1ad6f0bac7cbd79.png">
+          </div>
+          <div class="comment_name">
+            Ивнова Ольга
+          </div>
+          <div class="comment_mark">
+            <div class="comment_star">
+              <span>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+              </span>
+              <div class="comment_data">
+                21 октября 2023г.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="comment_item">
+          <div class="commnet_photo">
+            <img src="268a0c3f24ae8c3bf1ad6f0bac7cbd79.png">
+          </div>
+          <div class="comment_name">
+            Ивнова Ольга
+          </div>
+          <div class="comment_mark">
+            <div class="comment_star">
+              <span>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+              </span>
+              <div class="comment_data">
+                21 октября 2023г.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="comment_item">
+          <div class="commnet_photo">
+            <img src="268a0c3f24ae8c3bf1ad6f0bac7cbd79.png">
+          </div>
+          <div class="comment_name">
+            Ивнова Ольга
+          </div>
+          <div class="comment_mark">
+            <div class="comment_star">
+              <span>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+              </span>
+              <div class="comment_data">
+                21 октября 2023г.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class = "section">
+  <div class="container">
+    <div class="clips">
+      <div class="clips_phone">
+      </div>
+      <div class = "clip_up">
+      <div class="clips_title">
+        <img src="Frame.png">
+        <span>КЛИПЫ<span>
+      </div>
+      <div class="clip_button">
+        <i class="fa-brands fa-vk"></i>
+        <button type="button" name="button">Подписаться</button>
+      </div>
+    </div>
+    <div class="video_clip">
+
+      <div class="video_clip_item">
+
+      </div>
+      <div class="video_clip_item">
+
+      </div>
+      <div class="video_clip_item">
+
+      </div>
+      <div class="video_clip_item">
+
+      </div>
+      <div class="video_clip_item">
+
+      </div>
+      <div class="video_clip_item">
+
+      </div>
+      <div class="video_clip_item">
+
+      </div>
+
+
+    </div>
+    </div>
+  </div>
+</section>
+
+    <section class="section">
+      <div class="container">
+
+
+          <div class = "reklama_item">
+
+          <div class="reklama_img">
+            <img src="contactpht.png">
+          </div>
+          <div class="reklama_slogan">
+            <div class="slogan">
+              <p><span>ПОДПИШИСЬ</span> И НЕ УПУСТИ СВОЙ АВТОМОБИЛЬ МЕЧТЫ</p>
+            </div>
+            <div class="slogan_socseti">
+              <div class="slogan_socseti_item">
+                <a href="#"><img src="cta_button.png"><span>Телеграмм-канал</span><img src="Vector.png" class="strel_tg"></a>
+              </div>
+              <div class="slogan_socseti_item">
+                <a href="#"><img src="cta_button_vk.png"><span>VK</span><img src="Vector.png" class = "strel_vk"></a>
+              </div>
+              <div class="slogan_socseti_item">
+                <a href = "#"><img src="cta_button_inst.png"><span>Instagram</span><img src="Vector.png" class="strel_inst"></a>
+              </div>
+            </div>
+          </div>
+      </div>
+
+    </div>
+    </section>
+
+    <section class = "section">
+      <div class="container">
+        <div class="cnt">
+
+        <div class="contact">
+          <div class="contact_text">
+            КОНТАКТНАЯ ИНФОРМАЦИЯ
+          </div>
+          <div class="sub_contact_text">
+            Оставьте свою заявку и наш менеджер свяжется с Вами для уточнения деталей.
+          </div>
+          <div class="contact_info">
+            <p>
+              Звонок по России бесплатно
+            </p>
+            <div>
+              8 800 550 48 3
+            </div>
+            <p>
+              Whatsapp
+            </p>
+            <div>
+              +7 (924) 420-24-3
+            </div>
+            <p>
+              Офис
+            </p>
+            <div>
+              г. Владивосток, ул. Тополевая
+            </div>
+          </div>
+        </div>
+        <div class="form_contact">
+
+          <form class ="form_to_contact">
+
+            <span class = "name">
+              <label for="name">Имя</label><br>
+              <input type="text" placeholder="Введите имя">
+            </span>
+            <span class="phone_number">
+              <label for="phone_number">Телефон</label><br>
+              <input type="text" placeholder="+7">
+            </span>
+            <div class="textarea">
+              <label for="textarea">Уточните свой вопрос</label>
+              <textarea class = text_form_contact placeholder="Введите текст сообщения, укажите страну, марку и год машины"></textarea>
+            </div>
+            <div class="cch">
+              <input type="checkbox" class = "checkbox" width="20px">
+              <span class = "text_checkbox">С<span class = "confeditional_form">правилами политики конфиденциальности</span> ознакомлён</span>
+
+            </div>
+            <div class="button_form">
+              Отправить
+            </div>
+
+          </form>
+
+      </div>
+
+
+      </div>
+    </div>
+    </section>
+    <footer class = "footer">
+      <div class="container">
+        <div class="ot">
+
+
+      <div class="footer_info">
+        <div class="footer_logo">
+          <img src="80d1241e4c01716ee4946c053c22a1fa.png">
+        </div>
+        <div class="footer_catalog">
+          <span class="katalog">КАТАЛОГ</span>
+        <div class="catalog_text">
+          <div class="links_footer">
+          <a href="#">Авто из Кореи</a>
+          <a href="#">Авто из Китая</a>
+          <a href="#">Авто из </a>
+        </div>
+        </div>
+        </div>
+        <div class="footer_company">
+          <span>КОМПАНИЯ</span>
+          <div class="company_text">
+            <div class="links_footer">
+            <a href="#">О компании</a>
+            <a href="#">Доставка</a>
+            <a href="#">Отзывы</a>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="footer_contact">
+        <span>Звонок по России бесплатный</span>
+        <div class="number">88005504832</div>
+        <div class="footer_sosceti">
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-facebook-f"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+      </div>
+
+    </div>
+<div class="politic">
+  <p>© 2024 ООО «Правый руль» Автомобили под заказ из Кореи, Китая и Японии</p>
+  <p>Политика конфиденциальности</p>
+</div>
+  </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src = "code.js"></script>
+    <script src = "popup.js">
+
+    </script>
+  </body>
+</html>
