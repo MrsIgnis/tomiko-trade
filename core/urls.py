@@ -21,6 +21,5 @@ urlpatterns = [
     path('', views.main, name='main'),
     path('<str:country>/', views.cars_catalog, name='cars_catalog'),
     path('<str:country>/get_models_by_brand/', views.get_models_by_brand, name='get_models_by_brand'),
-
     #path('', views.empty, name='empty'),
 ]

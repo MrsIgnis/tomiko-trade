@@ -33,6 +33,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Важные переменные для парсера клипов
+VK_ACCESS_TOKEN = os.environ.get('VK_ACCESS_TOKEN')  # Сервисный ключ доступа
+VK_GROUP_ID = '226932717'  # ID группы, с которой будут парситься клипы
+
 
 # Application definition
 
@@ -46,6 +50,7 @@ INSTALLED_APPS = [
     'core',
     'feedback',
     'rest_framework',
+    'parsers',
 ]
 
 REST_FRAMEWORK = {

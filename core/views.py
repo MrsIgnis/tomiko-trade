@@ -1,12 +1,19 @@
 from django.shortcuts import render
 from .models import Cars, Brands
+from parsers.models import VKClip
 from django.db.models import Value, CharField, IntegerField
 from django.db.models.functions import Concat, Cast
 from django.core.paginator import Paginator, PageNotAnInteger
 from django.http import JsonResponse
 
 def main(request):
-    return render(request, 'main.html')
+    clips = VKClip.objects.all()[:11]
+
+    context = {
+        'clips': clips,
+    }
+
+    return render(request, 'main.html', context)
 
 def get_sort_order(sort_option):
     """ Возвращает список полей для сортировки на основе параметра sort_option. """
@@ -101,7 +108,6 @@ def cars_catalog(request, country):
     if mileage_to: filters['mileage__lte'] = mileage_to
     if transmission: filters['transmission'] = transmission
     if color: filters['color'] = color
-
     if country: filters['brand_country__country__iexact'] = get_country_dict().get(country)
 
     # Параметры сортировки
