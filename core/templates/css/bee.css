@@ -1,0 +1,1869 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body{
+  font-family: "Poppins", sans-serif;
+  font-size: 29px;
+  line-height: 1.6;
+  background-color: #011224;
+
+}
+
+*,
+*:before,
+*:after{
+  box-sizing: border-box;
+}
+
+.section{
+  padding: 100px 0;
+}
+
+.container{
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Шапка*/
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    /* Высота будет занимать 100% экрана посетителя */
+    background: url("C:/Users/Zoxa_2004/Desktop/web/intro.png") center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.intro_inner {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro_title {
+    font-size: 50px;
+    font-weight: 570;
+    text-transform: uppercase;
+    line-height: 60px;
+    color: #fff;
+    font-family: "Bebas Neue", sans-serif;
+    word-spacing: 5px;
+    letter-spacing: -2px;
+}
+
+.intro_subtitle {
+    font-weight: 300;
+    font-size: 24px;
+    color: #fff;
+    font-family: "Inter", serif;
+    margin-top: -20px;
+    padding-top: 10px;
+}
+
+/* intro_btn - кнопка на приветственном экране */
+
+.intro_btn {
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px 30px;
+    gap: 12px;
+    background: linear-gradient(94.98deg, #0D2F68 0%, #D51117 100%);
+    border-radius: 60px;
+    color: #fff;
+    font-family: "Inter", serif;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    margin-top: 25px;
+    transition: filter 0.3s ease;
+}
+
+.intro_btn:hover {
+    filter: drop-shadow(0 0 15px rgb(255, 0, 0));
+}
+
+/* intro_info - информация снизу слева на приветственном экране */
+.intro_info {
+    display: flex;
+    position: relative;
+    top: 250px;
+    left: -20px;
+}
+
+.intro_info_item {
+    width: 10%;
+    font-size: 14px;
+    color: #fff;
+    border-right: 0.5px solid rgba(255, 255, 255, 0.2);
+    margin: 5px;
+    text-align: center;
+}
+
+.info_num {
+    font-size: 35px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+}
+
+.info_text {
+    font-weight: 300;
+    font-family: "Inter", serif;
+    font-size: 12px;
+    opacity: 0.5;
+}
+
+.info_num i {
+    color: gold;
+    margin-right: 0.5em;
+    font-size: 25px;
+    margin-top: 20px;
+  }
+
+/* intro_over - элемент для оверлея снизу справа */
+.intro_over {
+    position: absolute;
+    margin: 0 auto;
+    text-align: center;
+    top: 710px;
+    right: 210px;
+    width: 270px;
+    height: 150px;
+    border-radius: 10%;
+    background-color: #081E36;
+    color: white;
+    font-family: "Inter", serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    word-spacing: 1px;
+    padding-top: 10px;
+}
+
+/* info_perc - 30% в элементе справа снизу */
+.info_perc {
+    color: #FF7F50;
+    font-family: "Inter", serif;
+    font-weight: 900;
+    font-size: 40px;
+    margin-left: 5px;
+
+}
+
+/* intro_over_top - верхняя часть элемента справа снизу */
+.intro_over_top {
+    width: Hug (293px)px;
+    height: Hug (99px)px;
+
+}
+
+/* over_btn - кнопка в элементе справа снизу */
+.over_btn {
+    display: inline-block;
+    vertical-align: top;
+    padding: 12px 24px 24px 24px;
+    gap: 12px;
+    background: linear-gradient(94.98deg, #0D2F68 0%, #D51117 100%);
+    border-radius: 60px;
+    color: #fff;
+    font-family: "Inter", serif;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    margin-bottom: 6px;
+    transition: filter 0.3s ease;
+    width: 200px;
+    height: 15px;
+    line-height: 16px;
+}
+
+.over_btn:hover {
+    filter: drop-shadow(0 0 15px rgb(255, 0, 0));
+}
+
+.pop_up{
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0,0,0, .8);
+
+}
+
+.pop_up.active{
+  display: block;
+
+}
+
+.pop_up_container{
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.pop_up_body{
+  margin: auto;
+  background-color: #081E36;
+  width: 899px;
+  height: 768px;
+  border-radius: 24px;
+  position: relative;
+
+}
+
+.pop_up_close{
+  position: absolute;
+  right: 45px;
+  top:20px;
+  cursor: pointer;
+}
+
+.pop_up_close i{
+  width: 24px;
+  height: 24px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.pop_up_body p{
+  padding-top: 20px;
+  transform: translate(-8em,0);
+  font-size: 24px;
+  font-weight: 400;
+  padding-left: 100px;
+
+}
+
+.pop_up_body_image{
+  position: relative;
+  width: 100%;
+}
+
+.pop_body_image_item_1{
+  display: inline-block;
+  width: 537px;
+  height: 477px;
+  padding-left: 20px;
+  padding-top: 24px;
+  padding-right: 20px;
+}
+
+.pop_body_image_item_1 img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  ;
+}
+
+.pop_body_image_item_2{
+  display: inline-block;
+  width: 262px;
+  height: 477px;
+  padding-top:24px;
+  padding-right: 40px;
+}
+
+.pop_body_image_item_2 img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.pop_body_strelka{
+  position: absolute;
+  top:260px;
+  right: 300px;
+}
+
+.btn_econom{
+  margin-left: 40px;
+  width: 300px;
+}
+
+#btn_econom_teleg{
+  position: absolute;
+  bottom:105px;
+}
+
+/* intro_bottom_item - полоска снизу приветственного экрана */
+.intro_bottom_item {
+    position: absolute;
+    top: 870px;
+    width: 10%;
+    width: 1400px;
+    border-top: 0.5px solid rgba(255, 255, 255, 0.2);
+    margin: 10px;
+}
+
+/* ------------------------------------------------ */
+
+/* Header - шапка */
+.header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding-top: 24px;
+}
+
+.header_inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+/* Header_logo - логотип в шапке */
+.header_logo .logo {
+    height: 76px;
+    width: 76px;
+    transition: filter 0.3s ease;
+}
+
+.header_logo .logo:hover {
+    filter: drop-shadow(0 0 15px rgb(255, 0, 0));
+}
+
+/* Header_left - левая часть шапки (логотип и каталог) */
+.header_left {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+/* Header_right - правая часть шапки (номер и соцю сети) */
+.header_right {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+/* Nav - навигация в шапке */
+.nav {
+    font-size: 16px;
+    padding-bottom: 15px;
+}
+
+.nav_link {
+    font-family: "Inter", serif;
+    font-weight: 400;
+    word-spacing: 3px;
+    display: inline block;
+    vertical-align: top;
+    margin: 0 30px;
+    color: #fff;
+    opacity: 0.7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav_link:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+/* Header_social - социальные сети в шапке */
+.social_item {
+    color: #fff;
+    opacity: 0.5;
+    text-decoration: none;
+    font-size: 36px;
+    margin: 0 5px;
+}
+
+.social_item:hover {
+    color: #fff;
+    opacity: 1;
+    transition: color 0.3s ease;
+}
+
+/* Number - номер */
+.number {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #fff;
+    margin: 0 24px;
+}
+
+.number p {
+  font-size: 24px;
+}
+
+.social_item a{
+  width: 36px;
+  height: 36px;
+}
+/*шапка*/
+
+.header_inner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  left:0;
+  margin-bottom: 10px;
+}
+
+
+/* Слайдеры */
+.wrapper{
+  padding: 30px;
+  min-height: 100%;
+  position: relative;
+
+}
+
+.image-slider_slide {
+  transition: transform 0.3s ease; /* Плавная анимация */
+}
+ .swiper-slide-active .image-slider_image{
+  transform: scale(1.1); /* Увеличение активного слайда */
+   /* Чтобы активный слайд перекрывал соседние */
+}
+
+.image-slider_slide:not(.swiper-slide-active) {
+  transform: scale(1); /* Возвращение неактивных слайдов в исходный размер */
+   /* Уменьшение приоритета неактивных слайдов */
+
+}
+
+.image-slider_slide:not(.swiper-slide-active) img{
+  height: 70%;
+  position: absolute;
+  padding-top: 80px;
+}
+
+
+
+
+.image-slider{
+  padding: 30px 0 70px 0;
+}
+
+.image-slider_wraper{
+
+}
+
+.image-slider_slide{
+ max-width: 400px;
+}
+
+.image-slider_image img{
+  border-radius: 20px;
+}
+
+
+.image-slider_image{
+  position: relative;
+  width: 380px;
+  height: 380px;
+ background-color: #081E36;
+}
+
+.image-slider_image-active {
+  transform: scale(1.5);
+}
+
+.slider_text{
+  position: absolute;
+  color: #fff;
+  font-size: 24px;
+  font-family: "Oswald", sans-serif;
+  width: 179px;
+  height: 49px;
+  z-index: 2;
+}
+
+.slider_text p{
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.image-slider_image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.wrapper .swiper-button-next::after{
+  color:#fff;
+  font-size: 20px;
+  position: absolute;
+  top: -300px;
+  width: 30px;
+}
+
+.wrapper .swiper-button-prev::after{
+  color:#fff;
+  font-size:20px;
+  position: absolute;
+  top:-300px;
+  left: 1200px;
+}
+
+.slider_up_text{
+  width: 325px;
+  height: 80px;
+  font-size: 32px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.3);
+  position: relative;
+}
+
+.slider_up_text span{
+  color:#FD554B;
+}
+
+.slider_up_text img{
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top:55px;
+}
+
+/* Лого-прокрутка*/
+
+.swiper_container {
+  height: calc(100vh - 120px);
+  margin: 60px;
+}
+
+.slider-container {
+    padding: 30px;
+    min-height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Располагаем основной слайдер и миниатюры друг под другом */
+    align-items: center; /* Выравниваем по центру */
+}
+
+.main-slider {
+  padding: 30px 0 70px 0;
+  width: 80%; /* Добавляем ширину */
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column; /* Располагаем элементы вертикально */
+  align-items: flex-start; /* Выравниваем по левому краю */
+  transform: translateX(500px);
+  border-radius: 28px;
+}
+
+
+.main-slider {
+    height: auto; /* Позволяем высоте подстраиваться */
+    max-height: 60vh; /* Максимальная высота слайдера */
+    overflow: hidden;
+}
+
+.main-image-container {
+    position: relative;
+    width: 706px;
+    height: 402px;;
+    max-height: 100%;
+    background-color: #081E36;
+    margin: 0;
+    top: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.main-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Подгоняем изображение без обрезки */
+    border-radius: 20px;
+}
+
+.slider-text-overlay {
+    position: absolute;
+    color: #fff;
+    font-size: 24px;
+    font-family: "Oswald", sans-serif;
+    width: 179px;
+    height: 49px;
+    z-index: 2;
+    bottom: 20px;
+    left: 20px;
+}
+
+
+.slider-text-overlay p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+.thumbnail-slider {
+    height: 80px;
+    margin-top: 120px;
+    width: 40%;
+     margin: 20px auto;
+     display: flex;
+     justify-content: space-between;/* Центрируем слайдер */
+     transform: translateX(180px);
+}
+
+
+.thumbnail-slider img {
+    height: 80px;
+    object-fit: cover;
+    width: 100px;
+    border-radius: 12px;
+}
+
+
+
+
+.slider-container .slider-button-next::after,
+.slider-container .slider-button-prev::after {
+    color: #fff;
+    font-size: 20px;
+}
+
+.slider-container .slider-button-next {
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.slider-container .slider-button-prev {
+    left: unset;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Стили для увеличенного состояния */
+
+
+.main-image-container.expanded {
+    transform: scale(1.5);
+    z-index: 3;
+    height: 600px; /* Установите желаемую высоту */
+    width: auto; /* Установите желаемую ширину */
+    position: fixed;
+    top:  50%;/* Сдвигаем выше на 100px */
+    left: 50%;
+    max-width: 160vw;
+    max-height: 60vh;
+    border-radius: 10px;
+    justify-content: center; /* центрируем контент по горизонтали */
+    align-items: center;
+    transform: translateY(-500px);
+}
+
+.main-image-container.expanded img {
+  object-fit: contain;
+  max-width: 90%; /* Ширина изображения от контейнера */
+  max-height: 90%; /* Высота изображения от контейнера */
+   max-height: 500px;/* Максимальная высота*/
+  max-width: 1000px;/* Максимальная ширина*/
+  border-radius: 12px;
+
+}
+
+
+.main-image-container.expanded {
+    z-index: 3;
+    height: 800px; /* Задаем высоту в пикселях */
+    width: 1000px; /* Задаем ширину в пикселях */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-200px);
+     max-width: none; /* Убираем ограничение по максимальной ширине*/
+    max-height: none; /* Убираем ограничение по максимальной высоте*/
+}
+
+.main-image-container.expanded img {
+    object-fit: contain;
+    max-width: 80%;
+    max-height: 80%;
+    max-height: 500px;
+    max-width: 900px;
+    border-radius: 12px;
+}
+
+
+
+.main-image-container.expanded {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Контейнер занимает всю ширину экрана */
+    height: 100vh; /* Контейнер занимает всю высоту экрана */
+    background-color: rgba(0, 0, 0, 0.9); /* Тёмный фон с прозрачностью */
+    z-index: 1000; /* Поверх всех остальных элементов */
+    display: flex; /* Flexbox для центрирования содержимого */
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    overflow: hidden; /* Убирает прокрутку */
+
+}
+
+.main-image-container.expanded img {
+    max-width: 80%; /* Ширина изображения относительно контейнера */
+    max-height: 80%; /* Высота изображения относительно контейнера */
+    object-fit: contain; /* Сохраняет пропорции изображения */
+    border-radius: 12px; /* Закруглённые края изображения */
+    margin-right: 540px;
+    margin-bottom: 300px;
+}
+
+
+
+
+
+.main-image-container.expanded ~ .swiper-slide .main-image-container {
+     transform: scale(0.8) !important;
+    opacity: 0.5 !important;
+      z-index: 1;
+}
+
+.swiper-slide-active .main-image-container {
+    z-index: 2;
+    transform: none;
+}
+.swiper-slide:not(.swiper-slide-active) .main-image-container {
+   z-index: 1;
+  transform: none;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  display: none; /* Скрываем кнопку по умолчанию */
+}
+
+.main-slider.expanded .close-button {
+    display: block; /* Показываем кнопку только в увеличенном состоянии */
+}
+
+.main-slider.expanded {
+  transform: translateY(200px);
+}
+
+
+.swiper_slide {
+  width: 28vw;
+  overflow: hidden;
+  background-position: top;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.swiper_wrapper {
+  -webkit-transition-timing-function:linear!important;
+  -o-transition-timing-function:linear!important;
+  transition-timing-function:linear!important;
+}
+
+.stage_work{
+  width: 1400px;
+  height: 804px;
+  background-color: #07192E;
+  border-radius: 10px;
+  background: url('C:/Users/Zoxa_2004/Desktop/web/image 342.png') center no-repeat;
+}
+
+.stage_icon{
+  width: 1400px;
+  height: 183px;
+}
+
+.stage_title {
+  width: 1240px;
+  height: 132px;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.stage_icon_item{
+  display: inline-block;
+  width: 20%;
+  position: relative;
+}
+
+.stage_icon_item::after{
+  content: " ";
+  display: block;
+  width: 203px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  transform: translate(2em, -1.5em);
+}
+
+.stage_description{
+  margin-top:100px;
+  margin-left: 100px;
+}
+
+.stage_icon_text{
+  width: 1240px;
+  height: 91px;
+  margin-left: 100px;
+}
+
+.stage_item_icon_text{
+  width: 257px;
+  height: 91px;
+  font-size: 16px;
+  color:#fff;
+  display: inline-block;
+  width: 20%;
+  margin-right: 30px;
+
+}
+
+.stage_item_icon_text p{
+
+  font-size: 28px;
+}
+
+
+.stage_title span{
+  color: #FD554B;
+}
+
+.stage_title p{
+  font-family: "Oswald", sans-serif;
+  color:#fff;
+}
+
+.stage_subtitle{
+  width: 504px;
+  height: 54px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.stage_consultaion{
+  text-align: center;
+  margin-top: 80px;
+  padding-right: 70px;
+  position: relative;
+}
+
+.stage_consultaion img{
+  width: 58px;
+  height: 58px;
+  position: absolute;
+}
+
+.consultaion{
+  padding: 20px;
+  border-radius: 30px;
+  background: linear-gradient(to right, #0D2F68, #D51117);
+  color: #fff;
+  cursor: pointer;
+}
+
+.about{
+display: flex;
+justify-content: space-between;
+width: 1400px;
+
+}
+
+
+
+
+.about_text{
+  width: 748px;
+  height: 308px;
+
+}
+
+
+
+.about_title{
+  font-size: 70px;
+  font-family: "Oswald", sans-serif;
+  color:#fff;
+}
+
+.about_subtitle{
+  width: 100%;
+  height: 112px;
+  font-size: 18px;
+  color:#fff;
+}
+
+.about_button{
+  width: 300px;
+  height: 70px;
+  border-radius: 60px;
+  font-size: 18px;
+  background: linear-gradient(to right, #0D2F68, #D51117);
+  text-align: center;
+  padding-top: 20px;
+  color:#fff;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+.about_photo img{
+  width: 603px;
+  height: 350px;
+  border-radius: 28px;
+}
+
+.about_button{
+  position: relative;
+}
+
+.about_button img{
+  position: absolute;
+  right: -90px;
+  top:5px;
+}
+
+.about_footer{
+  display: flex;
+  justify-content: space-between;
+  width:1300px;
+  height: 104px;
+  padding-top: 32px;
+}
+
+.about_stag_footer{
+  width:132px;
+  height: 69px;
+  font-size: 48px;
+  color: #FD554B;
+}
+
+.about_stag_footer p{
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.about_like_footer{
+  width: 183px;
+  height: 69px;
+  font-size: 48px;
+  color: #FD554B;
+}
+
+.about_like_footer p{
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.about_footer_1{
+  width: 377px;
+  height: 72px;
+  font-size: 16px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.about_footer_1 span{
+  width: 313px;
+  height: auto;
+
+}
+
+.about_like{
+  width: 40px;
+  height: 40px;
+}
+
+.about_like img{
+  width: 100%;
+  height:100%;
+  object-fit: cover;
+}
+
+
+.about_footer_2{
+  width: 344px;
+  height: 72px;
+  font-size: 16px;
+  color:#fff;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.about_footer_2 span{
+  width: 280px;
+  height: auto;
+}
+
+.about_doc{
+  width: 40px;
+  height: 40px;
+}
+
+.about_doc img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about_footer_3{
+  width:179px;
+  height: 72px;
+  font-size: 16px;
+  color:#fff;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.about_footer_3 span{
+  width: 115px;
+  height: auto;
+}
+
+.about_rukopogatie{
+  width: 40px;
+  height: 40px;
+}
+
+.about_rukopogatie img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reviews_up{
+  width: 1300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.reviews_title{
+  width: auto;
+  height: 70px;
+  color:#fff;
+  font-size: 48px;
+  text-transform: uppercase;
+}
+
+.reviews_link a{
+  font-size: 16px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.reviews_down{
+  width: 1400px;
+  height: 200px;
+}
+
+.comment_rov{
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment_item{
+  width: 338px;
+  height: 70px;
+  background-color: #081d38;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment_mark{
+  width: 118px;
+  height: 44px;
+}
+.commnet_photo{
+  width: 50px;
+  height: 50px;
+  padding-top: 10px;
+  padding-left: 10px;
+
+}
+
+.commnet_photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+  margin-top: 5px;
+}
+
+.comment_name{
+  width: 90px;
+  height: 48px;
+  font-size: 16px;
+  padding-right: 20px;
+  margin-top: 10px;
+  color:#fff;
+}
+.comment_rov{
+  margin-top:20px;
+}
+.fa-star{
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.comment_data{
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.comment_mark{
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+
+
+.clips{
+  position: relative;
+  width: 1600px;
+  height: 518px;
+}
+
+.clips_phone{
+  position: absolute;
+  content: '';
+  display: block;
+  width: 1859px;
+  height: 382px;
+  background: linear-gradient(to right,#D51117,#0D2F68);
+  right:50px;
+  rotate:175deg;
+  z-index: -1;
+}
+
+.clips_title{
+  font-size: 70px;
+  height: 70px;
+  color:#fff;
+}
+
+.clip_button{
+  width: 161px;
+  height: 48px;
+  background-color: #fff;
+  border-radius: 25px;
+  padding-left: 16px;
+  text-align: center;
+  padding-right: 15px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.clip_up{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 150px;
+  padding-bottom: 40px;
+  margin-bottom: 10px;
+}
+
+
+.video_clip_item{
+  display: inline-block;
+  width: 150px;
+  height: 264px;
+  background-color: white;
+  border-radius: 20px;
+  margin-right: 20px;
+  margin-left: 40px;
+}
+
+.clip_button i{
+  color:#fff;
+}
+
+.clip_button button{
+  background:rgba(255, 255, 255, 0.1);
+  border: none;
+}
+
+.clips_title span{
+  transform: translate(6em,10em);
+}
+
+
+
+/*команда ветеринаров*/
+.cnt{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.reklama_img{
+  width: 463px;
+  height: 534px;
+  position: relative;
+}
+
+
+
+.reklama_img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  bottom: 20px;
+}
+
+
+.reklama_item{
+  background-color: #081E36;
+  width: 1200px;
+  height: 476px;
+  border-radius: 40px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+
+
+.cont{
+
+}
+
+
+.slogan_socseti_item span{
+  font-size:24px;
+  display: inline-block;
+  transform: translate(1em, -0.6em);
+}
+
+.slogan_socseti{
+  position: relative;
+}
+
+.strel_tg{
+  position: absolute;
+  right: 50%;
+  top: 32%;
+}
+
+.strel_vk{
+  position: absolute;
+  top:57%;
+  right: 78%;
+}
+
+.strel_inst{
+  position: absolute;
+  top: 82%;
+  right:66%;
+}
+
+.reklama_slogan{
+  padding-top: 50px;
+}
+
+.slogan_socseti{
+  padding-top: 60px;
+}
+
+.reklama_slogan{
+  width: 595px;
+  height: 328px;
+  font-size: 40px;
+}
+
+.slogan span{
+  color:#FD554B;
+
+}
+
+.slogan{
+  font-family: "Oswald", sans-serif;
+}
+
+.slogan_socseti_item a{
+  text-decoration: none;
+  color:#fff;
+}
+
+.reklama_slogan{
+  color:#fff;
+}
+.form_to_contact{
+  width: 405px;
+  height: 350px;
+  background-color: #081E36;
+  border-radius: 10px;
+  padding-top: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  position: relative;
+}
+
+.form_to_contact label{
+  color:#fff;
+  font-size: 14px;
+  border-color: #081E36;
+}
+
+.form_to_contact span{
+  display: inline-block;
+}
+
+.form_to_contact input{
+    padding-top: 20px;
+    border-color: #081E36;
+}
+
+.form_to_contact textarea{
+  width: 350px;
+  height: 64px;
+  background-color: #20344A;
+  color: #fff;
+  opacity: .5;
+  border-color: #081E36;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.textarea label{
+  margin-bottom: 0px;
+}
+
+.phone_number label{
+  margin-bottom: 0px;
+}
+
+.checkbox{
+  background-color:#fff;
+}
+
+.cch{
+  width: 350px;
+  height: 30px;
+
+
+}
+
+
+.checkbox {
+  font-size: 5px;
+
+}
+.cch span{
+  padding-left: 10px;
+  margin-bottom: 10px;
+
+}
+
+.confeditional_form{
+  color: #FD554B;
+}
+
+.cch{
+
+  width: 100%;
+
+  line-height: 1.2;
+}
+
+
+.button_form{
+  font-size: 18px;
+  text-align: center;
+  width: 350px;
+  height: 50px;
+  border: 1px, solid, #20344A;
+  padding-top: 10px;
+  border-radius: 50px;
+  background-color: #20344A;
+  color:#fff;
+}
+
+.cch{
+  font-size: 14px;
+  width: 380px;
+  height: 25px;
+  top:20px;
+
+}
+
+.textarea{
+  padding-top: 10px;
+}
+
+.checkbox{
+  width: 18px;
+  height: 20px;
+}
+
+.button_form{
+  cursor: pointer;
+}
+
+.text_checkbox{
+  font-size: 12px;
+  padding-bottom:  50px;
+  text-align: center;
+  color: #fff;
+}
+
+.form_to_contact input{
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #20344A;
+  color: #fff;
+  opacity: .5;
+}
+
+.contact{
+  width: 393px;
+  height: 445px;
+
+}
+
+.contact_text{
+  width: 252px;
+  height: 138px;
+  color:#fff;
+  font-size: 40px;
+  line-height: 1.2;
+  padding-top: 20px;
+  font-family: "Oswald", sans-serif;
+  font-style: normal;
+}
+
+.sub_contact_text{
+  font-size: 18px;
+  color:#fff;
+  opacity: .5;
+  padding-bottom: 30px;
+}
+
+.contact_info p{
+  color:#fff;
+  opacity: .5;
+  font-size: 16px;
+}
+
+.contact_info div{
+  font-size: 18px;
+  color: #fff;
+}
+
+.kkns{
+  color:green;
+}
+
+.footer{
+  width: 100%;
+  background: #081E36;
+  height: auto;
+
+}
+
+.footer_logo img{
+  width: 80px;
+  height: 76px;
+}
+
+.footer_info{
+  display: flex;
+  width: 436px;
+  height: 117px;
+  justify-content: space-between;
+
+}
+
+.footer_catalog span{
+  font-size: 24px;
+  color:#ffff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.footer_company span{
+  font-size: 24px;
+  color:#ffff;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+
+}
+
+.catalog_text a{
+  font-size: 16px;
+  opacity: .5;
+  color: #ffff;
+  text-decoration: none;
+
+
+}
+
+.company_text a{
+  font-size: 16px;
+  opacity: .5;
+  color: #ffff;
+  text-decoration: none;
+
+}
+
+.footer_info{
+  padding-right: 50px;
+  margin-top: 20px;
+}
+
+.footer_info:last-child{
+  padding-right: 0px;
+}
+
+.footer_catalog{
+  width: 122px;
+  height: 117px;
+
+}
+
+.footer_company{
+  width: 122px;
+  height: 117px;
+}
+
+.footer_company span{
+  font-family: "Oswald", sans-serif;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.footer_catalog span{
+  font-family: "Oswald", sans-serif;
+  font-style: normal;
+}
+
+
+.ot{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.footer_contact{
+  width: 240px;
+  height: 120px;
+  padding-right: 0px;
+  margin-top: 20px;
+}
+
+.footer_contact span{
+  font-size: 14px;
+  color: #fff;
+  opacity: .5;
+  font-family: "Oswald", sans-serif;
+  font-style: normal;
+}
+
+.number{
+  color:#fff;
+  font-size:40px;
+}
+
+.footer_sosceti{
+  color:#fff;
+  opacity: .5;
+}
+
+.politic{
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  font-size: 14px;
+  margin-top: 90px;
+  border-top: solid 1px gray;
+}
+
+.footer_logo{
+  cursor: pointer;
+}
+
+.sup_title_catalog{
+  width: 361px;
+  height: 40px;
+  font-size: 24px;
+  color:#fff;
+}
+
+.sup_title_catalog *{
+  display: inline-block;
+}
+
+.sup_title_catalog img{
+  transform: translate(0em, 0.3em);
+}
+
+.sup_title_catalog img{
+  width: 34px;
+  height: 34px;
+}
+
+.catalog{
+  width: 100%;
+  height: 230px;
+  background-color: #081E36;
+  padding-top: 30px;
+  border-radius: 24px;
+  margin-top: 30px;
+}
+
+.catalog_select{
+  width: 100%;
+  padding-left: 10px;
+}
+
+.select_item_nesk:first-child{
+  margin-left:30px;
+}
+
+.select_item{
+  display: inline-block;
+  width: 329px;
+  padding: 10px 10px 10px 10px;
+  background-color: #20344A;
+  color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.select_item_nesk{
+  width: 124px;
+  display: inline-block;
+  padding: 10px 10px 10px 10px;
+  background-color: #20344A;
+  color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.select_neskolko{
+  width: 329px;
+  height: 51px;
+  display: inline-block;
+}
+
+.carousel-container {
+      width: 100%;
+      margin: auto;
+      padding: 90px;
+      overflow: hidden;
+      transform: translate(1em,0em);
+    }
+
+
+
+    .card {
+      background-color: #222;
+      border-radius: 8px;
+      padding: 16px;
+
+      width: 280px;
+      height: 347px;
+      display: inline-block;
+    }
+
+    .card{
+      margin-right: 10px;
+      margin-bottom: 10px;
+      background-color: #081E36;
+    }
+    .card img {
+      max-width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      margin-top: 40px;
+    }
+
+    .card p {
+      margin: 10px 0;
+    }
+
+    .card_suptitle{
+      font-size: 18px;
+      width: 306px;
+      color:#fff;
+    }
+
+    .card_subtitle{
+      font-size: 14px;
+      width: 306px;
+      color:rgba(255, 255, 255, 0.5);
+    }
+
+    .card_button{
+      color: #fff;
+      width: 129px;
+      height: 44px;
+      border-radius: 30px;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.1);
+
+    }
+
+    .sort-car{
+      margin-bottom: 10px;
+      width: 205px;
+      height: 44px;
+    }
+
+    .carousel-container a{
+      text-decoration: none;
+      color:black;
+    }
+
+    .select_car *{
+      display: inline-block;
+    }
+
+    .select_car a{
+      color:#fff;
+      font-size: 14px;
+    }
+
+    .link_torg{
+      background: #D51117;
+      width: 248px;
+      height: 44px;
+      text-align: center;
+      border-radius: 30px;
+      padding-bottom: 5px;
+    }
+
+    .card_button:hover{
+      background: #D51117;
+    }
+
+    .footer_card{
+      width: 322px;
+      height: 44px;
+    }
+
+    .footer_card *{
+      display: inline-block;
+    }
+
+    .title_card{
+      width: 322px;
+      height: 50px;
+
+    }
+
+    .price_car_catalog{
+      font-size: 20px;
+      color:#fff;
+      padding-top: 20px;
+    }
+
+    .navigation {
+      display: flex;
+      gap: 8px;
+      margin: 16px;
+    }
+    .navigation button {
+      padding: 8px 16px;
+      background-color: #444;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .navigation button:hover {
+      background-color: #666;
+    }
+    .navigation .page-btn {
+      background-color: #ddd;
+      color: #333;
+      border: 1px solid #aaa;
+    }
+
+     .navigation .page-btn.active {
+        background-color: #f00;
+        color: #fff;
+        border: 1px solid #f00;
+     }
+
+     .navigation .page-btn.dots {
+        background-color: transparent;
+        color: #333;
+        border: none;
+        cursor: default;
+     }
+    .navigation .page-btn.disabled {
+         background-color: #eee;
+         color: #999;
+        cursor: default;
+    }
+
+    .button_catalog{
+      width: 190px;
+      height: 44px;
+      margin-left: 10px;
+      margin-top: 10px;
+    }
+
+    .catalog_button{
+
+      color: #fff;
+      width: 190px;
+      height: 44px;
+      border-radius: 30px;
+      cursor: pointer;
+      background: #20344A;
+    }
+
+/* Компания */
+/*
+
+font-family: 'Bebas Neue';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 24px;
+/* identical to box height */
+
+
+
+
+/* Inside auto layout */
+/*flex: none;
+order: 0;
+flex-grow: 0;*/
