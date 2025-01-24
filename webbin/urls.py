@@ -25,6 +25,8 @@ urlpatterns = [
     path('feedback/', include('feedback.urls')),
     path('success/', lambda request: render(request, 'success.html'), name='success'),
     path('cars/', include('cars_app.urls')),
+    path('cars/', include('cars_app.urls')),
+    path('reviews_parser/', include('reviews_parser.urls')),
 
     path('', include('core.urls')),
     #path('api/', include('core.urls')),

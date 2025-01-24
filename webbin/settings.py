@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'cars_app',
     'rest_framework',
     'parsers',
+    'cars_app',
+    'reviews_parser',
 ]
 
 REST_FRAMEWORK = {
