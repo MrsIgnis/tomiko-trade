@@ -25,7 +25,7 @@ urlpatterns = [
     re_path(r'^(?P<country>korea|china|japan)/get_models_by_brand/$', views.get_models_by_brand, name='get_models_by_brand'),
     #path('', views.empty, name='empty'),
 
-    path('', views.empty, name='empty'),
+    #path('', views.empty, name='empty'),
 
     re_path(r'^.*$', views.custom_page_not_found, {'exception': Exception('Not Found')}),
 ]
