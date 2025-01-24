@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/404.css' %}">
+    <script src="https://kit.fontawesome.com/c929c73a3b.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <title>Tomiko Trade</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+
+            <div class="header_inner">
+                <div class="header_left">
+
+                    <div class="header_logo">
+                        <a href="{% url 'main' %}"><img src="{% static 'images/logo.png' %}" alt="Tomiko Trade" class="logo"></a>
+                    </div>
+
+                    <nav class="nav">
+                        <a class="nav_link" href="{% url 'cars_catalog' country='korea' %}">Авто из Кореи</a>
+                        <a class="nav_link" href="{% url 'cars_catalog' country='china' %}">Авто из Китая</a>
+                        <a class="nav_link" href="{% url 'cars_catalog' country='japan' %}">Авто из Японии</a>
+                        <a class="nav_link" href="{% url 'actions'%}">Акции</a>
+                        <a class="nav_link" href="{% url 'contacts'%}">Контакты</a>
+                    </nav>
+                </div>
+
+                <div class="header_right">
+                    <div class="number">
+                        <p>8 (800) 500-49-46</p>
+                    </div>
+
+                    <div class="social">
+                        <a class="social_item" href="#" target="_blank"><i class="fa-brands fa-telegram"></i>
+                        </a>
+                        <a class="social_item" href="https://wa.me/79244202432" target="_blank"><i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="intro">
+        <div class="container">
+            <div class="intro_inner">
+                <section class="error-section">
+                    <div class="error">
+                        <img class="error_img" src="{% static 'images/404/error.png' %}" alt="Ошибка">
+                        <h4 class="error-text"> Ничего нет, возможно страница была удалена</h4>
+                        <p class="error_bootom">Оставьте свою заявку и наш менеджер свяжется с вами для уточнения деталей</p> 
+                        <div class="error-actions">
+                            <a class="error-button" href="#">Получить консультацию</a> 
+                            <a class="error_item" href="https://wa.me/79244202432" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <footer class = "footer">
+        <div class="container">
+            <div class="container">
+                <div class="ot">
+                    <div class="footer_info">
+                        <div class="footer_logo">
+                            <a href="{% url 'main'%}"><img src="{% static 'images/logo.png' %}"></a>
+                        </div>
+                        <div class="footer_catalog">
+                            <span class="katalog">Каталог</span>
+                            <div class="catalog_text">
+                                <div class="links_footer">
+                                    <a href="{% url 'cars_catalog' country='korea' %}">Авто из Кореи</a>
+                                    <a href="{% url 'cars_catalog' country='china' %}">Авто из Китая</a>
+                                    <a href="{% url 'cars_catalog' country='japan' %}">Авто из Японии</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer_company">
+                            <span>Компания</span>
+                            <div class="company_text">
+                                <div class="links_footer">
+                                    <a href="#">О компании</a>
+                                    <a href="#">Клипы</a>
+                                    <a href="#">Отзывы</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="footer_contact">
+                        <span>Звонок по России бесплатный</span>
+                        <div class="number_foot">8 800 550 48 32</div>
+                            <div class="footer_sosceti">
+                                <a class="foot_social_item" href="#" target="_blank"><i class="fa-brands fa-telegram"></i>
+                                </a>
+                                <a class="foot_social_item" href="https://wa.me/79244202432" target="_blank"><i class="fa-brands fa-whatsapp"></i>
+                                </a>
+                                <a class="foot_social_item" href="https://vk.com/tomiko_trade" target="_blank"><i class="fa-brands fa-vk"></i>
+                                </a>
+                                <a class="foot_social_item" href="https://www.instagram.com/praviyrul.jp?igsh=N3VucnNibWsyZzVk" target="_blank"><i class="fa-brands fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="politic">
+                        <div class="politic-inner">
+                            <p>© 2024 ООО «Правый руль» Автомобили под заказ из Кореи, Китая и Японии</p>
+                            <p>Политика конфиденциальности</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
