@@ -26,11 +26,11 @@ urlpatterns = [
     path('cars/', include('cars_app.urls')),
     path('reviews_parser/', include('reviews_parser.urls')),
 
-    path('', include('core.urls')),
+    #path('', include('core.urls')),
     #path('api/', include('core.urls')),
 ]
 
 # На время разработки для работы с фотографиями авто
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#if settings.DEBUG:
+#    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
