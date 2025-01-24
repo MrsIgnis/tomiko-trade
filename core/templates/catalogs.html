@@ -1,668 +1,453 @@
+{% load static %}
+{% load humanize %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/bee.css">
-    <link rel="stylesheet" href="code.js">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
-    <link
-rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/2eb1ff35d2.js" crossorigin="anonymous"></script>
-    <title>Каталог сайта</title>
-  </head>
-  <body>
-    <header class="header">
-        <div class="container">
+    <head>
+      <meta charset="utf-8">
+      <title>
+          Заказать авто с аукциона
+          {% if current_country == 'japan' %}Японии
+          {% elif current_country == 'korea' %}Кореи
+          {% elif current_country == 'china' %}Китая
+          {% endif %}
+          с ПТС во Владивостоке - Tomiko Trade
+      </title>
 
-            <div class="header_inner">
-                <div class="header_left">
+      <link rel="stylesheet" href="{% static 'css/bee.css' %}">
+      <link rel="stylesheet" href="{% static 'css/test.css' %}">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
-                    <div class="header_logo">
-                        <a href="#"><img src="logo.png" alt="Tomiko Trade" class="logo"></a>
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+      <script src="https://kit.fontawesome.com/2eb1ff35d2.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="container">
+                <div class="header_inner">
+                    <div class="header_left">
+                        <div class="header_logo">
+                            <a href="{% url 'main'%}"><img src="{% static 'images/logo.png' %}" alt="Tomiko Trade" class="logo"></a>
+                        </div>
+
+                        <nav class="nav">
+                            <a class="nav_link" href="{% url 'cars_catalog' country='korea' %}">Авто из Кореи</a>
+                            <a class="nav_link" href="{% url 'cars_catalog' country='china' %}">Авто из Китая</a>
+                            <a class="nav_link" href="{% url 'cars_catalog' country='japan' %}">Авто из Японии</a>
+                            <a class="nav_link" href="{% url 'actions'%}">Акции</a>
+                            <a class="nav_link" href="{% url 'contacts'%}">Контакты</a>
+                        </nav>
                     </div>
 
-                    <nav class="nav">
-                        <a class="nav_link" href="#">Авто из Кореи</a>
-                        <a class="nav_link" href="#">Авто из Китая</a>
-                        <a class="nav_link" href="#">Авто из Японии</a>
-                        <a class="nav_link" href="#">Акции</a>
-                        <a class="nav_link" href="#">Контакты</a>
-                    </nav>
+                    <div class="header_right">
+                        <div class="number">
+                            <p>8 (800) 500-49-46</p>
+                        </div>
+
+                        <div class="social">
+                            <a class="social_item" href="#" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="section">
+            <div class="container">
+                <div class="sup_title_catalog">
+                    <p>АВТОМОБИЛИ ИЗ
+                        {% if current_country == 'japan' %}ЯПОНИИ
+                        {% elif current_country == 'korea' %}КОРЕИ
+                        {% elif current_country == 'china' %}КИТАЯ
+                        {% endif %}
+                    </p>
+                    <img src="{% static 'images/' %}{{ current_country }}.png" alt="{{ current_country|upper }}">
                 </div>
 
-                <div class="header_right">
-                    <div class="number">
-                        <p>8 (800) 500-49-46</p>
-                    </div>
+                <form method="GET" action="{% url 'cars_catalog' country=current_country %}">
+                    <div class="catalog">
+                        <div class="catalog_select">
+                            <!-- Марка -->
+                            <select class="select_item" name="brand" id="brand-filter">
+                                <option value="">Марка авто</option>
+                                {% for brand in available_brands %}
+                                <option value="{{ brand }}" {% if request.GET.brand == brand %} selected {% endif %}>{{ brand }}</option>
+                                {% endfor %}
+                            </select>
 
-                    <div class="social">
-                        <a class="social_item" href="#" target="_blank"><i class="fa-brands fa-telegram"></i>
-                        </a>
-                        <a class="social_item" href="#" target="_blank"><i class="fa-brands fa-whatsapp"></i>
-                        </a>
-                    </div>
+                            <!-- Год от/до -->
+                            <div class="select_neskolko">
+                                <select class="select_item_nesk" name="year_from" id="year_from">
+                                    <option value="">Год от</option>
+                                    {% for year in available_years %}
+                                    <option value="{{ year }}" {% if request.GET.year_from == year|stringformat:"s" %}selected{% endif %}>{{ year }}</option>
+                                    {% endfor %}
+                                </select>
 
+                                <select class="select_item_nesk" name="year_to" id="year_to">
+                                    <option value="">Год до</option>
+                                    {% for year in available_years %}
+                                    <option value="{{ year }}" {% if request.GET.year_to == year|stringformat:"s" %}selected{% endif %}>{{ year }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <!-- Объем от/до -->
+                            <div class="select_neskolko">
+                                <select class="select_item_nesk" name="volume_from" id="volume_from">
+                                    <option value="">Объем от</option>
+                                    {% for volume in available_volumes %}
+                                    <option value="{{ volume }}" {% if request.GET.volume_from == volume|stringformat:"s" %}selected{% endif %}>{{ volume }}</option>
+                                    {% endfor %}
+                                </select>
+
+                                <select class="select_item_nesk" name="volume_to" id="volume_to">
+                                    <option value="">Объем до</option>
+                                    {% for volume in available_volumes %}
+                                    <option value="{{ volume }}" {% if request.GET.volume_to == volume|stringformat:"s" %}selected{% endif %}>{{ volume }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <!-- Привод -->
+                            <select class="select_item" name="drive" id="drive">
+                                <option value="">Привод</option>
+                                {% for drive_option in available_drives %}
+                                <option value="{{ drive_option }}" {% if request.GET.drive == drive_option %}selected{% endif %}>{{ drive_option }}</option>
+                                {% endfor %}
+                            </select>
+
+                            <!-- Модель -->
+                            <select class="select_item" name="model" id="model-filter" {% if not request.GET.brand %}disabled{% endif %}>
+                                <option value="">Модель авто</option>
+                                {% for model in available_models %}
+                                <option value="{{ model }}" {% if request.GET.model == model %}selected{% endif %}>{{ model }}</option>
+                                {% endfor %}
+                            </select>
+
+                            <!-- Пробег от/до -->
+                            <div class="select_neskolko">
+                                <select class="select_item_nesk" name="mileage_from" id="mileage_from">
+                                    <option value="">Пробег от</option>
+                                    {% for mileage in available_mileages %}
+                                    <option value="{{ mileage }}" {% if request.GET.mileage_from == mileage|stringformat:"s" %}selected{% endif %}>{{ mileage }}км</option>
+                                    {% endfor %}
+                                </select>
+
+                                <select class="select_item_nesk" name="mileage_to" id="mileage_to">
+                                    <option value="">Пробег до</option>
+                                    {% for mileage in available_mileages %}
+                                    <option value="{{ mileage }}" {% if request.GET.mileage_to == mileage|stringformat:"s" %}selected{% endif %}>{{ mileage }}КМ</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <!-- КПП -->
+                            <select class="select_item" name="transmission" id="transmission">
+                                <option value="">Тип КПП</option>
+                                {% for transmission in available_transmissions %}
+                                <option value="{{ transmission }}" {% if request.GET.transmission == transmission %}selected{% endif %}>{{ transmission }}</option>
+                                {% endfor %}
+                            </select>
+
+                            <!-- Цвет -->
+                            <select class="select_item" name="color" id="color">
+                                <option value="">Цвет</option>
+                                {% for color in available_colors %}
+                                <option value="{{ color }}" {% if request.GET.color == color %}selected{% endif %}>{{ color }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <!-- Кнопки -->
+                        <div class="button_catalog">
+                            <button type="submit" class="catalog_button">Показать</button>
+                            <button type="button" class="catalog_button"
+                                    onclick="window.location.href='{% url 'cars_catalog' country=current_country %}'">
+                                Сбросить фильтры
+                            </button>
+                        </div>
+
+                        {% if request.GET.sort %}
+                            <input type="hidden" name="sort" value="{{ request.GET.sort }}">
+                        {% endif %}
+
+                    </div>
+                </form>
+            </div>
+
+            <div class="container">
+                <div class="slider_up_text">
+                    ПОПУЛЯРНЫЕ АВТО <span>ИЗ КОРЕИ</span><img src="{% static 'images/' %}{{ current_country }}.png" alt="{{ current_country|upper }}">
                 </div>
 
+                <div class="wrapper">
+                    <div class="image-slider swiper-container">
+                        <div class="image-slider__wraper swiper-wrapper">
+                            {% for car in popular_cars %}
+                            <div class="image-slider_slide swiper-slide">
+                                <div class="image-slider_image">
+                                    <div class="slider_text">
+                                        {{ car.brand_country.brand }} {{ car.model }}
+                                        <p>
+                                            {{ car.year }} •
+                                            {{ car.mileage|intcomma }} км •
+                                            {{ car.engine_volume|add:"0"|floatformat:"-3"|stringformat:".1f" }} л
+                                        </p>
+                                    </div>
+
+                                    {% if car.photos.first %}
+                                    <img src="{{ car.photos.first.image.url }}" alt="{{ car.model }}">
+                                    {% else %}
+                                    <img src="{% static 'images/no-image.jpg' %}" alt="Нет изображения">
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
             </div>
 
-        </div>
-    </header>
-    <section class = "section" >
-      <div class="container">
-        <div class="sup_title_catalog">
-          <p>АВТОМОБИЛИ ИЗ КОРЕИ</p> <img src="korea.png" alt="KOREA">
-        </div>
-        <div class="catalog">
-          <div class="catalog_select">
-            <select class="select_item" name="213">
-              <option value="">Марка авто</option>
-  <option value="AUDI">AUDI</option>
-  <option value="BMW">BMW</option>
-  <option value="CADILLAC">CADILLAC</option>
+            <div class="container">
+                <form method="GET" action="{% url 'cars_catalog' country=current_country %}">
+                    <div class="select_car">
+                        <select class="select_item sort-car" name="sort" id="sort" onchange="this.form.submit()">
+                            <option value="" {% if not sort_option %}selected{% endif %}>Сортировка</option>
+                            <option value="price_asc" {% if sort_option == "price_asc" %}selected{% endif %}>Стоимость: по возрастанию</option>
+                            <option value="price_desc" {% if sort_option == "price_desc" %}selected{% endif %}>Стоимость: по убыванию</option>
+                            <option value="year_asc" {% if sort_option == "year_asc" %}selected{% endif %}>Год: по возрастанию</option>
+                            <option value="year_desc" {% if sort_option == "year_desc" %}selected{% endif %}>Год: по убыванию</option>
+                            <option value="mileage_asc" {% if sort_option == "mileage_asc" %}selected{% endif %}>Пробег: по возрастанию</option>
+                            <option value="mileage_desc" {% if sort_option == "mileage_desc" %}selected{% endif %}>Пробег: по убыванию</option>
+                            <option value="volume_asc" {% if sort_option == "volume_asc" %}selected{% endif %}>Объём: по возрастанию</option>
+                            <option value="volume_desc" {% if sort_option == "volume_desc" %}selected{% endif %}>Объём: по убыванию</option>
+                        </select>
+                        <div class="link_torg"><a href="#">Какие авто торгуют сейчас?</a></div>
+                    </div>
 
-            </select>
-            <div class="select_neskolko">
-              <select class="select_item_nesk" name="213">
+                    {% for key, value in request.GET.items %}
+                        {% if key != "sort" and key != "page" %}
+                            <input type="hidden" name="{{ key }}" value="{{ value }}">
+                        {% endif %}
+                    {% endfor %}
+                </form>
 
-                  <option value="">Год от</option>
-                  <option value="2016">2016</option>
-                  <option value="2017">2017</option>
-                  <option value="2018">2018</option>
-                  <option value="2019">2019</option>
-              </select>
-              <select class="select_item_nesk" name="213">
+                <div class="carousel">
+                    {% for car in cars_page %}
+                        <div class="card">
+                            <div class="title_card">
+                                <div class="card_suptitle">
+                                    <p>{{ car.brand_country.brand }} {{ car.model }}</p>
+                                </div>
+                                <div class="card_subtitle">
+                                    <p>
+                                        {{ car.year }} •
+                                        {{ car.mileage|intcomma }} км •
+                                        {{ car.engine_volume|add:"0"|floatformat:"-3"|stringformat:".1f" }} л
+                                    </p>
+                                </div>
+                            </div>
+                            <img src="{{ car.photos.first.image.url }}" alt="{{ car.model }}" class="car-image">
 
-                  <option value="">до</option>
-                  <option value="2016">2016</option>
-                  <option value="2017">2017</option>
-                  <option value="2018">2018</option>
-                  <option value="2019">2019</option>
-              </select>
+                            <div class="footer_card">
+                                <div class="price_car_catalog">
+                                    {{ car.price|intcomma }} ₽
+                                </div>
+                                <div class="button_card">
+                                    <button type="button" class="card_button" data-car-id="{{ car.id }}">
+                                        Оставить заявку
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="pagination-container">
+                    <div class="pagination">
+                        {% if cars_page.has_previous %}
+                        <a href="?page={{ cars_page.previous_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}"
+                           class="pagination-item prev">
+                            Предыдущая
+                        </a>
+                        {% endif %}
+
+                        {% for num in cars_page.paginator.page_range %}
+                            {% if num == cars_page.number %}
+                                <span class="pagination-item current">{{ num }}</span>
+                            {% elif num > cars_page.number|add:-3 and num < cars_page.number|add:3 %}
+                                <a href="?page={{ num }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}"
+                                   class="pagination-item">
+                                    {{ num }}
+                                </a>
+                            {% elif num == cars_page.paginator.num_pages or num == 1 %}
+                                <a href="?page={{ num }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}"
+                                   class="pagination-item">
+                                    {{ num }}
+                                </a>
+                            {% elif num == cars_page.number|add:-3 or num == cars_page.number|add:3 %}
+                                <span class="pagination-ellipsis">...</span>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if cars_page.has_next %}
+                            <a href="?page={{ cars_page.next_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}"
+                               class="pagination-item next">
+                                Следующая
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="select_neskolko">
-              <select class="select_item_nesk" name="213">
+        <section class="section">
+            <div class="container">
+                <div class="cnt">
+                    <div class="contact">
+                        <div class="contact_text">
+                            КОНТАКТНАЯ ИНФОРМАЦИЯ
+                        </div>
 
-                  <option value="">Объём от</option>
-                  <option value="0.7">0.7</option>
-                  <option value="0.8">0.8</option>
-                  <option value="1.0">1.0</option>
-              </select>
-              <select class="select_item_nesk" name="213">
+                        <div class="sub_contact_text">
+                            Оставьте свою заявку и наш менеджер свяжется с Вами для уточнения деталей.
+                        </div>
 
-                  <option value="">до</option>
-                  <option value="0.7">0.7</option>
-                  <option value="0.8">0.8</option>
-                  <option value="1.0">1.0</option>
-              </select>
+                        <div class="contact_info">
+                            <p>Звонок по России бесплатно</p>
+                            <div>
+                                8 800 550 48 3
+                            </div>
+                            <p>Whatsapp</p>
+                            <div>
+                                +7 (924) 420-24-3
+                            </div>
+                            <p>Офис</p>
+                            <div>
+                                г. Владивосток, ул. Тополевая
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form_contact">
+                        <form class ="form_to_contact">
+                            <span class="name">
+                                <label for="name">Имя</label><br>
+                                <input type="text" placeholder="Введите имя">
+                            </span>
+
+                            <span class="phone_number">
+                                <label for="phone_number">Телефон</label><br>
+                                <input type="text" placeholder="+7">
+                            </span>
+
+                            <div class="textarea">
+                                <label for="textarea">Уточните свой вопрос</label>
+                                <textarea class=text_form_contact placeholder="Введите текст сообщения, укажите страну, марку и год машины"></textarea>
+                            </div>
+
+                            <div class="cch">
+                                <input type="checkbox" class="checkbox" width="20px">
+                                <span class="text_checkbox">С<span class="confeditional_form">правилами политики конфиденциальности</span> ознакомлён</span>
+                            </div>
+
+                            <div class="button_form">
+                                Отправить
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <select class="select_item" name="213">
-              <option value="">Привод</option>
-              <option value="polny">Полный</option>
-              <option value="zadni">Задний</option>
-              <option value="peredni">Передний</option>
+        </section>
 
-            </select>
-            <select class="select_item" name="213">
-              <option value="">Моедль авто</option>
-              <option value="dog">1-SERIES F20</option>
-              <option value="cat">1-SERIES F40</option>
-              <option value="hamster">3-SERIES F30</option>
+        <section class="section">
+            <div class="container">
+                <div class = "reklama_item">
+                    <div class="reklama_img">
+                        <img src="{% static 'images/photo2.png' %}">
+                    </div>
 
-            </select>
-            <div class="select_neskolko">
-              <select class="select_item_nesk" name="213">
+                    <div class="reklama_slogan">
+                        <div class="slogan">
+                            <p><span>ПОДПИШИСЬ</span> И НЕ УПУСТИ СВОЙ АВТОМОБИЛЬ МЕЧТЫ</p>
+                        </div>
 
-                  <option value="">Пробег от</option>
-                  <option value="0.7">10000КМ</option>
-                  <option value="0.8">20000КМ</option>
-                  <option value="1.0">30000КМ</option>
-              </select>
-              <select class="select_item_nesk" name="213">
+                        <div class="slogan_socseti">
+                            <div class="slogan_socseti_item">
+                                <a href="#"><img src="{% static 'images/tg_button.png' %}"><span>Телеграм-канал</span><img src="{% static 'images/Vector.png' %}" class="strel_tg"></a>
+                            </div>
 
-                  <option value="">до</option>
-                  <option value="0.7">10000КМ</option>
-                  <option value="0.8">20000Км</option>
-                  <option value="1.0">30000КМ</option>
-              </select>
+                            <div class="slogan_socseti_item">
+                                <a href="#"><img src="{% static 'images/vk_button.png' %}"><span>VK</span><img src="{% static 'images/Vector.png' %}" class = "strel_vk"></a>
+                            </div>
+
+                            <div class="slogan_socseti_item">
+                                <a href = "#"><img src="{% static 'images/inst_button.png' %}"><span>Instagram</span><img src="{% static 'images/Vector.png' %}" class="strel_inst"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <select class="select_item" name="213">
-              <option value="">ТИП КПП</option>
-                <option value="avtomat">Автомат</option>
-                <option value="mechanic">Механика</option>
-            </select>
-            <select class="select_item" name="213">
-              <option value="">Цвет</option>
-              <option value="green">Зелёный</option>
-              <option value="red">Красный</option>
-              <option value="yellow">Жёлтый</option>
-            </select>
+        </section>
 
+        <footer class="footer">
+            <div class="container">
+                <div class="ot">
+                    <div class="footer_info">
+                        <div class="footer_logo">
+                            <a href="{% url 'main'%}"><img src="{% static 'images/logo2.png' %}"></a>
+                        </div>
+
+                        <div class="footer_catalog">
+                            <span class="katalog">КАТАЛОГ</span>
+                            <div class="catalog_text">
+                                <div class="links_footer">
+                                    <a href="{% url 'cars_catalog' country='korea' %}">Авто из Кореи</a>
+                                    <a href="{% url 'cars_catalog' country='china' %}">Авто из Китая</a>
+                                    <a href="{% url 'cars_catalog' country='japan' %}">Авто из Японии</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="footer_company">
+                            <span>КОМПАНИЯ</span>
+                            <div class="company_text">
+                                <div class="links_footer">
+                                    <a href="#">О компании</a>
+                                    <a href="#">Доставка</a>
+                                    <a href="#">Отзывы</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer_contact">
+                        <span>Звонок по России бесплатный</span>
+                        <div class="number">88005504832</div>
+                        <div class="footer_sosceti">
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-facebook-f"></i>
+                            <i class="fa-brands fa-twitter"></i>
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="politic">
+                    <p>© 2024 ООО «Правый руль» Автомобили под заказ из Кореи, Китая и Японии</p>
+                    <p>Политика конфиденциальности</p>
+                </div>
             </div>
-            <div class="button_catalog">
-              <button type="button" name="catalog_button" class = "catalog_button">Показать</button>
-            </div>
-          </div>
-    </section>
+        </footer>
 
-    <section class = "section">
-      <div class="container">
-        <div class="slider_up_text">
-          ПОПУЛЯРНЫЕ АВТО <span>ИЗ КОРЕИ</span><img src="korea.png" alt="картинка">
-        </div>
-        <div class="wrapper">
-
-        <div class="image-slider swiper-container"><!-- Главный контейнер слайдера !-->
-        <div class="image-slider__wraper swiper-wrapper"><!-- Обязательная оболочка !-->
-
-
-          <div class="image-slider_slide swiper-slide"> <!-- Слайды !-->
-            <div class="image-slider_image">
-              <div class="slider_text">
-                Subaru LEVORG VN5
-                <p>2021 • Гибрит • 10 000 км</p>
-              </div>
-              <img src="2024-11-14_13_VGhlFmY.webp" alt="Картинка">
-            </div>
-          </div>
-
-          <div class="image-slider_slide swiper-slide"> <!-- Слайды !-->
-            <div class="image-slider_image">
-              <div class="slider_text">
-                Subaru LEVORG VN5
-                <p>2021 • Гибрит • 10 000 км</p>
-              </div>
-              <img src="2024-11-14_13_VGhlFmY.webp" alt="Картинка">
-            </div>
-          </div>
-
-          <div class="image-slider_slide swiper-slide"> <!-- Слайды !-->
-            <div class="image-slider_image">
-              <div class="slider_text">
-                Subaru LEVORG VN5
-                <p>2021 • Гибрит • 10 000 км</p>
-              </div>
-              <img src="2024-11-14_13_VGhlFmY.webp" alt="Картинка">
-            </div>
-          </div>
-
-          <div class="image-slider_slide swiper-slide"> <!-- Слайды !-->
-            <div class="image-slider_image">
-              <div class="slider_text">
-                Subaru LEVORG VN5
-                <p>2021 • Гибрит • 10 000 км</p>
-              </div>
-              <img src="2024-11-14_13_VGhlFmY.webp" alt="Картинка">
-            </div>
-          </div>
-
-          <div class="image-slider_slide swiper-slide"> <!-- Слайды !-->
-            <div class="image-slider_image">
-              <div class="slider_text">
-                Subaru LEVORG VN5
-                <p>2021 • Гибрит • 10 000 км</p>
-              </div>
-              <img src="2024-11-14_13_VGhlFmY.webp" alt="Картинка">
-            </div>
-          </div>
-
-          <div class="image-slider_slide swiper-slide"> <!-- Слайды !-->
-            <div class="image-slider_image">
-              <div class="slider_text">
-                Subaru LEVORG VN5
-                <p>2021 • Гибрит • 10 000 км</p>
-              </div>
-              <img src="2024-11-14_13_VGhlFmY.webp" alt="Картинка">
-            </div>
-          </div>
-
-          <div class="image-slider_slide swiper-slide"> <!-- Слайды !-->
-            <div class="image-slider_image">
-              <div class="slider_text">
-                Subaru LEVORG VN5
-                <p>2021 • Гибрит • 10 000 км</p>
-              </div>
-              <img src="2024-11-14_13_VGhlFmY.webp" alt="Картинка">
-            </div>
-          </div>
-
-          <div class="image-slider_slide swiper-slide"> <!-- Слайды !-->
-            <div class="image-slider_image">
-              <div class="slider_text">
-                Subaru LEVORG VN5
-                <p>2021 • Гибрит • 10 000 км</p>
-              </div>
-              <img src="2024-11-14_13_VGhlFmY.webp" alt="Картинка">
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </div>
-
-    </div>
-
-    </section>
-    <section>
-      <div class="container">
-
-
-        <div class="carousel-container">
-          <div class="select_car">
-            <select class="select_item sort-car" name="213">
-              <option value="">Сортировка</option>
-              <option value="dog">Пробег по возрастанию</option>
-              <option value="cat">Объём: по возрастанию</option>
-              <option value="hamster">Год: по возрастанию</option>
-
-            </select>
-            <div class = "link_torg"><a href="#">Какие авто торгуют сейчас?</a></div>
-          </div>
-
-
-
-    <div id="carousel" class="carousel">
-
-      <div class="card">
-        <div class="title_card">
-          <div class = "card_suptitle"<p>Subaru LEVORG VN5</p></div>
-          <div class = "card_subtitle"><p>2021 • Гибрит • 10 000 км</p></div>
-        </div>
-        <img src="catalog.png" alt="Car 2">
-        <div class = "footer_card">
-        <div class="price_car_catalog">
-          2 115 600 ₽
-        </div>
-        <div class="button_card">
-          <button type="button" name="card_button" class = "card_button">Оставить заявку</button>
-        </div>
-      </div>
-      </div>
-      <div class="card">
-        <div class="title_card">
-          <div class = "card_suptitle"<p>Subaru LEVORG VN5</p></div>
-          <div class = "card_subtitle"><p>2021 • Гибрит • 10 000 км</p></div>
-        </div>
-        <img src="catalog.png" alt="Car 2">
-        <div class = "footer_card">
-        <div class="price_car_catalog">
-          2 115 600 ₽
-        </div>
-        <div class="button_card">
-          <button type="button" name="card_button" class = "card_button">Оставить заявку</button>
-        </div>
-      </div>
-      </div>
-      <div class="card">
-        <div class="title_card">
-          <div class = "card_suptitle"<p>Subaru LEVORG VN5</p></div>
-          <div class = "card_subtitle"><p>2021 • Гибрит • 10 000 км</p></div>
-        </div>
-        <img src="catalog.png" alt="Car 2">
-        <div class = "footer_card">
-        <div class="price_car_catalog">
-          2 115 600 ₽
-        </div>
-        <div class="button_card">
-          <button type="button" name="card_button" class = "card_button">Оставить заявку</button>
-        </div>
-      </div>
-      </div>
-      <div class="card">
-        <div class="title_card">
-          <div class = "card_suptitle"<p>Subaru LEVORG VN5</p></div>
-          <div class = "card_subtitle"><p>2021 • Гибрит • 10 000 км</p></div>
-        </div>
-        <img src="catalog.png" alt="Car 2">
-        <div class = "footer_card">
-        <div class="price_car_catalog">
-          2 115 600 ₽
-        </div>
-        <div class="button_card">
-          <button type="button" name="card_button" class = "card_button">Оставить заявку</button>
-        </div>
-      </div>
-      </div>
-      <div class="card">
-        <div class="title_card">
-          <div class = "card_suptitle"<p>Subaru LEVORG VN5</p></div>
-          <div class = "card_subtitle"><p>2021 • Гибрит • 10 000 км</p></div>
-        </div>
-        <img src="catalog.png" alt="Car 2">
-        <div class = "footer_card">
-        <div class="price_car_catalog">
-          2 115 600 ₽
-        </div>
-        <div class="button_card">
-          <button type="button" name="card_button" class = "card_button">Оставить заявку</button>
-        </div>
-      </div>
-      </div>
-      <div class="card">
-        <div class="title_card">
-          <div class = "card_suptitle"<p>Subaru LEVORG VN5</p></div>
-          <div class = "card_subtitle"><p>2021 • Гибрит • 10 000 км</p></div>
-        </div>
-        <img src="catalog.png" alt="Car 2">
-        <div class = "footer_card">
-        <div class="price_car_catalog">
-          2 115 600 ₽
-        </div>
-        <div class="button_card">
-          <button type="button" name="card_button" class = "card_button">Оставить заявку</button>
-        </div>
-      </div>
-      </div>
-      <div class="card">
-        <div class="title_card">
-          <div class = "card_suptitle"<p>Subaru LEVORG VN5</p></div>
-          <div class = "card_subtitle"><p>2021 • Гибрит • 10 000 км</p></div>
-        </div>
-        <img src="catalog.png" alt="Car 2">
-        <div class = "footer_card">
-        <div class="price_car_catalog">
-          2 115 600 ₽
-        </div>
-        <div class="button_card">
-          <button type="button" name="card_button" class = "card_button">Оставить заявку</button>
-        </div>
-      </div>
-      </div>
-      <div class="card">
-        <div class="title_card">
-          <div class = "card_suptitle"<p>Subaru LEVORG VN5</p></div>
-          <div class = "card_subtitle"><p>2021 • Гибрит • 10 000 км</p></div>
-        </div>
-        <img src="catalog.png" alt="Car 2">
-        <div class = "footer_card">
-        <div class="price_car_catalog">
-          2 115 600 ₽
-        </div>
-        <div class="button_card">
-          <button type="button" name="card_button" class = "card_button">Оставить заявку</button>
-        </div>
-      </div>
-      </div>
-      <div class="card">
-        <div class="title_card">
-          <div class = "card_suptitle"<p>Subaru LEVORG VN5</p></div>
-          <div class = "card_subtitle"><p>2021 • Гибрит • 10 000 км</p></div>
-        </div>
-        <img src="catalog.png" alt="Car 2">
-        <div class = "footer_card">
-        <div class="price_car_catalog">
-          2 115 600 ₽
-        </div>
-        <div class="button_card">
-          <button type="button" name="card_button" class = "card_button">Оставить заявку</button>
-        </div>
-      </div>
-      </div>
-      <div class="card">
-        <div class="title_card">
-          <div class = "card_suptitle"<p>Subaru LEVORG VN5</p></div>
-          <div class = "card_subtitle"><p>2021 • Гибрит • 10 000 км</p></div>
-        </div>
-        <img src="catalog.png" alt="Car 2">
-        <div class = "footer_card">
-        <div class="price_car_catalog">
-          2 115 600 ₽
-        </div>
-        <div class="button_card">
-          <button type="button" name="card_button" class = "card_button">Оставить заявку</button>
-        </div>
-      </div>
-      </div>
-      <div class="card">
-        <div class="title_card">
-          <div class = "card_suptitle"<p>Subaru LEVORG VN5</p></div>
-          <div class = "card_subtitle"><p>2021 • Гибрит • 10 000 км</p></div>
-        </div>
-        <img src="catalog.png" alt="Car 2">
-        <div class = "footer_card">
-        <div class="price_car_catalog">
-          2 115 600 ₽
-        </div>
-        <div class="button_card">
-          <button type="button" name="card_button" class = "card_button">Оставить заявку</button>
-        </div>
-      </div>
-      </div>
-      <div class="card">
-        <div class="title_card">
-          <div class = "card_suptitle"<p>Subaru LEVORG VN5</p></div>
-          <div class = "card_subtitle"><p>2021 • Гибрит • 10 000 км</p></div>
-        </div>
-        <img src="catalog.png" alt="Car 2">
-        <div class = "footer_card">
-        <div class="price_car_catalog">
-          2 115 600 ₽
-        </div>
-        <div class="button_card">
-          <button type="button" name="card_button" class = "card_button">Оставить заявку</button>
-        </div>
-      </div>
-      </div>
-      <div class="card">
-        <div class="title_card">
-          <div class = "card_suptitle"<p>Subaru LEVORG VN5</p></div>
-          <div class = "card_subtitle"><p>2021 • Гибрит • 10 000 км</p></div>
-        </div>
-        <img src="catalog.png" alt="Car 2">
-        <div class = "footer_card">
-        <div class="price_car_catalog">
-          2 115 600 ₽
-        </div>
-        <div class="button_card">
-          <button type="button" name="card_button" class = "card_button">Оставить заявку</button>
-        </div>
-      </div>
-      </div>
-      <div class="card">
-        <div class="title_card">
-          <div class = "card_suptitle"<p>Subaru LEVORG VN5</p></div>
-          <div class = "card_subtitle"><p>2021 • Гибрит • 10 000 км</p></div>
-        </div>
-        <img src="catalog.png" alt="Car 2">
-        <div class = "footer_card">
-        <div class="price_car_catalog">
-          2 115 600 ₽
-        </div>
-        <div class="button_card">
-          <button type="button" name="card_button" class = "card_button">Оставить заявку</button>
-        </div>
-      </div>
-      </div>
-      <div class="card">
-        <div class="title_card">
-          <div class = "card_suptitle"<p>Subaru LEVORG VN5</p></div>
-          <div class = "card_subtitle"><p>2021 • Гибрит • 10 000 км</p></div>
-        </div>
-        <img src="catalog.png" alt="Car 2">
-        <div class = "footer_card">
-        <div class="price_car_catalog">
-          2 115 600 ₽
-        </div>
-        <div class="button_card">
-          <button type="button" name="card_button" class = "card_button">Оставить заявку</button>
-        </div>
-      </div>
-      </div>
-      <div class="card">
-        <div class="title_card">
-          <div class = "card_suptitle"<p>Subaru LEVORG VN5</p></div>
-          <div class = "card_subtitle"><p>2021 • Гибрит • 10 000 км</p></div>
-        </div>
-        <img src="catalog.png" alt="Car 2">
-        <div class = "footer_card">
-        <div class="price_car_catalog">
-          2 115 600 ₽
-        </div>
-        <div class="button_card">
-          <button type="button" name="card_button" class = "card_button">Оставить заявку</button>
-        </div>
-      </div>
-      </div>
-
-
-    </div>
-    <div class="navigation" id="pagination">
-      </div>
-
-    </section>
-
-    <section class = "section">
-      <div class="container">
-        <div class="cnt">
-
-        <div class="contact">
-          <div class="contact_text">
-            КОНТАКТНАЯ ИНФОРМАЦИЯ
-          </div>
-          <div class="sub_contact_text">
-            Оставьте свою заявку и наш менеджер свяжется с Вами для уточнения деталей.
-          </div>
-          <div class="contact_info">
-            <p>
-              Звонок по России бесплатно
-            </p>
-            <div>
-              8 800 550 48 3
-            </div>
-            <p>
-              Whatsapp
-            </p>
-            <div>
-              +7 (924) 420-24-3
-            </div>
-            <p>
-              Офис
-            </p>
-            <div>
-              г. Владивосток, ул. Тополевая
-            </div>
-          </div>
-        </div>
-        <div class="form_contact">
-
-          <form class ="form_to_contact">
-
-            <span class = "name">
-              <label for="name">Имя</label><br>
-              <input type="text" placeholder="Введите имя">
-            </span>
-            <span class="phone_number">
-              <label for="phone_number">Телефон</label><br>
-              <input type="text" placeholder="+7">
-            </span>
-            <div class="textarea">
-              <label for="textarea">Уточните свой вопрос</label>
-              <textarea class = text_form_contact placeholder="Введите текст сообщения, укажите страну, марку и год машины"></textarea>
-            </div>
-            <div class="cch">
-              <input type="checkbox" class = "checkbox" width="20px">
-              <span class = "text_checkbox">С<span class = "confeditional_form">правилами политики конфиденциальности</span> ознакомлён</span>
-
-            </div>
-            <div class="button_form">
-              Отправить
-            </div>
-
-          </form>
-
-      </div>
-
-
-      </div>
-    </div>
-    </section>
-    <section class="section">
-      <div class="container">
-
-
-          <div class = "reklama_item">
-
-          <div class="reklama_img">
-            <img src="contactpht.png">
-          </div>
-          <div class="reklama_slogan">
-            <div class="slogan">
-              <p><span>ПОДПИШИСЬ</span> И НЕ УПУСТИ СВОЙ АВТОМОБИЛЬ МЕЧТЫ</p>
-            </div>
-            <div class="slogan_socseti">
-              <div class="slogan_socseti_item">
-                <a href="#"><img src="cta_button.png"><span>Телеграмм-канал</span><img src="Vector.png" class="strel_tg"></a>
-              </div>
-              <div class="slogan_socseti_item">
-                <a href="#"><img src="cta_button_vk.png"><span>VK</span><img src="Vector.png" class = "strel_vk"></a>
-              </div>
-              <div class="slogan_socseti_item">
-                <a href = "#"><img src="cta_button_inst.png"><span>Instagram</span><img src="Vector.png" class="strel_inst"></a>
-              </div>
-            </div>
-          </div>
-      </div>
-
-    </div>
-    </section>
-    <footer class = "footer">
-      <div class="container">
-        <div class="ot">
-      <div class="footer_info">
-        <div class="footer_logo">
-          <img src="80d1241e4c01716ee4946c053c22a1fa.png">
-        </div>
-        <div class="footer_catalog">
-          <span class="katalog">КАТАЛОГ</span>
-        <div class="catalog_text">
-          <div class="links_footer">
-          <a href="#">Авто из Кореи</a>
-          <a href="#">Авто из Китая</a>
-          <a href="#">Авто из </a>
-        </div>
-        </div>
-        </div>
-        <div class="footer_company">
-          <span>КОМПАНИЯ</span>
-          <div class="company_text">
-            <div class="links_footer">
-            <a href="#">О компании</a>
-            <a href="#">Доставка</a>
-            <a href="#">Отзывы</a>
-          </div>
-        </div>
-        </div>
-      </div>
-      <div class="footer_contact">
-        <span>Звонок по России бесплатный</span>
-        <div class="number">88005504832</div>
-        <div class="footer_sosceti">
-          <i class="fa-brands fa-instagram"></i>
-          <i class="fa-brands fa-facebook-f"></i>
-          <i class="fa-brands fa-twitter"></i>
-          <i class="fa-brands fa-whatsapp"></i>
-        </div>
-      </div>
-
-    </div>
-    <div class="politic">
-    <p>© 2024 ООО «Правый руль» Автомобили под заказ из Кореи, Китая и Японии</p>
-    <p>Политика конфиденциальности</p>
-    </div>
-    </div>
-    </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src = "code.js"></script>
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="{% static 'js/code.js' %}"></script>
+        <script src="{% static 'js/brend_model.js' %}"></script>
   </body>
 </html>

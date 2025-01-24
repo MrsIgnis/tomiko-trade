@@ -4,7 +4,7 @@ from parsers.models import VKClip
 from django.db.models import Value, CharField, IntegerField
 from django.db.models.functions import Concat, Cast
 from django.core.paginator import Paginator, PageNotAnInteger
-from django.http import JsonResponse
+from django.http import JsonResponse, Http404
 
 def main(request):
     clips = VKClip.objects.all()[:11]
@@ -13,7 +13,16 @@ def main(request):
         'clips': clips,
     }
 
-    return render(request, 'main.html', context)
+    return render(request, 'main_page.html', context)
+
+def actions(request):
+    return render(request, 'stocks.html')
+
+def contacts(request):
+    return render(request, 'contacts.html')
+
+def custom_page_not_found(request, exception):
+    return render(request, '404.html', status=404)
 
 def get_sort_order(sort_option):
     """ Возвращает список полей для сортировки на основе параметра sort_option. """
@@ -69,8 +78,8 @@ def get_models_by_brand(request, country):
 
     if brand_name and country:
         try:
-            brand_obj = Brands.objects.get(brand=brand_name, country__iexact=country)
-            models = Cars.objects.filter(brand_country=brand_obj).values_list('model', flat=True).distinct().order_by('model')
+            brand = Brands.objects.get(brand=brand_name, country__iexact=country)
+            models = Cars.objects.filter(brand_country=brand).values_list('model', flat=True).distinct().order_by('model')
             return JsonResponse(list(models), safe=False)
 
         except Brands.DoesNotExist:
@@ -127,6 +136,9 @@ def cars_catalog(request, country):
     if sort_fields == "None": cars = cars.order_by('full_name')
     else: cars = cars.order_by(sort_fields)
 
+    # Получаем 5 случайных автомобилей для текущей страны
+    popular_cars = Cars.objects.filter(brand_country__country=get_country_dict().get(country)).order_by('?')[:5]
+
     # Пагинация
     paginator = Paginator(cars, 12)
     page = request.GET.get('page')
@@ -145,10 +157,14 @@ def cars_catalog(request, country):
     available_transmissions = Cars.objects.values_list('transmission', flat=True).distinct().order_by('transmission')
     available_colors = get_colors_list()
 
+    available_models = []
+    if brand: available_models = cars.values_list('model', flat=True).distinct().order_by('model')
+
     context = {
         'cars_page': cars_page,
         'sort_option': sort_option,
         'available_brands': available_brands,
+        'available_models': available_models,
         'available_years': available_years,
         'available_volumes': available_volumes,
         'available_drives': available_drives,
@@ -156,6 +172,7 @@ def cars_catalog(request, country):
         'available_transmissions': available_transmissions,
         'available_colors': available_colors,
         'current_country': country,
+        'popular_cars': popular_cars,
     }
 
-    return render(request, 'catalog.html', context)
+    return render(request, 'catalogs.html', context)
