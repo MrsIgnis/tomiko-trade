@@ -1,10 +1,214 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/contacts.css' %}">
+    <script src="https://kit.fontawesome.com/c929c73a3b.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 
+    <title>Контакты - Tomiko Trade</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+
+            <div class="header_inner">
+                <div class="header_left">
+
+                    <div class="header_logo">
+                        <a href="{% url 'main' %}"><img src="{% static 'images/logo.png' %}" alt="Tomiko Trade" class="logo"></a>
+                    </div>
+
+                    <nav class="nav">
+                        <a class="nav_link" href="{% url 'cars_catalog' country='korea' %}">Авто из Кореи</a>
+                        <a class="nav_link" href="{% url 'cars_catalog' country='china' %}">Авто из Китая</a>
+                        <a class="nav_link" href="{% url 'cars_catalog' country='japan' %}">Авто из Японии</a>
+                        <a class="nav_link" href="{% url 'actions'%}">Акции</a>
+                        <a class="nav_link" href="{% url 'contacts'%}">Контакты</a>
+                    </nav>
+                </div>
+
+                <div class="header_right">
+                    <div class="number">
+                        <p>8 (800) 500-49-46</p>
+                    </div>
+
+                    <div class="social">
+                        <a class="social_item" href="#" target="_blank"><i class="fa-brands fa-telegram"></i>
+                        </a>
+                        <a class="social_item" href="https://wa.me/79244202432" target="_blank"><i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="intro">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="{% url 'main' %}">Главная</a></li>
+                <li><a href="{% url 'contacts' %}">Контакты</a></li>
+            </ul>
+            
+            <section class = "section">
+                <div class="container">
+                    <div class="cnt">
+          
+                    <div class="contact">
+                        <div class="contact_text">Контактная <br> информация <img src="{% static 'images/hi.webp' %}"></div>
+                        <div class="sub_contact_text">Оставьте свою заявку и наш менеджер <br> свяжется с Вами для уточнения деталей.</div>
+                        <div class="contact_info">
+                            <div class="contact_left">
+                                <p>Адрес</p>
+                                <div>690088, г. Владивосток, ул. Жигура 9в</div>
+                                <p>Звонок по России бесплатный</p>
+                                <div>8 (800) 775-67-29</div>
+                                <div>8 (924) 123-45-67</div>
+                                <div class="contact_sosceti">
+                                    <a class="contact_social_item" href="#" target="_blank"><i class="fa-brands fa-telegram"></i>
+                                    </a>
+                                    <a class="contact_social_item" href="#" target="_blank"><i class="fa-brands fa-whatsapp"></i>
+                                    </a>
+                                    <a class="contact_social_item" href="#" target="_blank"><i class="fa-brands fa-vk"></i>
+                                    </a>
+                                    <a class="contact_social_item" href="#" target="_blank"><i class="fa-brands fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="contact_right">
+                                <p>Компания</p>
+                                <div>ООО "АВТОЦЕНТР-ВЛ"</div>
+                                <p>ИНН / КПП</p>
+                                <div>2536263238 / 253601001</div>
+                                <p>ОГРН</p>
+                                <div>1132536004622</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form_contact">
+                        <form class="form_to_contact">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Имя</label>
+                                    <input type="text" id="name" placeholder="Введите имя">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone_number">Телефон</label>
+                                    <input type="text" id="phone_number" placeholder="+7">
+                                </div>
+                            </div>
+                            <div class="textarea">
+                                <label for="textarea">Уточните свой вопрос</label>
+                                <textarea class="text_form_contact" id="textarea" placeholder="Введите текст сообщения, укажите страну, марку и год машины"></textarea>
+                            </div>
+                            <div class="cch">
+                                <input type="checkbox" class="checkbox" id="checkbox">
+                                <label class="text_checkbox" for="checkbox">
+                                    С <span class="confeditional_form">правилами политики конфиденциальности</span>
+                                    ознакомлён
+                                 </label>
+                            </div>
+                            <button type="submit" class="button_form">Отправить</button>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="container">
+                <div class="map_2GIS">
+                    <a class="dg-widget-link" href="http://2gis.ru/vladivostok/firm/70000001067259118/center/131.922562122345,43.12801871788436/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">
+                    Посмотреть на карте Владивостока
+                    </a>
+                    <div class="dg-widget-link">
+                    <a href="http://2gis.ru/vladivostok/firm/70000001067259118/photos/70000001067259118/center/131.922562122345,43.12801871788436/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos">
+                    Фотографии компании
+                    </a>
+                    </div>
+                    <div class="dg-widget-link">
+                    <a href="http://2gis.ru/vladivostok/center/131.92257,43.127155/zoom/16/routeTab/rsType/bus/to/131.92257,43.127155╎Tomiko Trade, автоцентр?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">
+                    Найти проезд до Tomiko Trade, автоцентр
+                    </a>
+                    </div>
+                    <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js">
+                    </script>
+                    <script charset="utf-8">new DGWidgetLoader({"width":640,"height":600,"borderColor":"#a3a3a3","pos":{"lat":43.12801871788436,"lon":131.922562122345,"zoom":16},"opt":{"city":"vladivostok"},"org":[{"id":"70000001067259118"}]});
+                    </script>
+                    <noscript style="color:#c00;font-size:16px;font-weight:bold;">
+                    </noscript>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class = "footer">
+        <div class="container">
+            <div class="container">
+                <div class="ot">
+                    <div class="footer_info">
+                        <div class="footer_logo">
+                            <img src="{% static 'images/logo.png' %}">
+                        </div>
+                        <div class="footer_catalog">
+                            <span class="katalog">Каталог</span>
+                            <div class="catalog_text">
+                                <div class="links_footer">
+                                    <a href="{% url 'cars_catalog' country='korea' %}">Авто из Кореи</a>
+                                    <a href="{% url 'cars_catalog' country='china' %}">Авто из Китая</a>
+                                    <a href="{% url 'cars_catalog' country='japan' %}">Авто из Японии</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer_company">
+                            <span>Компания</span>
+                            <div class="company_text">
+                                <div class="links_footer">
+                                    <a href="#">О компании</a>
+                                    <a href="#">Клипы</a>
+                                    <a href="#">Отзывы</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="footer_contact">
+                        <span>Звонок по России бесплатный</span>
+                        <div class="number_foot">8 800 550 48 32</div>
+                            <div class="footer_sosceti">
+                                <a class="foot_social_item" href="#" target="_blank"><i class="fa-brands fa-telegram"></i>
+                                </a>
+                                <a class="foot_social_item" href="#" target="_blank"><i class="fa-brands fa-whatsapp"></i>
+                                </a>
+                                <a class="foot_social_item" href="#" target="_blank"><i class="fa-brands fa-vk"></i>
+                                </a>
+                                <a class="foot_social_item" href="#" target="_blank"><i class="fa-brands fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="politic">
+                        <div class="politic-inner">
+                            <p>© 2024 ООО «Правый руль» Автомобили под заказ из Кореи, Китая и Японии</p>
+                            <p>Политика конфиденциальности</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

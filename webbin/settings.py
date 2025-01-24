@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'core',
     'feedback',
     'rest_framework',
@@ -73,7 +74,7 @@ ROOT_URLCONF = 'webbin.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -87,6 +88,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'webbin.wsgi.application'
+
+# Обработчик ошибки 404
+handler404 = 'core.views.custom_page_not_found'
+
+# Форматирование больших чиел с проблеми
+USE_THOUSAND_SEPARATOR = True
+THOUSAND_SEPARATOR = ' '
 
 
 # Database
@@ -135,6 +143,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / "core/static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
