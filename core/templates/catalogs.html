@@ -1,5 +1,5 @@
 {% load static %}
-{% load humanize %}
+{% load custom_cars_tags %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -14,7 +14,7 @@
       </title>
 
       <link rel="stylesheet" href="{% static 'css/bee.css' %}">
-      <link rel="stylesheet" href="{% static 'css/test.css' %}">
+      <link rel="stylesheet" href="{% static 'css/test_style.css' %}">
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
@@ -193,9 +193,9 @@
                                     <div class="slider_text">
                                         {{ car.brand_country.brand }} {{ car.model }}
                                         <p>
-                                            {{ car.year }} •
-                                            {{ car.mileage|intcomma }} км •
-                                            {{ car.engine_volume|add:"0"|floatformat:"-3"|stringformat:".1f" }} л
+                                            {{ car.year|stringformat:"d" }} •
+                                            {{ car.mileage|intspace }} км •
+                                            {{ car.engine_volume|engine_format }}
                                         </p>
                                     </div>
 
@@ -243,21 +243,26 @@
                         <div class="card">
                             <div class="title_card">
                                 <div class="card_suptitle">
-                                    <p>{{ car.brand_country.brand }} {{ car.model }}</p>
+                                    <h3>{{ car.brand_country.brand }} {{ car.model }}</h3>
                                 </div>
                                 <div class="card_subtitle">
                                     <p>
-                                        {{ car.year }} •
-                                        {{ car.mileage|intcomma }} км •
-                                        {{ car.engine_volume|add:"0"|floatformat:"-3"|stringformat:".1f" }} л
+                                        {{ car.year|stringformat:"d" }} •
+                                        {{ car.mileage|intspace }} км •
+                                        {{ car.engine_volume|engine_format }}
                                     </p>
                                 </div>
                             </div>
-                            <img src="{{ car.photos.first.image.url }}" alt="{{ car.model }}" class="car-image">
+
+                            <div class="image-container">
+                                {% if car.photos.first %}
+                                <img src="{{ car.photos.first.image.url }}" alt="{{ car.model }}" class="car-image">
+                                {% endif %}
+                            </div>
 
                             <div class="footer_card">
                                 <div class="price_car_catalog">
-                                    {{ car.price|intcomma }} ₽
+                                    {{ car.price|intspace }} ₽
                                 </div>
                                 <div class="button_card">
                                     <button type="button" class="card_button" data-car-id="{{ car.id }}">
