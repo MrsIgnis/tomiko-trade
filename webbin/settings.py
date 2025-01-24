@@ -19,9 +19,6 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-EXCHANGE_RATES_PATH = os.getenv('EXCHANGE_RATES_PATH', os.path.join(BASE_DIR, 'exchange_rates.txt')) # Путь до файла с валютами`
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
