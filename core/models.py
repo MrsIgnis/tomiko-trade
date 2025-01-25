@@ -24,11 +24,3 @@ class Cars(models.Model):
     class Meta:
         managed = False
         db_table = 'cars'
-
-class CarPhoto(models.Model):
-    car = models.ForeignKey(Cars, related_name='photos', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='cars/')
-    is_main = models.BooleanField("Основное фото", default=False)
-
-    def __str__(self):
-        return f"{self.car} - {'Main' if self.is_main else 'Gallery'}"
