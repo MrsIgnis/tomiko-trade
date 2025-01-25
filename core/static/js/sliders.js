@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Инициализация Swiper для слайдера видеоклипов
     const swiperVideo = new Swiper('.video_clip', {
-        loop: false, // Убрал loop из-за предупреждения
+        loop: false,
         slidesPerView: 'auto',
         spaceBetween: 40,
         freeMode: true,
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
             forceToAxis: true
         },
         wrapperClass: 'video-clip-wrapper',
-        slideClass: 'video-slide',
+        slideClass: 'video_clip_item',
         noSwiping: true
     });
 
@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
            slidesPerView: 1,
            loop: true,
+
 
         });
      });

@@ -733,12 +733,11 @@
                     <div class="video_clip swiper-container">
                         <div class="video-clip-wrapper">
                             {% for clip in clips %}
-                            <a href="{{ clip.post_url }}" target="_blank" class="video_clip_link">
-                                <div class="video_clip_item video-slide">
+                                <div class = "video_clip_item">
+                                    <a href="{{ clip.post_url }}" target="_blank">
                                     <img src="{{ clip.preview_url }}">
+                                    </a>
                                 </div>
-                            </a>
-
                             {% empty %}
                             <p>Клипы не найдены</p>
                             {% endfor %}
