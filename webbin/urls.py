@@ -26,7 +26,7 @@ urlpatterns = [
     path('cars/', include('cars_app.urls')),
     path('reviews_parser/', include('reviews_parser.urls')),
 
-    #path('', include('core.urls')),
+    path('', include('core.urls')),
     #path('api/', include('core.urls')),
 ]
 

@@ -1,5 +1,5 @@
 {% load static %}
-{% load custom_cars_tags %}
+{% load humanize %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -100,14 +100,14 @@
                                 <select class="select_item_nesk" name="volume_from" id="volume_from">
                                     <option value="">Объем от</option>
                                     {% for volume in available_volumes %}
-                                    <option value="{{ volume }}" {% if request.GET.volume_from == volume|stringformat:"s" %}selected{% endif %}>{{ volume }}</option>
+                                    <option value="{{ volume }}" {% if request.GET.volume_from == volume|stringformat:"s" %}selected{% endif %}>{{ volume }} л</option>
                                     {% endfor %}
                                 </select>
 
                                 <select class="select_item_nesk" name="volume_to" id="volume_to">
                                     <option value="">Объем до</option>
                                     {% for volume in available_volumes %}
-                                    <option value="{{ volume }}" {% if request.GET.volume_to == volume|stringformat:"s" %}selected{% endif %}>{{ volume }}</option>
+                                    <option value="{{ volume }}" {% if request.GET.volume_to == volume|stringformat:"s" %}selected{% endif %}>{{ volume }} л</option>
                                     {% endfor %}
                                 </select>
                             </div>
@@ -133,14 +133,14 @@
                                 <select class="select_item_nesk" name="mileage_from" id="mileage_from">
                                     <option value="">Пробег от</option>
                                     {% for mileage in available_mileages %}
-                                    <option value="{{ mileage }}" {% if request.GET.mileage_from == mileage|stringformat:"s" %}selected{% endif %}>{{ mileage }}км</option>
+                                    <option value="{{ mileage }}" {% if request.GET.mileage_from == mileage|stringformat:"s" %}selected{% endif %}>{{ mileage }} км</option>
                                     {% endfor %}
                                 </select>
 
                                 <select class="select_item_nesk" name="mileage_to" id="mileage_to">
                                     <option value="">Пробег до</option>
                                     {% for mileage in available_mileages %}
-                                    <option value="{{ mileage }}" {% if request.GET.mileage_to == mileage|stringformat:"s" %}selected{% endif %}>{{ mileage }}КМ</option>
+                                    <option value="{{ mileage }}" {% if request.GET.mileage_to == mileage|stringformat:"s" %}selected{% endif %}>{{ mileage }} км</option>
                                     {% endfor %}
                                 </select>
                             </div>
@@ -193,9 +193,9 @@
                                     <div class="slider_text">
                                         {{ car.brand_country.brand }} {{ car.model }}
                                         <p>
-                                            {{ car.year|stringformat:"d" }} •
-                                            {{ car.mileage|intspace }} км •
-                                            {{ car.engine_volume|engine_format }}
+                                            {{ car.year }} •
+                                            {{ car.mileage }} км •
+                                            {{ car.engine_volume }} л
                                         </p>
                                     </div>
 
@@ -247,9 +247,9 @@
                                 </div>
                                 <div class="card_subtitle">
                                     <p>
-                                        {{ car.year|stringformat:"d" }} •
-                                        {{ car.mileage|intspace }} км •
-                                        {{ car.engine_volume|engine_format }}
+                                        {{ car.year }} •
+                                        {{ car.mileage }} км •
+                                        {{ car.engine_volume }} л
                                     </p>
                                 </div>
                             </div>
@@ -262,7 +262,7 @@
 
                             <div class="footer_card">
                                 <div class="price_car_catalog">
-                                    {{ car.price|intspace }} ₽
+                                    {{ car.price }} ₽
                                 </div>
                                 <div class="button_card">
                                     <button type="button" class="card_button" data-car-id="{{ car.id }}">
