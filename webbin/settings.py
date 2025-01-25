@@ -19,9 +19,6 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-EXCHANGE_RATES_PATH = os.getenv('EXCHANGE_RATES_PATH', os.path.join(BASE_DIR, 'exchange_rates.txt')) # Путь до файла с валютами`
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -51,6 +48,8 @@ INSTALLED_APPS = [
     'core',
     'feedback',
     'parsers',
+    'cars_app',
+    'reviews_parser',
 ]
 
 REST_FRAMEWORK = {
@@ -91,9 +90,6 @@ WSGI_APPLICATION = 'webbin.wsgi.application'
 # Обработчик ошибки 404
 handler404 = 'core.views.custom_page_not_found'
 
-# Форматирование больших чиел с проблеми
-#USE_THOUSAND_SEPARATOR = True
-#THOUSAND_SEPARATOR = ' '
 
 # Путь для фотографий авто
 MEDIA_URL = '/media/'
