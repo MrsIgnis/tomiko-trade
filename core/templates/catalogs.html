@@ -1,5 +1,6 @@
 {% load static %}
 {% load humanize %}
+{% load custom_cars_tags %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -100,14 +101,14 @@
                                 <select class="select_item_nesk" name="volume_from" id="volume_from">
                                     <option value="">Объем от</option>
                                     {% for volume in available_volumes %}
-                                    <option value="{{ volume }}" {% if request.GET.volume_from == volume|stringformat:"s" %}selected{% endif %}>{{ volume }} л</option>
+                                    <option value="{{ volume }}" {% if request.GET.volume_from == volume|stringformat:"s" %}selected{% endif %}>{{ volume|divide:1000|floatformat:"-3" }} л</option>
                                     {% endfor %}
                                 </select>
 
                                 <select class="select_item_nesk" name="volume_to" id="volume_to">
                                     <option value="">Объем до</option>
                                     {% for volume in available_volumes %}
-                                    <option value="{{ volume }}" {% if request.GET.volume_to == volume|stringformat:"s" %}selected{% endif %}>{{ volume }} л</option>
+                                    <option value="{{ volume }}" {% if request.GET.volume_to == volume|stringformat:"s" %}selected{% endif %}>{{ volume|divide:1000|floatformat:"-3" }} л</option>
                                     {% endfor %}
                                 </select>
                             </div>
@@ -133,14 +134,14 @@
                                 <select class="select_item_nesk" name="mileage_from" id="mileage_from">
                                     <option value="">Пробег от</option>
                                     {% for mileage in available_mileages %}
-                                    <option value="{{ mileage }}" {% if request.GET.mileage_from == mileage|stringformat:"s" %}selected{% endif %}>{{ mileage }} км</option>
+                                    <option value="{{ mileage }}" {% if request.GET.mileage_from == mileage|stringformat:"s" %}selected{% endif %}>{{ mileage|intcomma }} км</option>
                                     {% endfor %}
                                 </select>
 
                                 <select class="select_item_nesk" name="mileage_to" id="mileage_to">
                                     <option value="">Пробег до</option>
                                     {% for mileage in available_mileages %}
-                                    <option value="{{ mileage }}" {% if request.GET.mileage_to == mileage|stringformat:"s" %}selected{% endif %}>{{ mileage }} км</option>
+                                    <option value="{{ mileage }}" {% if request.GET.mileage_to == mileage|stringformat:"s" %}selected{% endif %}>{{ mileage|intcomma  }} км</option>
                                     {% endfor %}
                                 </select>
                             </div>
@@ -166,7 +167,9 @@
                         <div class="button_catalog">
                             <button type="submit" class="catalog_button">Показать</button>
                             <button type="button" class="catalog_button"
-                                    onclick="window.location.href='{% url 'cars_catalog' country=current_country %}'">
+                                    onclick="localStorage.removeItem('selectedBrand');
+                                             localStorage.removeItem('selectedModel');
+                                             window.location.href='{% url 'cars_catalog' country=current_country %}?'">
                                 Сбросить фильтры
                             </button>
                         </div>
@@ -194,8 +197,8 @@
                                         {{ car.brand_country.brand }} {{ car.model }}
                                         <p>
                                             {{ car.year }} •
-                                            {{ car.mileage }} км •
-                                            {{ car.engine_volume }} л
+                                            {{ car.mileage|intcomma }} км •
+                                            {{ car.engine_volume|divide:1000|floatformat:"-3" }} л.
                                         </p>
                                     </div>
 
@@ -239,76 +242,89 @@
                 </form>
 
                 <div class="carousel">
-                    {% for car in cars_page %}
-                        <div class="card">
-                            <div class="title_card">
-                                <div class="card_suptitle">
-                                    <h3>{{ car.brand_country.brand }} {{ car.model }}</h3>
+                    {% if cars_page %}
+                        {% for car in cars_page %}
+                            <div class="card">
+                                <div class="title_card">
+                                    <div class="card_suptitle">
+                                        <h3>{{ car.brand_country.brand }} {{ car.model }}</h3>
+                                    </div>
+                                    <div class="card_subtitle">
+                                        <p>
+                                            {{ car.year }} •
+                                            {{ car.mileage|intcomma }} км •
+                                            {{ car.engine_volume|divide:1000|floatformat:"-3" }} л.
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="card_subtitle">
-                                    <p>
-                                        {{ car.year }} •
-                                        {{ car.mileage }} км •
-                                        {{ car.engine_volume }} л
-                                    </p>
+
+                                <div class="image-container">
+                                    {% if car.photos.first %}
+                                    <img src="{{ car.photos.first.image.url }}" alt="{{ car.model }}" class="car-image">
+                                    {% endif %}
+                                </div>
+
+                                <div class="footer_card">
+                                    <div class="price_car_catalog">
+                                        {{ car.price|intcomma }} ₽
+                                    </div>
+                                    <div class="button_card">
+                                        <button type="button" class="card_button" data-car-id="{{ car.id }}">
+                                            Оставить заявку
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="image-container">
-                                {% if car.photos.first %}
-                                <img src="{{ car.photos.first.image.url }}" alt="{{ car.model }}" class="car-image">
-                                {% endif %}
-                            </div>
-
-                            <div class="footer_card">
-                                <div class="price_car_catalog">
-                                    {{ car.price }} ₽
-                                </div>
-                                <div class="button_card">
-                                    <button type="button" class="card_button" data-car-id="{{ car.id }}">
-                                        Оставить заявку
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-
-                <div class="pagination-container">
-                    <div class="pagination">
-                        {% if cars_page.has_previous %}
-                        <a href="?page={{ cars_page.previous_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}"
-                           class="pagination-item prev">
-                            Предыдущая
-                        </a>
-                        {% endif %}
-
-                        {% for num in cars_page.paginator.page_range %}
-                            {% if num == cars_page.number %}
-                                <span class="pagination-item current">{{ num }}</span>
-                            {% elif num > cars_page.number|add:-3 and num < cars_page.number|add:3 %}
-                                <a href="?page={{ num }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}"
-                                   class="pagination-item">
-                                    {{ num }}
-                                </a>
-                            {% elif num == cars_page.paginator.num_pages or num == 1 %}
-                                <a href="?page={{ num }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}"
-                                   class="pagination-item">
-                                    {{ num }}
-                                </a>
-                            {% elif num == cars_page.number|add:-3 or num == cars_page.number|add:3 %}
-                                <span class="pagination-ellipsis">...</span>
-                            {% endif %}
                         {% endfor %}
 
-                        {% if cars_page.has_next %}
-                            <a href="?page={{ cars_page.next_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}"
-                               class="pagination-item next">
-                                Следующая
+                    {% else %}
+                        <div class="no-results">
+                            <h3>К сожалению, по заданным параметрам ничего не найдено.</h3>
+                            <p>Попробуйте изменить условия поиска.</p>
+                            <a href="{% url 'cars_catalog' country=current_country %}" class="catalog_button">
+                                Сбросить параметры
                             </a>
-                        {% endif %}
-                    </div>
+                        </div>
+                    {% endif %}
                 </div>
+
+                {% if cars_page and cars_page.paginator.count > 0 %}
+                    <div class="pagination-container">
+                        <div class="pagination">
+                            {% if cars_page.has_previous %}
+                            <a href="?page={{ cars_page.previous_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}"
+                               class="pagination-item prev">
+                                Предыдущая
+                            </a>
+                            {% endif %}
+
+                            {% for num in cars_page.paginator.page_range %}
+                                {% if num == cars_page.number %}
+                                    <span class="pagination-item current">{{ num }}</span>
+                                {% elif num > cars_page.number|add:-3 and num < cars_page.number|add:3 %}
+                                    <a href="?page={{ num }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}"
+                                       class="pagination-item">
+                                        {{ num }}
+                                    </a>
+                                {% elif num == cars_page.paginator.num_pages or num == 1 %}
+                                    <a href="?page={{ num }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}"
+                                       class="pagination-item">
+                                        {{ num }}
+                                    </a>
+                                {% elif num == cars_page.number|add:-3 or num == cars_page.number|add:3 %}
+                                    <span class="pagination-ellipsis">...</span>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if cars_page.has_next %}
+                                <a href="?page={{ cars_page.next_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}"
+                                   class="pagination-item next">
+                                    Следующая
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
             </div>
         </section>
 
@@ -452,7 +468,7 @@
         </footer>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src="{% static 'js/code.js' %}"></script>
+        <script src="{% static 'js/sliders.js' %}"></script>
         <script src="{% static 'js/brend_model.js' %}"></script>
   </body>
 </html>
