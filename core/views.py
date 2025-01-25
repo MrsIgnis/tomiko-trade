@@ -152,9 +152,9 @@ def cars_catalog(request, country):
         cars_page = paginator.page(1)
 
     # Получаем уникальные данные для фильтра
-    available_brands = Brands.objects.values_list('brand', flat=True).distinct().order_by('brand')
+    available_brands = Brands.objects.filter(country=get_country_dict().get(country)).values_list('brand', flat=True).distinct().order_by('brand')
     available_years = Cars.objects.values_list('year', flat=True).distinct().order_by('year')
-    available_volumes = Cars.objects.annotate(int_volume=Cast('engine_volume', IntegerField())).values_list('int_volume', flat=True).distinct().order_by('int_volume')
+    available_volumes = Cars.objects.values_list('engine_volume', flat=True).distinct().order_by('engine_volume')
     available_drives = Cars.objects.values_list('drive', flat=True).distinct().order_by('drive')
     available_mileages = get_mileage_values()
     available_transmissions = Cars.objects.values_list('transmission', flat=True).distinct().order_by('transmission')
