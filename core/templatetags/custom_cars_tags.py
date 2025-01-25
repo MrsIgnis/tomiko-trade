@@ -13,5 +13,8 @@ def engine_format(value):
 
 @register.filter
 def intspace(value):
-    """Заменяет запятые в числах на пробелы"""
-    return intcomma(value).replace(",", " ")
+    """Форматирует число с пробелами вместо запятых (без изменения типа)"""
+    try:
+        return format(int(value), ',d').replace(",", " ")
+    except (ValueError, TypeError):
+        return "н/д"

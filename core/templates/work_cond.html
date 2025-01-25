@@ -1,0 +1,264 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/work_cond.css' %}">
+    <script src="https://kit.fontawesome.com/c929c73a3b.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <title>О нас - Tomiko Trade</title>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+
+            <div class="header_inner">
+                <div class="header_left">
+
+                    <div class="header_logo">
+                        <a href="{% url 'main' %}"><img src="{% static 'images/logo.png' %}" alt="Tomiko Trade" class="logo"></a>
+                    </div>
+
+                    <nav class="nav">
+                        <a class="nav_link" href="{% url 'cars_catalog' country='korea' %}">Авто из Кореи</a>
+                        <a class="nav_link" href="{% url 'cars_catalog' country='china' %}">Авто из Китая</a>
+                        <a class="nav_link" href="{% url 'cars_catalog' country='japan' %}">Авто из Японии</a>
+                        <a class="nav_link" href="{% url 'actions'%}">Акции</a>
+                        <a class="nav_link" href="{% url 'contacts'%}">Контакты</a>
+                    </nav>
+                </div>
+
+                <div class="header_right">
+                    <div class="number">
+                        <p>8 (800) 500-49-46</p>
+                    </div>
+
+                    <div class="social">
+                        <a class="social_item" href="#" target="_blank"><i class="fa-brands fa-telegram"></i>
+                        </a>
+                        <a class="social_item" href="https://wa.me/79244202432" target="_blank"><i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </header>
+
+    <div class="intro">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="{% url 'main' %}">Главная</a></li>
+                <li><a href="{% url 'work_cond' %}">О нас</a></li>
+            </ul>
+
+            <section class="section">
+                <div class="container">
+                  <div class="about">
+                    <div class="about_text">
+                      <div class="about_title">
+                        О нас
+                      </div>
+                      <div class="about_subtitle">
+                        Компания «Правый руль» предлагает широкий выбор автомобилей от ведущих
+                        мировых производителей. Мы специализируемся на продаже новых и
+                        подержанных авто. Наша команда профессионалов поможет вам выбрать
+                        идеальный автомобиль, учитывая ваши потребности и бюджет.
+                      </div>
+                      <div class="about_actions">
+                        <a class="about-button" href="https://wa.me/79244202432">Получить консультацию</a>
+                        <a class="about_item" href="https://wa.me/79244202432" target="_blank"><img src="{% static 'images/work_cond/cta_button.png' %}"></a>
+                      </div>
+                    </div>
+                    <div class="about_photo">
+                      <img src="{% static 'images/work_cond/workers.png' %}">
+                    </div>
+                  </div>
+                  <div class="about_footer">
+                    <div class="about_stag_footer">
+                      5 +
+                      <p>Лет на рынке</p>
+                    </div>
+                    <div class="about_like_footer">
+                      4 000 +
+                      <p>Довольных клиентов</p>
+                    </div>
+                    <div class="about_footer_1">
+                      <div class="about_like"><img src="{% static 'images/work_cond/like.png' %}"></div><span>Прозрачное ценообразование с подробным разъяснением затрат на каждом этапе</span>
+                    </div>
+                    <div class="about_footer_2">
+                      <div class="about_doc"><img src="{% static 'images/work_cond/paper.png' %}"></div><span>Полное сопровождение и предоставление фото/видео отчета на протяжение всей сделки</span>
+                    </div>
+                    <div class="about_footer_3">
+                      <div class="about_rukopogatie"><img src="{% static 'images/work_cond/hands.png' %}"></div><span>Проверенные поставщики</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="section">
+                <div class="container">
+                  <div class="stage_work">
+                    <div class="stage_title">
+                      <p><span>Этапы</span> работы</p>
+                        <div class="stage_subtitle">
+                          Прозрачное ценообразование с подробным разъяснением затрат на каждом этапе
+                        </div>
+                    </div>
+                    <div class="stage_description">
+                      <div class="stage_icon">
+                        <div class="stage_icon_item">
+                          <img src="{% static 'images/work_cond/stage_work1.png' %}">
+                        </div>
+                        <div class="stage_icon_item">
+                          <img src="{% static 'images/work_cond/stage_work2.png' %}">
+                        </div>
+                        <div class="stage_icon_item">
+                          <img src="{% static 'images/work_cond/stage_work3.png' %}">
+                        </div>
+                        <div class="stage_icon_item">
+                          <img src="{% static 'images/work_cond/stage_work4.png' %}">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="stage_icon_text">
+                      <div class="stage_item_icon_text_1">
+                        <p>ЗАЯВКА</p>
+                        Оставьте заявку, чтобы получить индивидуальную консультацию
+                      </div>
+              
+                      <div class="stage_item_icon_text">
+                        <p>ПОДБОР АВТО</p>
+                        Подберем автомобиль под <br> ваши критерии
+                      </div>
+              
+                      <div class="stage_item_icon_text">
+                        <p>ОФОРМЛЕНИЕ</p>
+                        Согласуем бюджет и заключим договор на авто
+                      </div>
+              
+                      <div class="stage_item_icon_text">
+                        <p>ДОСТАВКА ПО РФ</p>
+                        После доставки в г. Владивосток мы отправим автомобиль в ваш город
+                      </div>
+                    </div>
+                    <div class="stage_consultaion">
+                      <a class="stage-button" href="https://wa.me/79244202432">Получить консультацию</a>
+                      <a class="stage_item" href="https://wa.me/79244202432" target="_blank"><img src="{% static 'images/work_cond/cta_button.png' %}"></a>
+                    </div>
+                    <div class="red_triangle">
+                      <div class="red_triangle_content">
+                          <p class="text_econom">
+                              Экономия до 
+                              <span class="info_perc">30%</span><br>
+                              <span class="text_mini">от рынка авто в наличии</span>
+                          </p>
+                          <a href="#" class="button-link">
+                              <img src="{% static 'images/work_cond/triangle_button.png' %}" alt="Кнопка" class="button-image">
+                          </a>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+              <section class="section">
+                <div class="commissions-section">
+                  <h2>КОМИССИИ</h2>
+                  <div class="commission-cards">
+                      <div class="commission-card">
+                          <img src="{% static 'images/work_cond/japan.png' %}" alt="Флаг Японии">
+                          <h3>Япония</h3>
+                          <p>60 000 ₽</p>
+                          <a href="#">Договор <img src="{% static 'images/work_cond/Vector.png' %}" alt="Вектор"></a>
+                      </div>
+                      <div class="commission-card">
+                          <img src="{% static 'images/work_cond/korea.png' %}" alt="Флаг Кореи">
+                          <h3>Корея</h3>
+                          <p>100 000 ₽</p>
+                          <a href="#">Договор <img src="{% static 'images/work_cond/Vector.png' %}" alt="Вектор"></a>
+                      </div>
+                      <div class="commission-card">
+                          <img src="{% static 'images/work_cond/china.png' %}" alt="Флаг Китая">
+                          <h3>Китай</h3>
+                          <p>150 000 ₽</p>
+                          <a href="#">Договор <img src="{% static 'images/work_cond/Vector.png' %}" alt="Вектор"></a>
+                      </div>
+                  </div>
+                  <p class="deposit-info">У нас доступна оплата депозита частями</p>
+                  <a href="{% url 'actions'%}" class="more-button">Подробнее тут <img src="{% static 'images/work_cond/Vector.png' %}" alt="Вектор"></a>
+                </div>
+              </section>
+        </div>
+    </div>
+
+    <footer class = "footer">
+        <div class="container">
+            <div class="container">
+                <div class="ot">
+                    <div class="footer_info">
+                        <div class="footer_logo">
+                            <a href="{% url 'main'%}"><img src="{% static 'images/logo.png' %}"></a>
+                        </div>
+                        <div class="footer_catalog">
+                            <span class="katalog">Каталог</span>
+                            <div class="catalog_text">
+                                <div class="links_footer">
+                                    <a href="{% url 'cars_catalog' country='korea' %}">Авто из Кореи</a>
+                                    <a href="{% url 'cars_catalog' country='china' %}">Авто из Китая</a>
+                                    <a href="{% url 'cars_catalog' country='japan' %}">Авто из Японии</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer_company">
+                            <span>Компания</span>
+                            <div class="company_text">
+                                <div class="links_footer">
+                                    <a href="#">О компании</a>
+                                    <a href="#">Клипы</a>
+                                    <a href="#">Отзывы</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="footer_contact">
+                        <span>Звонок по России бесплатный</span>
+                        <div class="number_foot">8 800 550 48 32</div>
+                            <div class="footer_sosceti">
+                                <a class="foot_social_item" href="#" target="_blank"><i class="fa-brands fa-telegram"></i>
+                                </a>
+                                <a class="foot_social_item" href=https://wa.me/79244202432" target="_blank"><i class="fa-brands fa-whatsapp"></i>
+                                </a>
+                                <a class="foot_social_item" href="https://vk.com/tomiko_trade" target="_blank"><i class="fa-brands fa-vk"></i>
+                                </a>
+                                <a class="foot_social_item" href="https://www.instagram.com/praviyrul.jp?igsh=N3VucnNibWsyZzVk" target="_blank"><i class="fa-brands fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="politic">
+                        <div class="politic-inner">
+                            <p>© 2024 ООО «Правый руль» Автомобили под заказ из Кореи, Китая и Японии</p>
+                            <p>Политика конфиденциальности</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

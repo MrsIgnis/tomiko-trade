@@ -1,0 +1,1036 @@
+body {
+    margin: 0;
+    background-color: #011224;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* ------------------------------------------------ */
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ------------------------------------------------ */
+
+/* Header - шапка */
+.header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding-top: 24px;
+    background-color: #011224;
+}
+
+.header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 70px;
+    right: 70px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.header_inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Header_logo - логотип в шапке */
+.header_logo .logo {
+    height: 76px;
+    width: 76px;
+    transition: filter 0.3s ease;
+}
+
+.header_logo .logo:hover {
+    filter: drop-shadow(0 0 15px rgb(255, 0, 0));
+}
+
+/* Header_left - левая часть шапки (логотип и каталог) */
+.header_left {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+/* Header_right - правая часть шапки (номер и соцю сети) */
+.header_right {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+/* Nav - навигация в шапке */
+.nav {
+    font-size: 16px;
+}
+
+.nav_link {
+    font-family: "Inter", serif;
+    font-weight: 400;
+    word-spacing: 3px;
+    display: inline block;
+    vertical-align: top;
+    margin: 0 30px;
+    color: #fff;
+    opacity: 0.7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav_link:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+/* Header_social - социальные сети в шапке */
+.social_item {
+    color: #fff;
+    opacity: 0.5;
+    text-decoration: none;
+    font-size: 36px;
+    margin: 0 5px;
+}
+
+.social_item:hover {
+    color: #fff;
+    opacity: 1;
+    transition: color 0.3s ease;
+}
+
+/* Number - номер */
+.number {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #fff;
+    margin: 0 24px;
+}
+
+
+/* ------------------------------------------------ */
+
+/* Intro - "Акции" - экран */
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    /* Высота будет занимать 100% экрана посетителя */
+    -webkit-background-size: cover;
+    background-size: cover;
+    padding-top: 100px;
+}
+
+/* ------------------------------------------------ */
+
+/* breadcrumb - навигация под шапкой */
+
+/* Стиль списка */
+ul.breadcrumb {
+    padding: 0;
+    margin: -80px  0; 
+    display: flex; 
+    list-style: none;
+    margin-left: 15px;
+}
+  
+/* Отображение элементов списка бок о бок */
+ul.breadcrumb li {
+    margin-right: 10px;
+    font-size: 18px;
+}
+  
+/* Добавить символ точки перед/за каждым элементом списка */
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: white;
+    opacity: 0.5;
+    content: "\2022";
+    margin-right: 10px;
+}
+  
+/* Добавить цвет для всех ссылок внутри списка */
+ul.breadcrumb li a {
+    font-family: "Inter", serif;
+    font-weight: 400;
+    font-size: 12px;
+    word-spacing: 2px;
+    color: white;
+    opacity: 0.5;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+  
+/* Добавить цвет на наведении курсора мыши */
+ul.breadcrumb li a:hover {
+    color: white;
+    opacity: 1;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+/* ------------------------------------------------ */
+
+/* about - блок "О компании" */
+
+.about {
+    display: flex;
+    justify-content: space-between;
+    width: 1400px;
+}
+    
+.about_text {
+    width: 748px;
+    height: 308px;
+}
+    
+.about_title {
+    font-family: "Bebas Neue", sans-serif;
+    font-style: normal;
+    font-weight: 570;
+    color: #fff;
+    font-size: 50px;
+    line-height: 100%;
+    padding-top: 20px;
+    word-spacing: 5px;
+    letter-spacing: -2px;
+    font-stretch: semi-condensed;
+    text-transform: uppercase;
+    margin-left: 10px;
+    margin-bottom: 30px;
+}
+    
+.about_subtitle {
+    font-family: "Inter", serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #fff;
+    padding-bottom: 30px;
+    margin-left: 10px;
+    line-height: 28px;
+}
+
+.about .about-button {
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px 30px;
+    margin-left: 10px;
+    gap: 12px;
+    background: linear-gradient(94.98deg, #0D2F68 0%, #D51117 100%);
+    border-radius: 60px;
+    color: #fff;
+    font-family: "Inter", serif;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: filter 0.3s ease;
+    line-height: 20px;
+}
+
+.about .about-button:hover {
+    filter: drop-shadow(0 0 15px rgb(255, 0, 0));
+}
+
+.about .about_item {
+    color: #fff;
+    opacity: 0.5;
+    text-decoration: none;
+    font-size: 36px;
+    margin: 0 5px;
+    margin-left: 20px;
+    position: relative;
+    top: 8px;
+}
+
+.about .about_item:hover {
+    color: #fff;
+    opacity: 1;
+    transition: color 0.3s ease;
+}
+
+.about .about-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    
+.about_photo img {
+    width: 770px;
+    height: 550px;
+    transform: translate(80px, -50px);
+}
+    
+/* ------------------------------------------------ */
+
+/* about_footer - нижняя часть блока "О компании" */
+    
+.about_footer {
+    display: flex;
+    justify-content: space-between;
+    height: 104px;
+    padding-top: 32px;
+    margin-top: -130px;
+}
+
+.about_footer::before {
+    content: "";
+    position: absolute;
+    margin-top: -20px;
+    left: 70px;
+    right: 70px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+    
+.about_stag_footer {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    width:132px;
+    height: 69px;
+    font-size: 48px;
+    color: #FD554B;
+    text-align: center;
+}
+    
+.about_stag_footer p {
+    font-family: "Inter", serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+}
+    
+.about_like_footer {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    width:132px;
+    height: 69px;
+    font-size: 48px;
+    color: #FD554B;
+    text-align: center;
+}
+    
+.about_like_footer p {
+    font-family: "Inter", serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    white-space: nowrap;
+}
+    
+.about_footer_1 {
+    width: 377px;
+    height: 72px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    margin-right: -10px;
+}
+    
+.about_footer_1 span {
+    width: 313px;
+    font-family: "Inter", serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: rgba(255, 255, 255);
+}
+    
+.about_like {
+    width: 40px;
+    height: 40px;
+}
+  
+.about_like img {
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+}
+     
+.about_footer_2 {
+    width: 344px;
+    height: 72px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    margin-right: 10px;
+}
+    
+.about_footer_2 span {
+    width: 280px;
+    font-family: "Inter", serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: rgba(255, 255, 255);width: 280px;
+    height: auto;
+}
+    
+.about_doc {
+    width: 40px;
+    height: 40px;
+}
+    
+.about_doc img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+    
+.about_footer_3 {
+    width:179px;
+    height: 72px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    margin-right: 20px;
+}
+    
+.about_footer_3 span {
+    width: 115px;
+    font-family: "Inter", serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: rgba(255, 255, 255);
+}
+ 
+.about_rukopogatie {
+    width: 40px;
+    height: 40px;
+}
+    
+.about_rukopogatie img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ------------------------------------------------ */
+
+/* stage_work - блок "Этапы" */
+
+.stage_work {
+    width: 1400px;
+    height: 780px;
+    background-color: #07192E;
+    border-radius: 10px;
+    background: url('/assets/images/work_cond/back.png') center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    margin-top: -110px;
+}
+  
+.stage_icon {
+    width: 80%; 
+    max-width: 1000px;
+    height: 183px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+  
+.stage_title {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+  
+.stage_icon_item {
+    display: inline-block;
+    width: auto;
+    position: relative;
+}
+  
+.stage_icon_item::after {
+    content: " ";
+    display: block;
+    width: 203px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    transform: translate(2em, -1.5em);
+    left: 100%;
+}
+
+.stage_icon_item:first-child::after {
+    background: linear-gradient(to right, red 70%, rgba(255, 255, 255, 0.2) 30%);
+}
+  
+.stage_description {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    margin-left: -250px;
+}
+
+.stage_icon_item img {
+    display: block;
+    margin: 0 auto;
+}
+  
+.stage_icon_text {
+    width: 100%;
+    height: 91px;
+    margin-left: 100px;
+    display: flex;
+    margin-top: -40px;
+}
+  
+.stage_item_icon_text {
+    width: 260px;
+    height: 91px;
+    font-size: 16px;
+    color:#fff;
+    display: inline-block;
+    width: 20%;
+    margin-right: 30px;
+    font-family: "Inter", serif;
+    font-weight: 400;
+    line-height: 24px;
+    opacity: 0.7;
+}
+
+.stage_item_icon_text_1 {
+    width: 257px;
+    height: 91px;
+    font-size: 16px;
+    color:#fff;
+    display: inline-block;
+    width: 20%;
+    margin-right: 30px;
+    font-family: "Inter", serif;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.stage_item_icon_text_1 p {
+    font-size: 28px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 700;
+    line-height: 32px;
+    font-size: 32px;
+    font-stretch: semi-condensed;
+    letter-spacing: -2px;
+    word-spacing: 5px;
+}
+
+.stage_item_icon_text p {
+    font-size: 28px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 700;
+    line-height: 32px;
+    font-size: 32px;
+    font-stretch: semi-condensed;
+    letter-spacing: -2px;
+    word-spacing: 5px;
+}
+ 
+.stage_title span {
+    color: #FD554B;
+}
+  
+.stage_title p {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 700;
+    line-height: 70px;
+    color:#fff;
+    font-size: 50px;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    font-stretch: semi-condensed;
+    word-spacing: 5px;
+    text-align: center;
+}
+ 
+.stage_subtitle {
+    font-family: "Inter", serif;
+    line-height: 24px;
+    font-weight: 400;
+    width: 504px;
+    height: 54px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 18px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: -50px;
+}
+
+.stage_consultaion .stage-button {
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px 30px;
+    margin-left: 10px;
+    gap: 12px;
+    background: linear-gradient(94.98deg, #0D2F68 0%, #D51117 100%);
+    border-radius: 60px;
+    color: #fff;
+    font-family: "Inter", serif;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: filter 0.3s ease;
+    line-height: 20px;
+}
+
+.stage_consultaion .stage-button:hover {
+    filter: drop-shadow(0 0 15px rgb(255, 0, 0));
+}
+
+.stage_consultaion .stage_item {
+    color: #fff;
+    opacity: 0.5;
+    text-decoration: none;
+    font-size: 36px;
+    margin: 0 5px;
+    margin-left: 20px;
+    position: relative;
+    top: 8px;
+}
+
+.stage_consultaion .stage_item:hover {
+    color: #fff;
+    opacity: 1;
+    transition: color 0.3s ease;
+}
+
+.stage_consultaion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 130px;
+
+}
+  
+/* ------------------------------------------------ */
+
+/* red_triangle - красный треугольник под блоком "Этапов" */
+
+.red_triangle {
+    width: 1300px;
+    position: relative;
+    background-image: url('/assets/images/work_cond/red_triangle.png');
+    background-size: cover;
+    background-position: center;
+    transform: translate(50px, -55px);
+    z-index: -1;
+    -webkit-background-size: cover;
+}
+
+.red_triangle_content {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    display: flex; 
+    align-items: center; 
+    width: 100%;
+}
+
+.text_econom {
+    font-family: "Inter", serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29.05px;
+    color: #fff;
+    margin-top: 130px;
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+.info_perc {
+    font-family: "Inter", serif;
+    font-weight: 900;
+    font-size: 32px;
+    margin-left: 5px;
+    line-height: 38.73px;
+}
+
+.text_mini {
+    font-family: "Inter", serif;
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 5px;
+    line-height: 21px;
+}
+
+.button-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-left: 20px;
+    margin-top: 80px;
+}
+
+/* ------------------------------------------------ */
+
+/* commissions-section - Блок "Комиссии" */
+
+.commissions-section {
+    top: -30px;
+    width: 100vw;
+    transform: translateX(-50%);
+    left: 50%;
+    background-color: #081E36;
+    padding: 40px 0;
+    text-align: center;
+    color: #fff;
+    height: 650px;
+    border-radius: 40px 40px 0 0;
+    margin: 0;
+    position: relative; /* На случай, если будут псевдоэлементы */
+}
+
+.commissions-section h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 65px;
+    font-weight: 700;
+    line-height: 70px;
+    margin-bottom: 30px;
+    letter-spacing: -2px;
+    font-stretch: semi-condensed;
+}
+
+.commission-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.commission-card {
+    background-color: #20344A;
+    border-radius: 24px;
+    padding: 20px;
+    text-align: center;
+    width: 120px;
+}
+
+.commission-card img {
+    width: 50px;
+    height: 50px;
+}
+
+.commission-card h3 {
+    font-family: "Inter", serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19.36px;
+    opacity: 0.5;
+}
+
+.commission-card p {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 24px;
+    margin-top: -3px;
+}
+
+.commission-card a::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -10px; 
+    transform: translateX(-50%); 
+    width: 100%;
+    height: 1px; 
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.commission-card a {
+    font-family: "Inter", serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.36px;
+    color: #fff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.commission-card a img{
+    width: 9px;
+    height: 9px;
+    margin-top: 2px;
+    margin-left: 5px;
+}
+
+.commission-card a:hover {
+    color: #FF7F50;
+}
+
+.deposit-info {
+    font-family: "Inter", serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    margin-top: 40px;
+}
+
+.more-button {
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px 30px;
+    margin-left: 10px;
+    gap: 12px;
+    background: linear-gradient(94.98deg, #0D2F68 0%, #D51117 100%);
+    border-radius: 60px;
+    color: #fff;
+    font-family: "Inter", serif;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: filter 0.3s ease;
+    line-height: 22px;
+}
+
+.more-button:hover {
+    filter: drop-shadow(0 0 15px rgb(255, 0, 0));
+}
+
+.more-button img {
+    width: 11px;
+    height: 11px;
+    margin-left: 20px; 
+    position: relative; 
+    top: 1px;
+}
+
+/* ------------------------------------------------ */
+
+/* footer - подвал */
+
+.footer {
+    width: 100%;
+    background: #081E36;
+    height: auto;
+    padding-top: 30px;
+    font-size: 16px; 
+    line-height: 1.5; 
+    border-top: solid 4px #D51117;
+    margin-top: -130px;
+}
+  
+.footer_logo img{
+    width: 76px;
+    height: 76px;
+    transition: filter 0.3s ease;
+}
+
+.footer_logo img:hover {
+    filter: drop-shadow(0 0 15px rgb(255, 0, 0));
+}
+  
+.footer_info{
+    display: flex;
+    width: 436px;
+    height: 117px;
+    justify-content: space-between;
+    padding-right: 50px;
+    margin-top: 20px;
+    flex-wrap: nowrap;
+    gap: 50px
+  
+}
+  
+.footer_catalog span{
+    display: block; 
+    margin-bottom: 12px; 
+    font-size: 24px;
+    color:#ffff;
+    font-family: "Bebas Neue", sans-serif;
+    font-stretch: semi-condensed;
+    font-weight: 700;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+  
+.footer_company span{
+    display: block;
+    margin-bottom: 12px;
+    font-size: 24px;
+    color:#ffff;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 700;
+    font-stretch: semi-condensed;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+ }
+
+
+.catalog_text a{
+    display: block; 
+    margin-bottom: 10px;
+    font-size: 16px;
+    opacity: .5;
+    color: #ffff;
+    text-decoration: none;
+    font-family: "Inter", serif;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.catalog_text a:hover {
+    color: #fff;
+    opacity: 1;
+}
+  
+.company_text a{
+    display: block; 
+    margin-bottom: 10px;
+    font-size: 16px;
+    opacity: .5;
+    color: #ffff;
+    text-decoration: none;
+    font-family: "Inter", serif;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.company_text a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+.foot_text a{
+    display: block; 
+    margin-bottom: 10px;
+    font-size: 16px;
+    opacity: .5;
+    color: #ffff;
+    text-decoration: none;
+    font-family: "Inter", serif;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.foot_text a:hover {
+    color: #fff;
+    opacity: 1;
+}
+  
+.footer_info:last-child{
+    padding-right: 0px;
+}
+  
+.footer_catalog{
+    min-width: 150px;
+    height: 117px;
+    
+}
+  
+.footer_company{
+    min-width: 150px;
+    height: 117px;
+}
+  
+.ot{
+    display: flex;
+    justify-content: space-between;
+}
+  
+.footer_contact{
+    width: 240px;
+    height: 120px;
+    padding-right: 0px;
+    margin-top: 20px;
+}
+  
+.footer_contact span{
+    font-size: 14px;
+    color: #fff;
+    opacity: .5;
+    font-family: "Inter", serif;
+    font-weight: 400;
+}
+  
+.number_foot{
+    color:#fff;
+    font-size:40px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-stretch: semi-condensed;
+}
+  
+.footer_sosceti{
+    display: flex; 
+    gap: 12px;
+}
+
+.foot_social_item {
+    color: #fff;
+    opacity: 0.3;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.foot_social_item:hover {
+    color: #fff;
+    opacity: 1;
+    transition: color 0.3s ease;
+}
+  
+.politic{
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 55px;
+    border-top: solid 1px rgba(255, 255, 255, 0.2);
+    font-family: "Inter", serif;
+    font-weight: 400;
+    margin-left: -60px; 
+    margin-right: -60px;
+}
+
+.politic-inner {
+    max-width: 1400px;
+    width: 100%; 
+    margin: 0 auto; 
+    display: flex;
+    justify-content: space-between; 
+    color: #fff; 
+    font-size: 14px;
+    font-family: "Inter", serif;
+    font-weight: 400;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+  
+.footer_logo{
+    cursor: pointer;
+}

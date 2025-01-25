@@ -15,7 +15,7 @@ class Cars(models.Model):
     mileage = models.IntegerField()
     price = models.IntegerField()
     transmission = models.CharField(max_length=20)
-    engine_volume = models.CharField(max_length=250)
+    engine_volume = models.IntegerField()
     drive = models.CharField(max_length=20)
     color = models.CharField(max_length=50)
     power_volume = models.CharField(max_length=250)

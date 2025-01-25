@@ -44,8 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.humanize',
     'core',
+    'django.contrib.humanize',
     'feedback',
     'parsers',
     'cars_app',
@@ -89,7 +89,6 @@ WSGI_APPLICATION = 'webbin.wsgi.application'
 
 # Обработчик ошибки 404
 handler404 = 'core.views.custom_page_not_found'
-
 
 # Путь для фотографий авто
 MEDIA_URL = '/media/'

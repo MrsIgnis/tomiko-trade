@@ -4,7 +4,7 @@ from parsers.models import VKClip
 from django.db.models import Value, CharField, IntegerField
 from django.db.models.functions import Concat, Cast
 from django.core.paginator import Paginator, PageNotAnInteger
-from django.http import JsonResponse, Http404
+from django.http import JsonResponse
 
 def main(request):
     clips = VKClip.objects.all()[:11]
@@ -20,6 +20,9 @@ def actions(request):
 
 def contacts(request):
     return render(request, 'contacts.html')
+
+def work_cond(request):
+    return render(request, 'work_cond.html')
 
 def custom_page_not_found(request, exception):
     return render(request, '404.html', status=404)
