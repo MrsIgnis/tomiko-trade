@@ -17,20 +17,14 @@ Including another URLconf
 from django.shortcuts import render
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('feedback/', include('feedback.urls')),
-    path('success/', lambda request: render(request, 'success.html'), name='success'),
-    path('cars/', include('cars_app.urls')),
-    path('cars/', include('cars_app.urls')),
-    path('reviews_parser/', include('reviews_parser.urls')),
-
     path('', include('core.urls')),
-    #path('api/', include('core.urls')),
 ]
 
 # На время разработки для работы с фотографиями авто
-#if settings.DEBUG:
-#    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -12,3 +12,16 @@ class VKClip(models.Model):
 
     def __str__(self):
         return self.title
+
+class Review2GIS(models.Model):
+    username = models.CharField(max_length=200)
+    date = models.CharField(max_length=50)
+    rating = models.IntegerField(choices=[(1, '⭐'), (2, '⭐⭐'), (3, '⭐⭐⭐'), (4, '⭐⭐⭐⭐'), (5, '⭐⭐⭐⭐⭐')])
+    avatar = models.ImageField(upload_to='review_avatars/', null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'Отзыв'
+        verbose_name_plural = 'Отзывы'
+
+    def __str__(self):
+        return f"{self.username} - {self.rating} звезд"

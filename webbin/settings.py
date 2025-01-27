@@ -44,12 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core',
     'django.contrib.humanize',
-    'feedback',
+    'core',
     'parsers',
-    'cars_app',
-    'reviews_parser',
 ]
 
 REST_FRAMEWORK = {
