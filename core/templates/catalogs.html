@@ -202,11 +202,12 @@
                                         </p>
                                     </div>
 
-                                    {% if car.photos.first %}
-                                    <img src="{{ car.photos.first.image.url }}" alt="{{ car.model }}">
-                                    {% else %}
-                                    <img src="{% static 'images/no-image.jpg' %}" alt="Нет изображения">
-                                    {% endif %}
+                                    <div class="image-container-slider-test">
+                                        {% if car.main_image %}
+                                        <img src="{{ car.main_image.image.url }}" alt="{{ car.model }}" class="car-image">
+                                        {% endif %}
+                                    </div>
+
                                 </div>
                             </div>
                             {% endfor %}
@@ -259,8 +260,8 @@
                                 </div>
 
                                 <div class="image-container">
-                                    {% if car.photos.first %}
-                                    <img src="{{ car.photos.first.image.url }}" alt="{{ car.model }}" class="car-image">
+                                    {% if car.main_image %}
+                                    <img src="{{ car.main_image.image.url }}" alt="{{ car.model }}" class="car-image">
                                     {% endif %}
                                 </div>
 
