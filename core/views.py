@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Cars, Brands
-from parsers.models import VKClip
+from parsers.models import VKClip, Review2GIS
 from django.db.models import Value, CharField, IntegerField
 from django.db.models.functions import Concat, Cast
 from django.core.paginator import Paginator, PageNotAnInteger
@@ -8,9 +8,11 @@ from django.http import JsonResponse
 
 def main(request):
     clips = VKClip.objects.all()[:11]
+    reviews = Review2GIS.objects.all()[:8]
 
     context = {
         'clips': clips,
+        'reviews': reviews
     }
 
     return render(request, 'main_page.html', context)

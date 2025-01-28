@@ -1,4 +1,5 @@
 {% load static %}
+{% load review_filters %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -507,207 +508,39 @@
 
                 <div class="reviews_down">
                     <div class="comment_rov">
+                        {% for review in reviews %}
                         <div class="comment_item">
                             <div class="commnet_photo">
-                                <img src="{% static 'images/human.png' %}">
+                                {% if review.avatar|url_startswith:"http" %}
+                                    <img src="{{ review.avatar }}" alt="Аватар пользователя">
+                                {% else %}
+                                    <img src="{% static 'images/human.png' %}" alt="Аватар по умолчанию">
+                                {% endif %}
                             </div>
 
                             <div class="comment_name">
-                                Иванова Ольга
+                                {{ review.username }}
                             </div>
 
                             <div class="comment_mark">
                                 <div class="comment_star">
                                     <span>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                        {% for i in review.rating|get_range %}
+                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                        {% endfor %}
+
+                                        {% for i in review.rating|get_empty_range %}
+                                        <i class="fa-regular fa-star" style="color: #FFD43B;"></i>
+                                        {% endfor %}
                                     </span>
+
                                     <div class="comment_data">
-                                        21 октября 2023г.
+                                        {{ review.date }}
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="comment_item">
-                            <div class="commnet_photo">
-                                <img src="{% static 'images/human.png' %}">
-                            </div>
-
-                            <div class="comment_name">
-                                Иванова Ольга
-                            </div>
-
-                            <div class="comment_mark">
-                                <div class="comment_star">
-                                    <span>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                    </span>
-                                    <div class="comment_data">
-                                        21 октября 2023г.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="comment_item">
-                            <div class="commnet_photo">
-                                <img src="{% static 'images/human.png' %}">
-                            </div>
-
-                            <div class="comment_name">
-                                Иванова Ольга
-                            </div>
-
-                            <div class="comment_mark">
-                                <div class="comment_star">
-                                    <span>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                    </span>
-                                    <div class="comment_data">
-                                        21 октября 2023г.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="comment_item">
-                            <div class="commnet_photo">
-                                <img src="{% static 'images/human.png' %}">
-                            </div>
-
-                            <div class="comment_name">
-                                Иванова Ольга
-                            </div>
-
-                            <div class="comment_mark">
-                                <div class="comment_star">
-                                    <span>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                    </span>
-                                    <div class="comment_data">
-                                        21 октября 2023г.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="comment_rov">
-                        <div class="comment_item">
-                            <div class="commnet_photo">
-                                <img src="{% static 'images/human.png' %}">
-                            </div>
-
-                            <div class="comment_name">
-                                Иванова Ольга
-                            </div>
-
-                            <div class="comment_mark">
-                                <div class="comment_star">
-                                    <span>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                    </span>
-                                    <div class="comment_data">
-                                        21 октября 2023г.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="comment_item">
-                            <div class="commnet_photo">
-                                <img src="{% static 'images/human.png' %}">
-                            </div>
-
-                            <div class="comment_name">
-                                Иванова Ольга
-                            </div>
-
-                            <div class="comment_mark">
-                                <div class="comment_star">
-                                    <span>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                    </span>
-                                    <div class="comment_data">
-                                        21 октября 2023г.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="comment_item">
-                            <div class="commnet_photo">
-                                <img src="{% static 'images/human.png' %}">
-                            </div>
-
-                            <div class="comment_name">
-                                Иванова Ольга
-                            </div>
-
-                            <div class="comment_mark">
-                                <div class="comment_star">
-                                    <span>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                    </span>
-                                    <div class="comment_data">
-                                        21 октября 2023г.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="comment_item">
-                            <div class="commnet_photo">
-                                <img src="{% static 'images/human.png' %}">
-                            </div>
-
-                            <div class="comment_name">
-                                Иванова Ольга
-                            </div>
-
-                            <div class="comment_mark">
-                                <div class="comment_star">
-                                    <span>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                    </span>
-                                    <div class="comment_data">
-                                        21 октября 2023г.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
