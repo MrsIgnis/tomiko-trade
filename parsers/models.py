@@ -7,6 +7,7 @@ class VKClip(models.Model):
     post_url = models.URLField(verbose_name='URL поста')
 
     class Meta:
+        managed = False
         verbose_name = 'Клип'
         verbose_name_plural = 'Клипы'
 
@@ -17,7 +18,7 @@ class Review2GIS(models.Model):
     username = models.CharField(max_length=200)
     date = models.CharField(max_length=50)
     rating = models.IntegerField(choices=[(1, '⭐'), (2, '⭐⭐'), (3, '⭐⭐⭐'), (4, '⭐⭐⭐⭐'), (5, '⭐⭐⭐⭐⭐')])
-    avatar = models.ImageField(upload_to='review_avatars/', null=True, blank=True)
+    avatar = models.CharField(max_length=2)
 
     class Meta:
         verbose_name = 'Отзыв'
