@@ -26,8 +26,12 @@ def contacts(request):
 def work_cond(request):
     return render(request, 'work_cond.html')
 
+
 def custom_page_not_found(request, exception):
     return render(request, '404.html', status=404)
+
+def card(request):
+    return render(request, 'card.html')
 
 def get_sort_order(sort_option):
     """ Возвращает список полей для сортировки на основе параметра sort_option. """

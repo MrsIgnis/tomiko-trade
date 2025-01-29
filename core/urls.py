@@ -22,6 +22,7 @@ urlpatterns = [
     path('actions/', views.actions, name='actions'),
     path('contacts/', views.contacts, name='contacts'),
     path('work_cond/', views.work_cond, name='work_cond'),
+    path('card/', views.card, name='card'),
     re_path(r'^(?P<country>korea|china|japan)/$', views.cars_catalog, name='cars_catalog'),
     re_path(r'^(?P<country>korea|china|japan)/get_models_by_brand/$', views.get_models_by_brand, name='get_models_by_brand'),
     re_path(r'^(?!media/).*$', views.custom_page_not_found, {'exception': Exception('Not Found')}),
