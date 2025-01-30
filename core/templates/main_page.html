@@ -2,33 +2,33 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
-      <meta charset="utf-8">
-      <title>{% block title %}Автомобили под заказ из Южной Кореи, Китая, Японии - Tomiko Trade{% endblock %}</title>
+        <meta charset="utf-8">
+        <title>{% block title %}Автомобили под заказ из Южной Кореи, Китая, Японии - Tomiko Trade{% endblock %}</title>
 
-      <link rel="stylesheet" href="{% static 'css/bee.css' %}">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap">
-      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <link rel="stylesheet" href="{% static 'css/bee.css' %}">
 
-      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-      <script src="https://kit.fontawesome.com/2eb1ff35d2.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="https://kit.fontawesome.com/2eb1ff35d2.js" crossorigin="anonymous"></script>
     </head>
 
     <body>
+
         <header class="header" id="header">
             <div class="container">
                 <div class="header_inner">
                     <div class="header_left">
                         <div class="header_logo">
                             <a href="#">
-                                <img src="{% static 'images/logo.png' %}"
-                                     alt="Tomiko Trade"
-                                     class="logo">
+                                <img src="{% static 'images/header/logo.png' %}" alt="Tomiko Trade" class="logo">
                             </a>
                         </div>
-
                         <nav class="nav">
                             <a class="nav_link" href="{% url 'cars_catalog' country='korea' %}">Авто из Кореи</a>
                             <a class="nav_link" href="{% url 'cars_catalog' country='china' %}">Авто из Китая</a>
@@ -37,23 +37,15 @@
                             <a class="nav_link" href="{% url 'contacts'%}">Контакты</a>
                         </nav>
                     </div>
-
                     <div class="header_right">
                         <div class="number">
                             <p>8 (800) 500-49-46</p>
                         </div>
-
                         <div class="social">
-                            <a class="social_item"
-                               href="#"
-                               target="_blank">
-                                <i class="fa-brands fa-telegram"></i>
+                            <a class="social_item" href="#" target="_blank"><img src="{% static 'images/header/cta_button_TG.png' %}" alt="">
                             </a>
-
-                            <a class="social_item"
-                               href="https://wa.me/79244202432"
-                               target="_blank">
-                                <i class="fa-brands fa-whatsapp"></i>
+                            <a class="social_item" href="#" target="_blank"><img src="{% static 'images/header/cta_button_WTA.png' %}" alt="">
+                            </a>
                             </a>
                         </div>
                     </div>
@@ -61,92 +53,69 @@
             </div>
         </header>
 
-        <div class="intro" id="intro">
+        <section class = "section">
             <div class="container">
-                <div class="intro_inner">
-                    <h1 class="intro_title">Автомобили под заказ из Южной Кореи, Китая, Японии</h1>
-                    <h2 class="intro_subtitle">Подберем. Купим. Доставим. Растаможим. Отправим в любой регион России.</h2>
-                    <a class="intro_btn" href="#">Рассчитать стоимость</a>
-                </div>
-
-                <div class="intro_info">
-                    <div class="intro_info_item">
-                        <span class="info_num">5+</span>
-                        <div class="info_text">
-                            Лет на рынке
+                <div class="intro" id="intro">
+                    <div class="intro_inner">
+                        <h1 class="intro_title">Автомобили под заказ из Южной Кореи, Китая, Японии</h1>
+                        <h2 class="intro_subtitle">Подберем. Купим. Доставим. Растаможим. Отправим в любой регион России.</h2>
+                        <a class="intro_btn" href="#">Рассчитать стоимость</a>
+                    </div>
+                    <div class="stats-container">
+                        <div class="stats-items">
+                            <img src="{% static 'images/main_page/achiev.png' %}" alt="">
                         </div>
-                    </div>
-
-                    <div class="intro_info_item">
-                        <span class="info_num">4 000+</span>
-                        <div class="info_text">
-                            довольных клиентов
-                        </div>
-                    </div>
-
-                    <div class="intro_info_item">
-                        <span class="info_num">
-                            <i class="fa-sharp fa-solid fa-star"></i>4.6
-                        </span>
-                    </div>
-                </div>
-
-                <div class="intro_over">
-                    <div class="intro_over_top">
-                        <p>Экономия до
-                            <span class="info_perc">30%</span>
-                            <br> от рынка авто в наличии
-                        </p>
-                    </div>
-
-                    <div class = "btn_pop_up">
-                        <a class="over_btn" href="#" id ="open_pop_up">Смотреть пример</a>
-                    </div>
-
-                    <div class="pop_up" id ="pop_up">
-                        <div class="pop_up_container">
-                            <div class="pop_up_body" id="pop_up_body">
-                                <div class="pop_up_close" id="pop_up_close">
-                                    <i class="fa-solid fa-xmark"></i>
-                                </div>
-
-                                <p>Экономия до<span class="info_perc">30%</span> от рынка авто в наличии</p>
-
-                                <div class="pop_up_body_image">
-                                    <div class="pop_body_image_item_1">
-                                        <img src="{% static 'images/image_economy.png' %}" alt="картинка">
+                        <div class="discount-box">
+                            <p class="discount-text">Экономия до <span class="discount-percent">30%</span></p>
+                            <p class="discount-text-small">от рынка авто в наличии</p>
+                            <div class = "btn_pop_up">
+                                <a class="over_btn" href="#" id ="open_pop_up">Смотреть пример</a>
+                            </div>
+    
+                            <div class="pop_up" id="pop_up">
+                                <div class="pop_up_body" id="pop_up_body">
+                                    <div class="pop_up_close" id="pop_up_close">
+                                        <img src="{% static 'images/main_page/arrow.png' %}" alt="стрелка">
                                     </div>
-
-                                    <div class="pop_body_image_item_2">
-                                        <img src="{% static 'images/image_economy2.png' %}" alt="картинка">
+                                    <div class="pop_up_header">
+                                        <h3>Экономия до <span>30%</span> от рынка авто в наличии</h3>
                                     </div>
-
-                                    <div class="pop_body_strelka">
-                                        <img src="{% static 'images/image_economy3.png' %}" alt="картинка">
+                                    <div class="pop_up_content">
+                                        <div class="pop_up_images">
+                                            <div class="pop_up_image_item">
+                                                <img class="image1" src="{% static 'images/main_page/disc_img_1.png' %}" alt="Image 1">
+                                                <p>Привезли мы</p>
+                                            </div>
+                                            <div class="pop_up_image_item">
+                                                <img class="image2" src="{% static 'images/main_page/disc_img_2.png' %}" alt="Image 2">
+                                                <p>В наличии на Дром Авто</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pop_up_footer">
+                                        <div class="btn_econom">
+                                            <a href="#">Получить консультацию</a>
+                                        </div>
+                                        <div class="btn_econom_soc">
+                                            <a class="btn_econom_soc_item" href="#" target="_blank"><img src="{% static 'images/main_page/disc_button_WTA.png' %}" alt="">
+                                            </a>
+                                            <a class="btn_econom_soc_item" href="#" target="_blank"><img src="{% static 'images/main_page/disc_button_TG.png' %}" alt="">
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-
-                                <div class="about_button btn_econom">
-                                    Получить консультацию
-                                    <img src ="{% static 'images/image_economy4.png' %}">
-                                </div>
-
-                                <img src="{% static 'images/Telegram.png' %}" alt="wdwd" id="btn_econom_teleg">
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="intro_bottom_item"></div>
             </div>
-        </div>
+        </section>
 
         <section class = "section">
             <div class="container">
                 <div class="slider_up_text">
                     ПОПУЛЯРНЫЕ АВТО <span>ИЗ КОРЕИ</span><img src="{% static 'images/korea.png' %}" alt="картинка">
                 </div>
-
                 <div class="wrapper">
                     <div class="image-slider swiper-container">
                         <div class="image-slider__wraper swiper-wrapper">
@@ -156,7 +125,6 @@
                                         Subaru LEVORG VN5
                                         <p>2021 • Гибрит • 10 000 км</p>
                                     </div>
-
                                     <div class="image-slider__inner-slider swiper-container">
                                         <div class="image-slider__inner-wrapper swiper-wrapper">
                                             <div class="image-slider__inner-slide swiper-slide">
@@ -174,7 +142,6 @@
                                     <button class="req-butt custom-open-pop-up">Оставить заявку</button>
                                 </div>
                             </div>
-
                             <div class="image-slider_slide swiper-slide">
                                 <div class="image-slider_image">
                                     <div class="slider_text">
@@ -198,7 +165,6 @@
                                     <button class="req-butt custom-open-pop-up">Оставить заявку</button>
                                 </div>
                             </div>
-
                             <div class="image-slider_slide swiper-slide">
                                 <div class="image-slider_image">
                                     <div class="slider_text">
@@ -222,7 +188,6 @@
                                     <button class="req-butt custom-open-pop-up">Оставить заявку</button>
                                 </div>
                             </div>
-
                             <div class="image-slider_slide swiper-slide">
                                 <div class="image-slider_image">
                                     <div class="slider_text">
@@ -246,7 +211,6 @@
                                     <button class="req-butt custom-open-pop-up">Оставить заявку</button>
                                 </div>
                             </div>
-
                             <div class="image-slider_slide swiper-slide">
                                 <div class="image-slider_image">
                                     <div class="slider_text">
@@ -382,59 +346,62 @@
 
         <section class="section">
             <div class="container">
-                <div class="stage_work">
+                <div class="stage_work" style="background-image: url('https://tomiko-trade.com/static/img/stage1.webp'); background-size: cover;">
                     <div class="stage_title">
-                        <p><span>ЭТАПЫ</span> РАБОТЫ<p>
-                        <div class="stage_subtitle">
-                        Прозрачное ценообразование с подробным разъяснением затрат на каждом этапе
-                    </div>
-
+                        <p><span>Этапы</span> работы</p>
+                            <div class="stage_subtitle">
+                                Прозрачное ценообразование с подробным разъяснением затрат на каждом этапе
+                            </div>
                     </div>
                     <div class="stage_description">
                         <div class="stage_icon">
                             <div class="stage_icon_item">
-                                <img src="{% static 'images/Emoji_3.png' %}">
+                                <img src="{% static 'images/work_cond/stage_work1.png' %}">
                             </div>
-
                             <div class="stage_icon_item">
-                                <img src="{% static 'images/Emoji_4.png' %}">
+                                <img src="{% static 'images/work_cond/stage_work2.png' %}">
                             </div>
-
                             <div class="stage_icon_item">
-                                <img src="{% static 'images/Emoji_1.png' %}">
+                                <img src="{% static 'images/work_cond/stage_work3.png' %}">
                             </div>
-
                             <div class="stage_icon_item">
-                                <img src="{% static 'images/Emoji_2.png' %}">
+                                <img src="{% static 'images/work_cond/stage_work4.png' %}">
                             </div>
                         </div>
                     </div>
-
                     <div class="stage_icon_text">
-                        <div class="stage_item_icon_text">
+                        <div class="stage_item_icon_text_1">
                             <p>ЗАЯВКА</p>
-                            Оставьте заявку,чтобы получить индивидуальную консультацию
+                            Оставьте заявку, чтобы получить индивидуальную консультацию
                         </div>
-
                         <div class="stage_item_icon_text">
                             <p>ПОДБОР АВТО</p>
-                            Подберем автомобиль под ваши критерии
+                            Подберем автомобиль под <br> ваши критерии
                         </div>
-
                         <div class="stage_item_icon_text">
                             <p>ОФОРМЛЕНИЕ</p>
                             Согласуем бюджет и заключим договор на авто
                         </div>
-
                         <div class="stage_item_icon_text">
                             <p>ДОСТАВКА ПО РФ</p>
-                            После доставки в г. Владивосток, мы отправим автомобиль в ваш город
+                            После доставки в г. Владивосток мы отправим автомобиль в ваш город
                         </div>
                     </div>
-
-                    <div class="stage_consultaion">
-                        <button type="button" name="button" class="consultaion">Получить консультацию</button>
-                        <a href="https://wa.me/79244202432"><img src="{% static 'images/WhatsApp.png' %}"></a>
+                    <div class="stage_consultaion custom-open-pop-up">
+                        <a class="stage-button" href="#">Получить консультацию</a> 
+                        <a class="stage_item" href="#" target="_blank"><img src="{% static 'images/work_cond/cta_button.png' %}"></a>
+                    </div>
+                    <div class="red_triangle" style="background-image: url('data:image/png;base64,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'); background-size: cover;">
+                        <div class="red_triangle_content">
+                            <p class="text_econom">
+                            Экономия до 
+                            <span class="info_perc">30%</span><br>
+                            <span class="text_mini">от рынка авто в наличии</span>
+                            </p>
+                            <a href="#" class="button-link">
+                                <img src="{% static 'images/work_cond/triangle_button.png' %}" alt="Кнопка" class="button-image">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -443,47 +410,53 @@
         <section class="section">
             <div class="container">
                 <div class="about">
-                    <div class="about_text">
-                        <div class="about_title">
-                            О НАС
+                    <div class="about_second">
+                        <div class="about_text">
+                            <div class="about_title">
+                                О нас
+                            </div>
+                            <div class="about_subtitle">
+                                Компания «Правый руль» предлагает широкий выбор автомобилей от ведущих
+                                мировых производителей. Мы специализируемся на продаже новых и
+                                подержанных авто. Наша команда профессионалов поможет вам выбрать
+                                идеальный автомобиль, учитывая ваши потребности и бюджет.
+                            </div>
+                                <div class="about_actions custom-open-pop-up">
+                                    <a class="about_button" href="#">Получить консультацию</a> 
+                                    <a class="about_item" href="#" target="_blank"><img src="{% static 'images/work_cond/cta_button.png' %}"></a>
+                                </div>
                         </div>
-
-                        <div class="about_subtitle">
-                            Компания «Правый руль» предлагает широкий выбор автомобилей от ведущих мировых производителей. Мы специализируемся на продаже новых и подержанных авто. Наша команда профессионалов поможет вам выбрать идеальный автомобиль, учитывая ваши потребности и бюджет.
+                        <div class="about_photo">
+                            <img src="{% static 'images/work_cond/test.png' %}">
                         </div>
-
-                        <div class="about_button">
-                            Подобрать авто
-                            <img src="{% static 'images/WhatsApp.png' %}">
-                        </div>
-                    </div>
-
-                    <div class="about_photo">
-                        <img src="{% static 'images/company.png' %}">
                     </div>
                 </div>
-
                 <div class="about_footer">
                     <div class="about_stag_footer">
-                        5+
+                        5 +
                         <p>Лет на рынке</p>
                     </div>
-
                     <div class="about_like_footer">
-                        4000+
-                        <p>довольных клиентов</p>
+                        4 000 +
+                        <p>Довольных клиентов</p>
                     </div>
-
                     <div class="about_footer_1">
-                        <div class="about_like"><img src="{% static 'images/Emoji_7.png' %}"></div><span>Прозрачное ценообразование с подробным разъяснением затрат на каждом этапе</span>
+                        <div class="about_like">
+                            <img src="{% static 'images/work_cond/like.png' %}">
+                        </div>
+                        <span>Прозрачное ценообразование с подробным разъяснением затрат на каждом этапе</span>
                     </div>
-
                     <div class="about_footer_2">
-                        <div class="about_doc"><img src="{% static 'images/Emoji_5.png' %}"></div><span>Полное сопровождение и предоставление фото/видео отчета на протяжение всей сделки</span>
+                        <div class="about_doc">
+                            <img src="{% static 'images/work_cond/paper.png' %}">
+                        </div>
+                        <span>Полное сопровождение и предоставление фото/видео отчета на протяжение всей сделки</span>
                     </div>
-
                     <div class="about_footer_3">
-                        <div class="about_rukopogatie"><img src="{% static 'images/Emoji_6.png' %}"></div><span>Проверенные поставщики</span>
+                        <div class="about_rukopogatie">
+                            <img src="{% static 'images/work_cond/hands.png' %}">
+                        </div>
+                        <span>Проверенные поставщики</span>
                     </div>
                 </div>
             </div>
@@ -504,18 +477,15 @@
                         </nav>
                     </div>
                 </div>
-
                 <div class="reviews_down">
                     <div class="comment_rov">
                         <div class="comment_item">
                             <div class="commnet_photo">
                                 <img src="{% static 'images/human.png' %}">
                             </div>
-
                             <div class="comment_name">
                                 Иванова Ольга
                             </div>
-
                             <div class="comment_mark">
                                 <div class="comment_star">
                                     <span>
@@ -531,16 +501,13 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="comment_item">
                             <div class="commnet_photo">
                                 <img src="{% static 'images/human.png' %}">
                             </div>
-
                             <div class="comment_name">
                                 Иванова Ольга
                             </div>
-
                             <div class="comment_mark">
                                 <div class="comment_star">
                                     <span>
@@ -556,16 +523,13 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="comment_item">
                             <div class="commnet_photo">
                                 <img src="{% static 'images/human.png' %}">
                             </div>
-
                             <div class="comment_name">
                                 Иванова Ольга
                             </div>
-
                             <div class="comment_mark">
                                 <div class="comment_star">
                                     <span>
@@ -581,16 +545,13 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="comment_item">
                             <div class="commnet_photo">
                                 <img src="{% static 'images/human.png' %}">
                             </div>
-
                             <div class="comment_name">
                                 Иванова Ольга
                             </div>
-
                             <div class="comment_mark">
                                 <div class="comment_star">
                                     <span>
@@ -607,17 +568,14 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="comment_rov">
                         <div class="comment_item">
                             <div class="commnet_photo">
                                 <img src="{% static 'images/human.png' %}">
                             </div>
-
                             <div class="comment_name">
                                 Иванова Ольга
                             </div>
-
                             <div class="comment_mark">
                                 <div class="comment_star">
                                     <span>
@@ -633,16 +591,13 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="comment_item">
                             <div class="commnet_photo">
                                 <img src="{% static 'images/human.png' %}">
                             </div>
-
                             <div class="comment_name">
                                 Иванова Ольга
                             </div>
-
                             <div class="comment_mark">
                                 <div class="comment_star">
                                     <span>
@@ -658,16 +613,13 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="comment_item">
                             <div class="commnet_photo">
                                 <img src="{% static 'images/human.png' %}">
                             </div>
-
                             <div class="comment_name">
                                 Иванова Ольга
                             </div>
-
                             <div class="comment_mark">
                                 <div class="comment_star">
                                     <span>
@@ -683,16 +635,13 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="comment_item">
                             <div class="commnet_photo">
                                 <img src="{% static 'images/human.png' %}">
                             </div>
-
                             <div class="comment_name">
                                 Иванова Ольга
                             </div>
-
                             <div class="comment_mark">
                                 <div class="comment_star">
                                     <span>
@@ -717,19 +666,16 @@
             <div class="container">
                 <div class="clips">
                     <div class="clips_phone"></div>
-
                     <div class = "clip_up">
                         <div class="clips_title">
                             <img src="{% static 'images/Frame.png' %}">
                             <span>КЛИПЫ<span>
                         </div>
-
                         <div class="clip_button">
                             <i class="fa-brands fa-vk"></i>
                             <button type="button" name="button">Подписаться</button>
                         </div>
                     </div>
-
                     <div class="video_clip swiper-container">
                         <div class="video-clip-wrapper">
                             {% for clip in clips %}
@@ -753,21 +699,17 @@
                     <div class="reklama_img">
                         <img src="{% static 'images/photo2.png' %}">
                     </div>
-
                     <div class="reklama_slogan">
                         <div class="slogan">
                             <p><span>ПОДПИШИСЬ</span> И НЕ УПУСТИ СВОЙ АВТОМОБИЛЬ МЕЧТЫ</p>
                         </div>
-
                         <div class="slogan_socseti">
                             <div class="slogan_socseti_item">
                                 <a href="#"><img src="{% static 'images/tg_button.png' %}"><span>Телеграм-канал</span><img src="{% static 'images/Vector.png' %}" class="strel_tg"></a>
                             </div>
-
                             <div class="slogan_socseti_item">
                                 <a href="https://vk.com/tomiko_trade"><img src="{% static 'images/vk_button.png' %}"><span>VK</span><img src="{% static 'images/Vector.png' %}" class="strel_vk"></a>
                             </div>
-
                             <div class="slogan_socseti_item">
                                 <a href="https://www.instagram.com/praviyrul.jp?igsh=N3VucnNibWsyZzVk"><img src="{% static 'images/inst_button.png' %}"><span>Instagram</span><img src="{% static 'images/Vector.png' %}" class="strel_inst"></a>
                             </div>
@@ -777,107 +719,131 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class = "section">
             <div class="container">
                 <div class="cnt">
                     <div class="contact">
                         <div class="contact_text">
-                            КОНТАКТНАЯ ИНФОРМАЦИЯ
+                            Контактная <br> информация <img src="{% static 'images/contacts/hi.webp' %}">
                         </div>
-
                         <div class="sub_contact_text">
-                            Оставьте свою заявку и наш менеджер свяжется с Вами для уточнения деталей.
+                            Оставьте свою заявку и наш менеджер <br> свяжется с Вами для уточнения деталей.
                         </div>
-
                         <div class="contact_info">
-                            <p>Звонок по России бесплатно</p>
-                            <div>
-                                8 800 550 48 3
+                            <div class="contact_left">
+                                <p>Адрес</p>
+                                <div>
+                                    690088, г. Владивосток, ул. Жигура 9в
+                                </div>
+                                <p>Звонок по России бесплатный</p>
+                                <div>
+                                    8 (800) 775-67-29
+                                </div>
+                                <div>
+                                    8 (924) 123-45-67
+                                </div>
+                                <div class="contact_sosceti">
+                                    <a class="contact_social_item" href="#" target="_blank"><img src="{% static 'images/contacts/TG.png' %}"></a>
+                                    <a class="contact_social_item" href="#" target="_blank"><img src="{% static 'images/contacts/WTA.png' %}"></a>
+                                    <a class="contact_social_item" href="#" target="_blank"><img src="{% static 'images/contacts/VK.png' %}"></a>
+                                    <a class="contact_social_item" href="#" target="_blank"><img src="{% static 'images/contacts/Insta.svg' %}"></a>
+                                </div>
                             </div>
-                            <p>Whatsapp</p>
-                            <div>
-                                +7 (924) 420-24-3
-                            </div>
-                            <p>Офис</p>
-                            <div>
-                                г. Владивосток, ул. Тополевая
+                            <div class="contact_right">
+                                <p>Компания</p>
+                                <div>
+                                    ООО "АВТОЦЕНТР-ВЛ"
+                                </div>
+                                <p>ИНН / КПП</p>
+                                <div>
+                                    2536263238 / 253601001
+                                </div>
+                                <p>ОГРН</p>
+                                <div>
+                                    1132536004622
+                                </div>
                             </div>
                         </div>
                     </div>
-
                     <div class="form_contact">
-                        <form class ="form_to_contact">
-                            <span class = "name">
-                                <label for="name">Имя</label><br>
-                                <input type="text" placeholder="Введите имя">
-                            </span>
-                            <span class="phone_number">
-                                <label for="phone_number">Телефон</label><br>
-                                <input type="text" placeholder="+7">
-                            </span>
-                            <div class="textarea">
+                        <form class="form_to_contact">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Имя</label>
+                                    <input type="text" id="name" placeholder="Введите имя">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone_number">Телефон</label>
+                                    <input type="text" id="phone_number" placeholder="+7">
+                                </div>
+                            </div>
+                            <div  iv class="textarea">
                                 <label for="textarea">Уточните свой вопрос</label>
-                                <textarea class = text_form_contact placeholder="Введите текст сообщения, укажите страну, марку и год машины"></textarea>
+                                <textarea class="text_form_contact" id="textarea" placeholder="Введите текст сообщения, укажите страну, марку и год машины"></textarea>
                             </div>
                             <div class="cch">
-                                <input type="checkbox" class = "checkbox" width="20px">
-                                <span class = "text_checkbox">С<span class = "confeditional_form">правилами политики конфиденциальности</span> ознакомлён</span>
+                                <input type="checkbox" class="checkbox" id="checkbox">
+                                <label class="text_checkbox" for="checkbox">
+                                    С <span class="confeditional_form">правилами политики конфиденциальности</span>
+                                    ознакомлён
+                                </label>
                             </div>
-                            <div class="button_form">
-                                Отправить
-                            </div>
+                            <button type="submit" class="button_form">Отправить</button>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
 
-        <footer class="footer">
+        <footer class = "footer">
             <div class="container">
-                <div class="ot">
-                    <div class="footer_info">
-                        <div class="footer_logo">
-                            <img src="{% static 'images/logo2.png' %}">
-                        </div>
-
-                        <div class="footer_catalog">
-                            <span class="katalog">КАТАЛОГ</span>
-                            <div class="catalog_text">
-                                <div class="links_footer">
-                                    <a href="#">Авто из Кореи</a>
-                                    <a href="#">Авто из Китая</a>
-                                    <a href="#">Авто из </a>
+                <div class="container">
+                    <div class="ot">
+                        <div class="footer_info">
+                            <div class="footer_logo">
+                                <a href="#">
+                                    <img src="{% static 'images/footer/logo.png' %}" alt="Tomiko Trade" class="logo_foot">
+                                </a>
+                            </div>
+                            <div class="footer_catalog">
+                                <span class="katalog">Каталог</span>
+                                <div class="catalog_text">
+                                    <div class="links_footer">
+                                        <a href="#">Авто из Кореи</a>
+                                        <a href="#">Авто из Китая</a>
+                                        <a href="#">Авто из Японии</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="footer_company">
+                                <span>Компания</span>
+                                <div class="company_text">
+                                    <div class="links_footer">
+                                        <a href="#">О компании</a>
+                                        <a href="#">Клипы</a>
+                                        <a href="#">Отзывы</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="footer_company">
-                            <span>КОМПАНИЯ</span>
-                            <div class="company_text">
-                                <div class="links_footer">
-                                    <a href="#">О компании</a>
-                                    <a href="#">Доставка</a>
-                                    <a href="#">Отзывы</a>
+                        <div class="footer_contact">
+                            <span>Звонок по России бесплатный</span>
+                            <div class="number_foot">8 800 550 48 32</div>
+                                <div class="footer_sosceti">
+                                    <a class="foot_social_item" href="#" target="_blank"><img src="{% static 'images/footer/TG.png' %}"></a>
+                                    <a class="foot_social_item" href="#" target="_blank"><img src="{% static 'images/footer/WTA.png' %}"></a>
+                                    <a class="foot_social_item" href="#" target="_blank"><img src="{% static 'images/footer/VK.png' %}"></a>
+                                    <a class="foot_social_item" href="#" target="_blank"><img src="{% static 'images/footer/Insta.svg' %}"></a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="footer_contact">
-                        <span>Звонок по России бесплатный</span>
-                        <div class="number">88005504832</div>
-                        <div class="footer_sosceti">
-                            <i class="fa-brands fa-instagram"></i>
-                            <i class="fa-brands fa-facebook-f"></i>
-                            <i class="fa-brands fa-twitter"></i>
-                            <i class="fa-brands fa-whatsapp"></i>
+                        <div class="politic">
+                            <div class="politic-inner">
+                                <p>© 2024 ООО «Правый руль» Автомобили под заказ из Кореи, Китая и Японии</p>
+                                <p>Политика конфиденциальности</p>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="politic">
-                    <p>© 2024 ООО «Правый руль» Автомобили под заказ из Кореи, Китая и Японии</p>
-                    <p>Политика конфиденциальности</p>
+                    </div> 
                 </div>
             </div>
         </footer>
