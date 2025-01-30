@@ -68,10 +68,11 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
           <div class="card_price">
             1 315 000 ₽
           </div>
-          <div class="but_card">
+          <div class="but_card custom-open-pop-up">
             Оставить заявку
               <div class = "whatsapp_card"><img src = "{% static 'images/WhatsApp.png' %}"></div>
           </div>
+
           <p class = "down_but_card">Экономия до 30% от рынка авто в наличии <span><img src = "https://tomiko-trade.com/static/img/info.svg"></span></p>
           <div class="specifications_car">
             <div class="specifications_car_1">
@@ -138,35 +139,9 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 </div>
 </div>
 </section>
-    <div class="custom-pop-up" id="custom-pop-up">
-                    <div class="custom-pop-up-container">
-                        <div class="custom-pop-up-body" id="custom-pop-up-body">
-                            <div class="custom-pop-up-close" id="custom-pop-up-close">
-                                <i class="fa-solid fa-xmark"></i>
-                            </div>
-                            <div class="request_blank">
-                                <div class = "suptitle_request_blank"><p>Оставить заявку</p></div>
-                                <div class="subtitle_request_blank">
-                                    Оставьте заявку и менеджер отправит Вам актуальные варианты автомобилей под Ваши требования
-                                </div>
-                                <div class="input_field_data">
-                                    <label>
-                                        <p class = "field_text_1">Имя</p>
-                                        <input type="text" name="" value="Введите имя" class = "field1">
-                                    </label>
-                                    <label>
-                                        <p class = "field_text_2">Телефон</p>
-                                        <input value="+7" class = "field2">
-                                    </label>
-                                </div>
-                                <div class="text_requestes">
-                                    <textarea name="name" placeholder="Введите текст сообщения, укажите страну, марку и год машины."></textarea>
-                                </div>
-                                <div class = "button_requests_share"><button type="button" name="button">Отправить</button></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+
+
     <section class = "section">
                 <div class="container">
                     <div class="cnt">
@@ -192,33 +167,32 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
                         </div>
                     </div>
 
-                    <div class="form_contact">
-                        <form class="form_to_contact">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="name">Имя</label>
-                                    <input type="text" id="name" placeholder="Введите имя">
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone_number">Телефон</label>
-                                    <input type="text" id="phone_number" placeholder="+7">
-                                </div>
-                            </div>
-                            <div class="textarea">
-                                <label for="textarea">Уточните свой вопрос</label>
-                                <textarea class="text_form_contact" id="textarea" placeholder="Введите текст сообщения, укажите страну, марку и год машины"></textarea>
-                            </div>
-                            <div class="cch">
-                                <input type="checkbox" class="checkbox" id="checkbox">
-                                <label class="text_checkbox" for="checkbox">
+                    <div class="form-container">
+        <form class = "contact_main">
+            <div class="form-row">
+                <div class="form-group">
+                   <label for="name">Имя</label>
+                   <input type="text" id="name" placeholder="Введите имя" class = "form_name">
+                </div>
+                <div class="form-group">
+                   <label for="phone">Телефон</label>
+                    <input type="tel" id="phone" placeholder="+7">
+                </div>
+            </div>
 
-                                    С <span class="confeditional_form">правилами политики конфиденциальности</span>
-                                    ознакомлён
-                                 </label>
-                            </div>
-                            <button type="submit" class="button_form">Отправить</button>
-                        </form>
-                    </div>
+            <div class="form-group">
+               <label for="question">Уточните свой вопрос</label>
+                <textarea id="question" placeholder="Введите текст сообщения, укажите страну, марку и год машины"></textarea>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="privacy" name="privacy">
+                <label for="privacy"><span>С правилами политики конфиденциальности</span> ознакомлён</label>
+            </div>
+
+            <button type="submit" class = "post">Отправить</button>
+        </form>
+    </div>
                     </div>
                 </div>
             </section>
@@ -277,6 +251,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
             </div>
         </footer>
 
+    <script src="{% static 'js/sliders.js' %}"></script>
   <script src="{% static 'js/card.js' %}"></script>
 
   </body>
