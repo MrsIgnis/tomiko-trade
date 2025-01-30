@@ -90,16 +90,19 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Настройка Celery
-'''CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Asia/Vladivostok'
-CELERY_BEAT_SCHEDULE = {
-    'update_currency_rates_daily': {
-        'task': 'parsers.tasks.update_currency_rates',
-        'schedule': crontab(minute=0, hour=0) # запускать каждый день в 00:00
-    },
-}'''
 
+CELERY_BEAT_SCHEDULE = {
+    'update_currency_rates_every_5_minutes': {
+        'task': 'parsers.tasks.update_currency_rates',
+        'schedule': crontab(minute='*/2'),
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases

@@ -1,9 +1,10 @@
 import requests
 from decimal import Decimal
-from core.models import Currency
+
 
 def parser_currency_rates():
     """Функция парсинга курсов валют через GraphQL API."""
+    from core.models import Currency
 
     URL = "https://bbr.ru/graphql/"
 
@@ -77,3 +78,5 @@ def parser_currency_rates():
 
     else:
         print(f"Ошибка запроса: {response.status_code}")
+
+    return None
