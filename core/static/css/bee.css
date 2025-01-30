@@ -525,10 +525,7 @@ body {
 
 /* ------------------------------------------------ */
 
-
-
-
-/* Слайдеры */
+/* wrapper - слайдеры */
 
 .wrapper {
     padding: 30px;
@@ -559,9 +556,6 @@ body {
 .image-slider {
     padding: 30px 0 70px 0;
     position: relative;
-}
-
-.image-slider_wraper {
 }
 
 .image-slider_slide {
@@ -751,16 +745,15 @@ body {
 
 .but_card {
   background: linear-gradient(to right, #4B0082, #DC143C); /* Градиент от индиго к красному */
-  border-radius: 60px; /* Скругленные углы */
-   /* Отступы */
-  color: white; /* Белый цвет текста */
-  text-decoration: none; /* Убираем подчеркивание у текста */
-  font-family: sans-serif; /* Или другой шрифт по вашему желанию */
-  font-weight: bold; /* Жирный текст */
-  text-align: center; /* Текст по центру */
-  transition: background-color 0.3s ease; /* Плавный переход цвета при наведении */
-  cursor: pointer; /* Курсор в виде указателя */
-  border: none; /* Убираем границу */
+  border-radius: 60px;
+  color: white; 
+  text-decoration: none; 
+  font-family: sans-serif; 
+  font-weight: bold; 
+  text-align: center; 
+  transition: background-color 0.3s ease; 
+  cursor: pointer; 
+  border: none; 
   box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Тень */
   width: 308px; /* Добавлено */
   height: 70px;
@@ -804,11 +797,7 @@ body {
     transform:translate(50px, -40px);
 }
 
-
-
-
-
-
+/* ------------------------------------------------ */
 
 .thumbnails {
   display: flex;
@@ -833,10 +822,7 @@ body {
   object-fit: cover;
 }
 
-
-
-
-
+/* ------------------------------------------------ */
 
 .custom-pop-up {
     display: none;
@@ -1044,7 +1030,6 @@ body {
     background-color: #ff0000;
 }
 
-
 .slider_text{
   position: absolute;
   color: #fff;
@@ -1070,9 +1055,6 @@ body {
 .swiper-button-prev,
 .swiper-button-next {
   position: absolute;
-  /* top: 50%;  Убираем стандартное выравнивание по вертикали */
-
-  /* Смещение вверх */
   background-color: transparent; /* Убираем фон */
   border: none; /* Убираем границы */
   cursor: pointer;
@@ -1084,7 +1066,6 @@ body {
 
 .swiper-button-prev{
     transform:translate(3000%, -650%);
-
 }
 
 .swiper-button-next{
@@ -1099,10 +1080,7 @@ body {
   right: -40px; /* Позиция справа от слайдера */
 }
 
-
-
-
-
+/* ------------------------------------------------ */
 
 .slider_up_text{
   width: 325px;
@@ -1123,7 +1101,6 @@ body {
   position: absolute;
   top:55px;
 }
-
 
 .section--unique{
     height:600px;
@@ -1158,7 +1135,6 @@ body {
   border-radius: 28px;
 }
 
-
 .main-slider {
     height: auto; /* Позволяем высоте подстраиваться */
     max-height: 60vh; /* Максимальная высота слайдера */
@@ -1179,7 +1155,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .main-image-container img {
@@ -1201,12 +1176,10 @@ body {
     left: 20px;
 }
 
-
 .slider-text-overlay p {
     font-size: 14px;
     color: rgba(255, 255, 255, 0.5);
 }
-
 
 .thumbnail-slider {
     height: 80px;
@@ -1217,7 +1190,6 @@ body {
      justify-content: space-between;/* Центрируем слайдер */
      transform: translateX(180px);
 }
-
 
 .thumbnail-slider img {
     height: 80px;
@@ -1253,7 +1225,6 @@ body {
   filter: brightness(0.7);
 }
 
-
 .slider-container .slider-button-next::after,
 .slider-container .slider-button-prev::after {
     color: #fff;
@@ -1273,8 +1244,9 @@ body {
     transform: translateY(-50%);
 }
 
-/* Стили для увеличенного состояния */
+/* ------------------------------------------------ */
 
+/* Стили для увеличенного состояния */
 
 .main-image-container.expanded {
     transform: scale(1.5);
@@ -1302,7 +1274,6 @@ body {
 
 }
 
-
 .main-image-container.expanded {
     z-index: 3;
     height: 800px; /* Задаем высоту в пикселях */
@@ -1328,8 +1299,6 @@ body {
     border-radius: 12px;
 }
 
-
-
 .main-image-container.expanded {
     position: fixed;
     top: 0;
@@ -1354,9 +1323,7 @@ body {
     margin-bottom: 300px;
 }
 
-
-
-
+/* ------------------------------------------------ */
 
 .main-image-container.expanded ~ .swiper-slide .main-image-container {
      transform: scale(0.8) !important;
@@ -1391,7 +1358,6 @@ body {
   transform: translateY(200px);
 }
 
-
 .swiper_slide {
   width: 28vw;
   overflow: hidden;
@@ -1404,6 +1370,8 @@ body {
   font-size: 20px;
   font-weight: bold;
 }
+
+/* ------------------------------------------------ */
 
 /* Логотипов-прокрутка*/
 
@@ -1419,33 +1387,44 @@ body {
   transition-timing-function:linear!important;
 }
 
+/* ------------------------------------------------ */
+
+/* stage_work - блок "Этапы" */
+
 .stage_work{
-  width: 1400px;
-  height: 804px;
+  width: 100%;
+  height: 700px;
   background-color: #07192E;
-  border-radius: 10px;
+  border-radius: 28px;
   background: url('https://tomiko-trade.com/static/img/stage1.webp') center no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  padding: 80px;
 }
 
-.stage_icon{
-  width: 1400px;
+.stage_icon {
+  width: 80%; 
   height: 183px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  left: -10%;
 }
 
 .stage_title {
-  width: 1240px;
-  height: 132px;
+  width: 100%;
+  height: auto;
   text-align: center;
-  padding-top: 50px;
 }
 
-.stage_icon_item{
+.stage_icon_item {
   display: inline-block;
-  width: 20%;
+  width: auto;
   position: relative;
 }
 
-.stage_icon_item::after{
+.stage_icon_item::after {
   content: " ";
   display: block;
   width: 203px;
@@ -1453,76 +1432,253 @@ body {
   background-color: rgba(255, 255, 255, 0.2);
   position: absolute;
   transform: translate(2em, -1.5em);
+  left: 100%;
 }
 
-.stage_description{
-  margin-top:100px;
-  margin-left: 100px;
+.stage_icon_item:first-child::after {
+  background: linear-gradient(to right, red 70%, rgba(255, 255, 255, 0.2) 30%);
 }
 
-.stage_icon_text{
-  width: 1240px;
-  height: 91px;
-  margin-left: 100px;
+.stage_description {
+  display: flex;
+  justify-content: center;
 }
 
-.stage_item_icon_text{
-  width: 257px;
+.stage_icon_item img {
+  display: block;
+  margin: 0 auto;
+}
+
+.stage_icon_text {
+  width: 100%;
+  height: auto;
+  display: flex;
+  margin-top: -40px;
+  justify-content: space-between;
+}
+
+.stage_item_icon_text {
+  height: auto;
+  font-size: 16px;
+  color:#fff;
+  display: inline-block;
+  width: 20%;
+  font-family: "Inter", serif;
+  font-weight: 400;
+  line-height: 24px;
+  opacity: 0.7;
+}
+
+.stage_item_icon_text_1 {
   height: 91px;
   font-size: 16px;
   color:#fff;
   display: inline-block;
   width: 20%;
-  margin-right: 30px;
-
+  font-family: "Inter", serif;
+  font-weight: 400;
+  line-height: 24px;
 }
 
-.stage_item_icon_text p{
-
+.stage_item_icon_text_1 p {
   font-size: 28px;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  line-height: 32px;
+  font-size: 32px;
+  font-stretch: semi-condensed;
+  letter-spacing: -2px;
+  word-spacing: 5px;
+  padding-bottom: 15px;
 }
 
+.stage_item_icon_text p {
+  font-size: 28px;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  line-height: 32px;
+  font-size: 32px;
+  font-stretch: semi-condensed;
+  letter-spacing: -2px;
+  word-spacing: 5px;
+  padding-bottom: 15px;
+}
 
-.stage_title span{
+.stage_title span {
   color: #FD554B;
 }
 
-.stage_title p{
+.stage_title p {
   font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  line-height: 70px;
   color:#fff;
+  font-size: 50px;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  font-stretch: semi-condensed;
+  word-spacing: 5px;
+  text-align: center;
 }
 
-.stage_subtitle{
+.stage_subtitle {
+  font-family: "Inter", serif;
+  line-height: 24px;
+  font-weight: 400;
   width: 504px;
   height: 54px;
   color: rgba(255, 255, 255, 0.5);
   font-size: 18px;
   margin: 0 auto;
   text-align: center;
+  margin-top: 50px;
 }
 
-.stage_consultaion{
-  text-align: center;
-  margin-top: 80px;
-  padding-right: 70px;
-  position: relative;
+.stage_consultaion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
 }
 
-.stage_consultaion img{
-  width: 58px;
-  height: 58px;
-  position: absolute;
+.stage_consultaion .stage_item img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-.consultaion{
-  padding: 20px;
-  border-radius: 30px;
-  background: linear-gradient(to right, #0D2F68, #D51117);
+.stage_consultaion .stage-button {
+  display: inline-block;
+  vertical-align: top;
+  padding: 20px 35px;
+  gap: 12px;
+  background: linear-gradient(94.98deg, #0D2F68 0%, #D51117 100%);
+  border-radius: 60px;
   color: #fff;
-  cursor: pointer;
-  border:none;
-  margin-right:20px;
+  font-family: "Inter", serif;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.7s cubic-bezier(0.25, 0.1, 0.25, 1), filter 0.3s ease, transform 0.3s ease;
+  line-height: 20px;
 }
+
+.stage_consultaion .stage-button:hover {
+  transform: scale(1.05); 
+}
+
+.stage_consultaion .stage-button:active {
+  filter: brightness(0.7); 
+  transform: scale(0.95); 
+}
+
+.stage_consultaion a {
+  text-decoration: none;
+  font-size: 36px;
+  margin-left: 20px;
+  position: relative;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.stage_consultaion a {
+  text-decoration: none;
+  font-size: 36px;
+  margin-left: 20px;
+  position: relative;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.stage_consultaion a:hover {
+  transform: scale(1.2);
+}
+
+.stage_consultaion a:active {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+/* ------------------------------------------------ */
+
+/* red_triangle - красный треугольник под блоком "Этапов" */
+
+.red_triangle {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  -webkit-background-size: cover;
+  z-index: -1;
+}
+
+.red_triangle_content {
+  position: relative;
+  color: #fff;
+  display: flex; 
+  align-items: center;
+  z-index: 1;
+}
+
+.text_econom {
+  font-family: "Inter", serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 29.05px;
+  color: #fff;
+  margin-top: 100px;
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+.info_perc {
+  font-family: "Inter", serif;
+  font-weight: 900;
+  font-size: 32px;
+  margin-left: 5px;
+  line-height: 38.73px;
+}
+
+.text_mini {
+  font-family: "Inter", serif;
+  font-weight: 400;
+  font-size: 14px;
+  margin-left: 5px;
+  line-height: 21px;
+}
+
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-left: 20px;
+  margin-top: 75px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.button-link:hover {
+  transform: scale(1.2);
+}
+
+.button-link:active {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+.button-link img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+
+
+
+
 
 .about{
 display: flex;
