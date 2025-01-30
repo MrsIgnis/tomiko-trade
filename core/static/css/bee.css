@@ -3,10 +3,7 @@
   padding: 0px;
 }
 
-body{
-  font-family: "Poppins", sans-serif;
-  font-size: 29px;
-  line-height: 1.6;
+body {
   background-color: #011224;
   overflow-x: hidden;
 }
@@ -17,40 +14,170 @@ body{
   box-sizing: border-box;
 }
 
-.section{
+.section {
   padding: 100px 0;
 }
 
-.section-korea{
+.section-korea {
     padding:50px 0;
 }
 
-.section-china{
+.section-china {
     padding:10px 0;
 }
 
-.section-japan{
+.section-japan {
     padding:10px 0;
 }
 
-.container{
+.container {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 15px;
 }
 
-/* Шапка*/
+/* ------------------------------------------------ */
+
+/* Header - шапка */
+
+.header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding-top: 24px;
+  background-color: #011224;
+}
+
+.header_inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  top: -10px;
+}
+
+/* Header_logo - логотип в шапке */
+.header_logo .logo {
+  height: 60px;
+  width: 70px;
+  transition: filter 10s ease, transform 0.3s ease;
+}
+
+.header_logo .logo:hover {
+  transform: scale(1.2);
+}
+
+.header_logo .logo:active {
+  transform: scale(0.95); 
+  box-shadow: 0 1px 2px rgba(0,0,0, 0.3); 
+  opacity: 0.8; 
+}
+
+.header_logo .logo img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Header_left - левая часть шапки (логотип и каталог) */
+.header_left {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+/* Header_right - правая часть шапки (номер и соцю сети) */
+.header_right {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+/* Nav - навигация в шапке */
+.nav {
+  font-size: 16px;
+}
+
+.nav_link {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  word-spacing: 3px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 30px;
+  color: #fff;
+  opacity: 0.7;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav_link:hover {
+  color: #fff;
+  opacity: 1;
+}
+
+/* Header_social - социальные сети в шапке */
+.social_item {
+  text-decoration: none;
+  font-size: 36px;
+  margin: 0 5px;
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social_item a {
+  width: 36px;
+  height: 36px;
+}
+
+.social_item:hover {
+  transform: scale(1.2);
+}
+
+.social_item:active {
+  transform: scale(0.95); 
+  opacity: 0.8; 
+}
+
+.social_item img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Number - номер */
+.number {
+  font-family: "Oswald", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #fff;
+  margin: 0 24px;
+}
+
+.number p {
+  font-size: 24px;
+}
+
+/* ------------------------------------------------ */
+
+/* intro - приветственный экран */
+
 .intro {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 100vh;
-    /* Высота будет занимать 100% экрана посетителя */
-    background: url("https://tomiko-trade.com/static/img/imgBG.webp") center no-repeat;
-    -webkit-background-size: cover;
-    background-size: cover;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  background: url("https://tomiko-trade.com/static/img/imgBG.webp") center no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 
 .intro_inner {
@@ -61,144 +188,141 @@ body{
 }
 
 .intro_title {
-    font-size: 50px;
-    font-weight: 570;
-    text-transform: uppercase;
-    line-height: 60px;
-    color: #fff;
-    font-family: "Bebas Neue", sans-serif;
-    word-spacing: 5px;
-    letter-spacing: -2px;
+  font-size: 47px;
+  text-transform: uppercase;
+  line-height: 60px;
+  color: #fff;
+  font-family: 'Oswald', Arial, sans-serif;
+  margin-top: 100px;
 }
 
 .intro_subtitle {
-    font-weight: 300;
-    font-size: 24px;
-    color: #fff;
-    font-family: "Inter", serif;
-    margin-top: -20px;
-    padding-top: 10px;
+  font-weight: 400;
+  font-size: 24px;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  margin-top: 10px;
+  padding-top: 10px;
 }
 
 /* intro_btn - кнопка на приветственном экране */
 
 .intro_btn {
-    display: inline-block;
-    vertical-align: top;
-    padding: 20px 30px;
-    gap: 12px;
-    background: linear-gradient(94.98deg, #0D2F68 0%, #D51117 100%);
-    border-radius: 60px;
-    color: #fff;
-    font-family: "Inter", serif;
-    font-size: 18px;
-    font-weight: 500;
-    text-decoration: none;
-    margin-top: 25px;
-    transition: filter 0.3s ease;
+  display: inline-block;
+  vertical-align: top;
+  padding: 20px 30px;
+  gap: 12px;
+  background: linear-gradient(94.98deg, #0D2F68 0%, #D51117 100%);
+  border-radius: 60px;
+  color: #fff;
+  font-family: "Inter", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 21.78px;
+  text-decoration: none;
+  margin-top: 35px;
+  transition: background 0.7s cubic-bezier(0.25, 0.1, 0.25, 1), filter 0.3s ease, transform 0.3s ease;
 }
 
 .intro_btn:hover {
-    filter: drop-shadow(0 0 15px rgb(255, 0, 0));
+  transform: scale(1.05); 
 }
 
-/* intro_info - информация снизу слева на приветственном экране */
-.intro_info {
-    display: flex;
-    position: relative;
-    top: 100px;
-    left: -20px;
+.intro_btn:active {
+  filter: brightness(0.7); 
+  transform: scale(0.95); 
 }
 
-.intro_info_item {
-    width: 10%;
-    font-size: 14px;
-    color: #fff;
-    border-right: 0.5px solid rgba(255, 255, 255, 0.2);
-    margin: 5px;
-    text-align: center;
+.intro_bottom_item {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px; 
+  align-items: flex-end;
 }
 
-.info_num {
-    font-size: 35px;
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 500;
+/* stats-container - нижний блок приветственного экрана */
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: white;
+  font-family: sans-serif;
+  padding: 20px 0;
+  margin-top: 50px;
 }
 
-.info_text {
-    font-weight: 300;
-    font-family: "Inter", serif;
-    font-size: 12px;
-    opacity: 0.5;
+.stats-items {
+  display: flex;
+  align-items: center;
 }
 
-.info_num i {
-    color: gold;
-    margin-right: 0.5em;
-    font-size: 25px;
-    margin-top: 20px;
-  }
-
-/* intro_over - элемент для оверлея снизу справа */
-.intro_over {
-    position: absolute;
-    margin: 0 auto;
-    text-align: center;
-    top: 710px;
-    right: 210px;
-    width: 270px;
-    height: 150px;
-    border-radius: 10%;
-    background-color: #081E36;
-    color: white;
-    font-family: "Inter", serif;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 28px;
-    word-spacing: 1px;
-    padding-top: 10px;
+.discount-box {
+  background: #081E36;
+  padding: 10px 20px 20px 20px;
+  border-radius: 25px;
+  text-align: left;
 }
 
-/* info_perc - 30% в элементе справа снизу */
-.info_perc {
-    color: #FF7F50;
-    font-family: "Inter", serif;
-    font-weight: 900;
-    font-size: 40px;
-    margin-left: 5px;
-
+.discount-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  margin: 0;
+  margin-bottom: 5px;
+  line-height: 1.2;
 }
 
-/* intro_over_top - верхняя часть элемента справа снизу */
-.intro_over_top {
-    width: Hug (293px)px;
-    height: Hug (99px)px;
-
+.discount-text-small {
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  margin: 0;
+  margin-bottom: 10px;
+  line-height: 1.2;
 }
 
-/* over_btn - кнопка в элементе справа снизу */
+.discount-percent {
+  font-family: 'Inter', sans-serif;
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 72px;
+  color: #FD554B;
+  padding-left: 5px;
+}
+
 .over_btn {
-    display: inline-block;
-    vertical-align: top;
-    padding: 12px 24px 24px 24px;
-    gap: 12px;
-    background: linear-gradient(94.98deg, #0D2F68 0%, #D51117 100%);
-    border-radius: 60px;
-    color: #fff;
-    font-family: "Inter", serif;
-    font-size: 12px;
-    font-weight: 500;
-    text-decoration: none;
-    margin-bottom: 6px;
-    transition: filter 0.3s ease;
-    width: 200px;
-    height: 15px;
-    line-height: 16px;
+  display: inline-flex; 
+  align-items: center;
+  padding: 10px 80px;
+  gap: 12px;
+  background: linear-gradient(94.98deg, #0D2F68 0%, #D51117 100%);
+  border-radius: 60px;
+  color: #fff;
+  font-family: "Inter", serif;
+  font-size: 14px;
+  line-height: 19.6px;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 15px;
+  transition: background 0.7s cubic-bezier(0.25, 0.1, 0.25, 1), filter 0.3s ease, transform 0.3s ease;
 }
 
 .over_btn:hover {
-    filter: drop-shadow(0 0 15px rgb(255, 0, 0));
+  transform: scale(1.05); 
 }
+
+.over_btn:active {
+  filter: brightness(0.7); 
+  transform: scale(0.95); 
+}
+
+
+
 
 .pop_up{
   display: none;
@@ -319,117 +443,7 @@ body{
 
 /* ------------------------------------------------ */
 
-/* Header - шапка */
-.header {
-    width: 100%;
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    padding-top: 24px;
-    background-color: #011224;
-}
 
-.header_inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-}
-
-/* Header_logo - логотип в шапке */
-.header_logo .logo {
-    height: 76px;
-    width: 76px;
-    transition: filter 0.3s ease;
-}
-
-.header_logo .logo:hover {
-    filter: drop-shadow(0 0 15px rgb(255, 0, 0));
-}
-
-/* Header_left - левая часть шапки (логотип и каталог) */
-.header_left {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-}
-
-/* Header_right - правая часть шапки (номер и соцю сети) */
-.header_right {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-}
-
-/* Nav - навигация в шапке */
-.nav {
-    font-size: 16px;
-    padding-bottom: 15px;
-}
-
-.nav_link {
-    font-family: "Inter", sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 19px;
-    word-spacing: 3px;
-    display: inline-block;
-    vertical-align: top;
-    margin: 0 30px;
-    color: #fff;
-    opacity: 0.7;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.nav_link:hover {
-    color: #fff;
-    opacity: 1;
-}
-
-/* Header_social - социальные сети в шапке */
-.social_item {
-    color: #fff;
-    opacity: 0.5;
-    text-decoration: none;
-    font-size: 36px;
-    margin: 0 5px;
-}
-
-.social_item:hover {
-    color: #fff;
-    opacity: 1;
-    transition: color 0.3s ease;
-}
-
-/* Number - номер */
-.number {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 24px;
-    font-weight: 400;
-    color: #fff;
-    margin: 0 24px;
-}
-
-.number p {
-  font-size: 24px;
-}
-
-.social_item a{
-  width: 36px;
-  height: 36px;
-}
-/*шапка*/
-
-.header_inner{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  left:0;
-  margin-bottom: 10px;
-}
 
 
 /* Слайдеры */

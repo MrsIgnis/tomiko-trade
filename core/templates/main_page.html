@@ -24,7 +24,7 @@
                     <div class="header_left">
                         <div class="header_logo">
                             <a href="#">
-                                <img src="{% static 'images/logo.png' %}"
+                                <img src="{% static 'images/header/logo.png' %}"
                                      alt="Tomiko Trade"
                                      class="logo">
                             </a>
@@ -45,16 +45,10 @@
                         </div>
 
                         <div class="social">
-                            <a class="social_item"
-                               href="#"
-                               target="_blank">
-                                <i class="fa-brands fa-telegram"></i>
+                            <a class="social_item" href="#" target="_blank"><img src="{% static 'images/header/cta_button_TG.png' %}" alt="">
                             </a>
-
-                            <a class="social_item"
-                               href="https://wa.me/79244202432"
-                               target="_blank">
-                                <i class="fa-brands fa-whatsapp"></i>
+                            <a class="social_item" href="#" target="_blank"><img src="{% static 'images/header/cta_button_WTA.png' %}" alt="">
+                            </a>
                             </a>
                         </div>
                     </div>
@@ -62,85 +56,63 @@
             </div>
         </header>
 
-        <div class="intro" id="intro">
+        <section class = "section">
             <div class="container">
-                <div class="intro_inner">
-                    <h1 class="intro_title">Автомобили под заказ из Южной Кореи, Китая, Японии</h1>
-                    <h2 class="intro_subtitle">Подберем. Купим. Доставим. Растаможим. Отправим в любой регион России.</h2>
-                    <a class="intro_btn" href="#">Рассчитать стоимость</a>
-                </div>
-
-                <div class="intro_info">
-                    <div class="intro_info_item">
-                        <span class="info_num">5+</span>
-                        <div class="info_text">
-                            Лет на рынке
+                <div class="intro" id="intro">
+                    <div class="intro_inner">
+                        <h1 class="intro_title">Автомобили под заказ из Южной Кореи, Китая, Японии</h1>
+                        <h2 class="intro_subtitle">Подберем. Купим. Доставим. Растаможим. Отправим в любой регион России.</h2>
+                        <a class="intro_btn" href="#">Рассчитать стоимость</a>
+                    </div>
+                    <div class="stats-container">
+                        <div class="stats-items">
+                            <img src="{% static 'images/main_page/achiev.png' %}" alt="">
                         </div>
-                    </div>
-
-                    <div class="intro_info_item">
-                        <span class="info_num">4 000+</span>
-                        <div class="info_text">
-                            довольных клиентов
-                        </div>
-                    </div>
-
-                    <div class="intro_info_item">
-                        <span class="info_num">
-                            <i class="fa-sharp fa-solid fa-star"></i>4.6
-                        </span>
-                    </div>
-                </div>
-
-                <div class="intro_over">
-                    <div class="intro_over_top">
-                        <p>Экономия до
-                            <span class="info_perc">30%</span>
-                            <br> от рынка авто в наличии
-                        </p>
-                    </div>
-
-                    <div class = "btn_pop_up">
-                        <a class="over_btn" href="#" id ="open_pop_up">Смотреть пример</a>
-                    </div>
-
-                    <div class="pop_up" id ="pop_up">
-                        <div class="pop_up_container">
-                            <div class="pop_up_body" id="pop_up_body">
-                                <div class="pop_up_close" id="pop_up_close">
-                                    <i class="fa-solid fa-xmark"></i>
-                                </div>
-
-                                <p>Экономия до<span class="info_perc">30%</span> от рынка авто в наличии</p>
-
-                                <div class="pop_up_body_image">
-                                    <div class="pop_body_image_item_1">
-                                        <img src="{% static 'images/image_economy.png' %}" alt="картинка">
+                        <div class="discount-box">
+                            <p class="discount-text">Экономия до <span class="discount-percent">30%</span></p>
+                            <p class="discount-text-small">от рынка авто в наличии</p>
+                            <div class = "btn_pop_up">
+                                <a class="over_btn" href="#" id ="open_pop_up">Смотреть пример</a>
+                            </div>
+    
+                            <div class="pop_up" id="pop_up">
+                                <div class="pop_up_body" id="pop_up_body">
+                                    <div class="pop_up_close" id="pop_up_close">
+                                        <img src="{% static 'images/main_page/arrow.png' %}" alt="стрелка">
                                     </div>
-
-                                    <div class="pop_body_image_item_2">
-                                        <img src="{% static 'images/image_economy2.png' %}" alt="картинка">
+                                    <div class="pop_up_header">
+                                        <h3>Экономия до <span>30%</span> от рынка авто в наличии</h3>
                                     </div>
-
-                                    <div class="pop_body_strelka">
-                                        <img src="{% static 'images/image_economy3.png' %}" alt="картинка">
+                                    <div class="pop_up_content">
+                                        <div class="pop_up_images">
+                                            <div class="pop_up_image_item">
+                                                <img class="image1" src="{% static 'images/main_page/disc_img_1.png' %}" alt="Image 1">
+                                                <p>Привезли мы</p>
+                                            </div>
+                                            <div class="pop_up_image_item">
+                                                <img class="image2" src="{% static 'images/main_page/disc_img_2.png' %}" alt="Image 2">
+                                                <p>В наличии на Дром Авто</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pop_up_footer">
+                                        <div class="btn_econom">
+                                            <a href="#">Получить консультацию</a>
+                                        </div>
+                                        <div class="btn_econom_soc">
+                                            <a class="btn_econom_soc_item" href="#" target="_blank"><img src="{% static 'images/main_page/disc_button_WTA.png' %}" alt="">
+                                            </a>
+                                            <a class="btn_econom_soc_item" href="#" target="_blank"><img src="{% static 'images/main_page/disc_button_TG.png' %}" alt="">
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-
-                                <div class="about_button btn_econom">
-                                    Получить консультацию
-                                    <img src ="{% static 'images/image_economy4.png' %}">
-                                </div>
-
-                                <img src="{% static 'images/Telegram.png' %}" alt="wdwd" id="btn_econom_teleg">
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="intro_bottom_item"></div>
             </div>
-        </div>
+        </section>
 
         <section class = "section section-korea">
             <div class="container">
