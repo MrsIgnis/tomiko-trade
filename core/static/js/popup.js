@@ -18,6 +18,7 @@ popUp.addEventListener('click', (event) => {
     }
 });
 
+
 openPopUp.addEventListener('click', function(e) {
     e.preventDefault();
     popUp.style.display = 'flex';
@@ -32,3 +33,10 @@ $(function() {
         console.log(introH);
     });
 });
+
+ $(window).on("scroll", function() {
+   var introH = $("#intro").innerHeight();
+   console.log(introH);
+ });
+});
+

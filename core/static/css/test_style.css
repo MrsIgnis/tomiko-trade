@@ -3,14 +3,17 @@
 .pagination-container {
     margin: 2rem 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+
 }
 
 .pagination {
     display: flex;
     gap: 0.5rem;
     align-items: center;
-}
+    background-color:#1A2939;
+    border-radius: 20px;
+   }
 
 .pagination-item {
     display: flex;
@@ -19,21 +22,24 @@
     width: 40px;
     height: 40px;
     border-radius: 8px;
-    background: #f5f5f5;
+    background-color: rgba(255, 255, 255, 0);
     color: #333;
     text-decoration: none;
     transition: all 0.3s ease;
     font-weight: 500;
+    border-radius: 20px;
+    color: #fff;
 }
 
 .pagination-item:hover {
-    background: #e0e0e0;
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .pagination-item.current {
-    background: #2b6cb0;
+    background-color: #D51117;
     color: white;
     cursor: default;
+    border-radius: 20px;
 }
 
 .pagination-ellipsis {
@@ -64,9 +70,23 @@
 /* Дальше всё связано с отображением карточки авто в каталоге */
 
 /* Это шрифт названия авто на карточке */
+.carousel{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* Расстояние между карточками */
+    justify-content: space-between; /* Равномерное распределение карточек */
+}
+
+.card {
+    width: calc(25% - 12px); /* 25% ширины контейнера минус отступы */
+    height: 347px;
+    box-sizing: border-box; /* Учитываем padding и border в ширине */
+    /* Дополнительные стили для карточки */
+}
+
 .card_suptitle h3 {
     font-size: 1.2rem;
-    margin: 0 10px;
+    margin: 0 5px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -78,32 +98,54 @@
 /* Блок стилей для контейнера изображения авто */
 .image-container {
     width: 100%;
-    height: 200px;
-    background: #f0f0f0; /* Серый фон-заглушка */
+    height: 190px;
+    background: transparent; /* Серый фон-заглушка */
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     position: relative;
-    margin: 15px 0;
+    padding-bottom: 20px;
 }
 
 .image-container-slider-test {
     width: 100%;
-    height: 200px;
-    background: #f0f0f0; /* Серый фон-заглушка */
+    height: 380px;
+    background: transparent; /* Серый фон-заглушка */
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     position: relative;
-    margin: 100px 0;
+    margin: 0px 0px;
+}
+
+.image-container-slider-test .car-image{
+    margin-bottom:50px;
 }
 
 /* Это стили для самого изображения */
 .car-image {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain; /* Сохраняет пропорции изображения */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Сохраняет пропорции изображения */
     transition: transform 0.3s ease;
+}
+
+
+
+.sort_car{
+    border:0;
+}
+
+.select_item{
+    border: 0;
+}
+
+.select_item_nesk{
+    border:0;
+}
+
+.button_catalog{
+    margin-bottom: 10px;
 }
