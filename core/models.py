@@ -7,6 +7,8 @@ class Brands(models.Model):
     class Meta:
         managed = False
         db_table = 'brands'
+        verbose_name = 'Бренд'
+        verbose_name_plural = 'Бренды'
 
 
 class Cars(models.Model):
@@ -25,6 +27,8 @@ class Cars(models.Model):
     class Meta:
         managed = False
         db_table = 'cars'
+        verbose_name = 'Марка'
+        verbose_name_plural = 'Марки авто'
 
     # Для удобства использования в html
     @property
@@ -48,3 +52,19 @@ class CarImage(models.Model):
     class Meta:
         managed = False
         db_table = 'car_img'
+        verbose_name = 'Изображение авто'
+        verbose_name_plural = 'Изображения авто'
+
+
+class Feedback(models.Model):
+    name = models.CharField(max_length=25, verbose_name='Имя')
+    phone_number = models.CharField(max_length=16, verbose_name='Телефон')
+    message = models.TextField(max_length=200, blank=True, verbose_name='Сообщение')
+    privacy_policy_confirm = models.BooleanField(default=False, verbose_name='С правилами политики конфиденциальности ознакомлен')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+
+    class Meta:
+        managed = True
+        db_table = 'feedbacks'
+        verbose_name = 'Пользовательская заявка'
+        verbose_name_plural = 'Пользовательские заявки'

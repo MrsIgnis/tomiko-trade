@@ -6,7 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/contacts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/test_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/popup.css' %}">
     <script src="https://kit.fontawesome.com/c929c73a3b.js" crossorigin="anonymous"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -99,31 +102,48 @@
                     </div>
 
                     <div class="form_contact">
-                        <form class="form_to_contact">
+                        <form class="form_to_contact" id="feedback-form">
+                            {% csrf_token %}
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="name">Имя</label>
-                                    <input type="text" id="name" placeholder="Введите имя">
+                                    {{ form.name.label_tag }}
+                                    {{ form.name }}
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="phone_number">Телефон</label>
-                                    <input type="text" id="phone_number" placeholder="+7">
+                                    {{ form.phone_number.label_tag }}
+                                    {{ form.phone_number }}
                                 </div>
                             </div>
+
                             <div class="textarea">
-                                <label for="textarea">Уточните свой вопрос</label>
-                                <textarea class="text_form_contact" id="textarea" placeholder="Введите текст сообщения, укажите страну, марку и год машины"></textarea>
+                                {{ form.message.label_tag }}
+                                {{ form.message }}
                             </div>
+
                             <div class="cch">
-                                <input type="checkbox" class="checkbox" id="checkbox">
-                                <label class="text_checkbox" for="checkbox">
+                                <input type="checkbox"
+                                       class="checkbox"
+                                       id="id_privacy_policy_confirm"
+                                       name="privacy_policy_confirm"
+                                       required>
+                                <label class="text_checkbox" for="id_privacy_policy_confirm">
                                     С <span class="confeditional_form">правилами политики конфиденциальности</span>
                                     ознакомлён
-                                 </label>
+                                </label>
                             </div>
-                            <button type="submit" class="button_form">Отправить</button>
+                            <button type="submit" class="button_form custom-open-pop-up">Отправить</button>
                         </form>
                     </div>
+
+                    <div class="popup" id="success-popup">
+                        <div class="popup-content">
+                            <h3>Успешно!</h3>
+                            <p>Ваша заявка успешно отправлена.</p>
+                            <button class="close-popup">Закрыть</button>
+                        </div>
+                    </div>
+
                     </div>
                 </div>
             </section>
@@ -210,5 +230,8 @@
             </div>
         </div>
     </footer>
+
+<script src="{% static 'js/feedback.js' %}"></script>
+<script src="{% static 'js/phone_number.js' %}"></script>
 </body>
 </html>

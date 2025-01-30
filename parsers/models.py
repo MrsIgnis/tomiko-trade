@@ -15,12 +15,13 @@ class VKClip(models.Model):
         return self.title
 
 class Review2GIS(models.Model):
-    username = models.CharField(max_length=200)
-    date = models.CharField(max_length=50)
-    rating = models.IntegerField(choices=[(1, '⭐'), (2, '⭐⭐'), (3, '⭐⭐⭐'), (4, '⭐⭐⭐⭐'), (5, '⭐⭐⭐⭐⭐')])
-    avatar = models.CharField(max_length=2)
+    username = models.CharField(max_length=200, verbose_name='Имя пользователя')
+    date = models.CharField(max_length=50, verbose_name='Дата')
+    rating = models.IntegerField(choices=[(1, '⭐'), (2, '⭐⭐'), (3, '⭐⭐⭐'), (4, '⭐⭐⭐⭐'), (5, '⭐⭐⭐⭐⭐')], verbose_name='Рейтинг')
+    avatar = models.CharField(max_length=2, verbose_name='Аватарка')
 
     class Meta:
+        managed = False
         verbose_name = 'Отзыв'
         verbose_name_plural = 'Отзывы'
 

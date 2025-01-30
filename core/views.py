@@ -1,10 +1,14 @@
+from lib2to3.fixes.fix_input import context
+
 from django.shortcuts import render
 from .models import Cars, Brands
+from .forms import FeedbackForm
 from parsers.models import VKClip, Review2GIS
-from django.db.models import Value, CharField, IntegerField
-from django.db.models.functions import Concat, Cast
+from django.db.models import Value, CharField
+from django.db.models.functions import Concat
 from django.core.paginator import Paginator, PageNotAnInteger
 from django.http import JsonResponse
+from django.views.decorators.http import require_POST
 
 def main(request):
     clips = VKClip.objects.all()[:11]
@@ -21,7 +25,10 @@ def actions(request):
     return render(request, 'stocks.html')
 
 def contacts(request):
-    return render(request, 'contacts.html')
+    form = FeedbackForm()
+    context = {'form': form}
+
+    return render(request, 'contacts.html', context)
 
 def work_cond(request):
     return render(request, 'work_cond.html')
@@ -181,3 +188,12 @@ def cars_catalog(request, country):
     }
 
     return render(request, 'catalogs.html', context)
+
+@require_POST
+def submit_feedback(request):
+    form = FeedbackForm(request.POST)
+    if form.is_valid():
+        form.save()
+        return JsonResponse({'status': 'success'})
+    else:
+        return JsonResponse({'status': 'error', 'errors': form.errors}, status=400)
