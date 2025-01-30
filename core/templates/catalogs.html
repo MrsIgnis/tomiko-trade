@@ -165,13 +165,16 @@
 
                         <!-- Кнопки -->
                         <div class="button_catalog">
+
                             <button type="submit" class="catalog_button">Показать</button>
+                            <span>
                             <button type="button" class="catalog_button"
                                     onclick="localStorage.removeItem('selectedBrand');
                                              localStorage.removeItem('selectedModel');
                                              window.location.href='{% url 'cars_catalog' country=current_country %}?'">
                                 Сбросить фильтры
                             </button>
+                            </span>
                         </div>
 
                         {% if request.GET.sort %}
@@ -205,9 +208,10 @@
                                     <div class="image-container-slider-test">
                                         {% if car.main_image %}
                                         <img src="{{ car.main_image.image.url }}" alt="{{ car.model }}" class="car-image">
+
                                         {% endif %}
                                     </div>
-
+                                    <button class="req-butt custom-open-pop-up">Оставить заявку</button>
                                 </div>
                             </div>
                             {% endfor %}
@@ -216,6 +220,7 @@
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
                 </div>
+
             </div>
 
             <div class="container">
@@ -232,7 +237,7 @@
                             <option value="volume_asc" {% if sort_option == "volume_asc" %}selected{% endif %}>Объём: по возрастанию</option>
                             <option value="volume_desc" {% if sort_option == "volume_desc" %}selected{% endif %}>Объём: по убыванию</option>
                         </select>
-                        <div class="link_torg"><a href="#">Какие авто торгуют сейчас?</a></div>
+
                     </div>
 
                     {% for key, value in request.GET.items %}
@@ -270,13 +275,42 @@
                                         {{ car.price|intcomma }} ₽
                                     </div>
                                     <div class="button_card">
-                                        <button type="button" class="card_button" data-car-id="{{ car.id }}">
+                                        <button type="button" class="card_button custom-open-pop-up" data-car-id="{{ car.id }}">
                                             Оставить заявку
                                         </button>
                                     </div>
                                 </div>
                             </div>
                         {% endfor %}
+                    <div class="custom-pop-up" id="custom-pop-up">
+                    <div class="custom-pop-up-container">
+                        <div class="custom-pop-up-body" id="custom-pop-up-body">
+                            <div class="custom-pop-up-close" id="custom-pop-up-close">
+                                <i class="fa-solid fa-xmark"></i>
+                            </div>
+                            <div class="request_blank">
+                                <div class = "suptitle_request_blank"><p>Оставить заявку</p></div>
+                                <div class="subtitle_request_blank">
+                                    Оставьте заявку и менеджер отправит Вам актуальные варианты автомобилей под Ваши требования
+                                </div>
+                                <div class="input_field_data">
+                                    <label>
+                                        <p class = "field_text_1">Имя</p>
+                                        <input type="text" name="" value="Введите имя" class = "field1">
+                                    </label>
+                                    <label>
+                                        <p class = "field_text_2">Телефон</p>
+                                        <input value="+7" class = "field2">
+                                    </label>
+                                </div>
+                                <div class="text_requestes">
+                                    <textarea name="name" placeholder="Введите текст сообщения, укажите страну, марку и год машины."></textarea>
+                                </div>
+                                <div class = "button_requests_share"><button type="button" name="button">Отправить</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                     {% else %}
                         <div class="no-results">
