@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand
 from parsers.models import Review2GIS
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from selenium.webdriver.edge.service import Service as ChromeService
+from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
