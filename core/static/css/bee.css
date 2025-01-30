@@ -1673,186 +1673,273 @@ body {
   height: auto;
 }
 
+/* ------------------------------------------------ */
 
+/* about - блок "О компании" */
 
-
-
-
-
-
-.about{
-display: flex;
-justify-content: space-between;
-width: 1400px;
-
-}
-
-
-
-
-.about_text{
-  width: 748px;
-  height: 308px;
-
-}
-
-.logo{
-    cursor:pointer;
-}
-
-.about_title{
-  font-size: 70px;
-  font-family: "Oswald", sans-serif;
-  color:#fff;
-}
-
-.about_subtitle{
+.about {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
-  height: 112px;
-  font-size: 18px;
-  color:#fff;
 }
 
-.about_button{
-  width: 300px;
-  height: 70px;
+.about_text {
+  width: 100%;
+  height: 308px;
+}
+
+.about_title {
+  font-family: "Oswald", sans-serif;
+  font-style: normal;
+  font-weight: 570;
+  color: #fff;
+  font-size: 50px;
+  line-height: 100%;
+  word-spacing: 5px;
+  text-transform: uppercase;
+  margin-left: 10px;
+  margin-bottom: 30px;
+}
+
+.about_subtitle {
+  font-family: "Inter", serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
+  margin-left: 10px;
+  line-height: 28px;
+}
+
+.about_actions .about_button {
+  display: inline-block;
+  vertical-align: top;
+  padding: 20px 35px;
+  gap: 12px;
+  background: linear-gradient(94.98deg, #0D2F68 0%, #D51117 100%);
   border-radius: 60px;
-  font-size: 18px;
-  background: linear-gradient(to right, #0D2F68, #D51117);
-  text-align: center;
-  padding-top: 20px;
-  color:#fff;
-  cursor: pointer;
-  margin-top: 50px;
+  color: #fff;
+  font-family: "Inter", serif;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.7s cubic-bezier(0.25, 0.1, 0.25, 1), filter 0.3s ease, transform 0.3s ease;
+  line-height: 20px;
 }
 
-.about_photo img{
+.about_actions .about_button:hover {
+  transform: scale(1.05); 
+}
+
+.about_actions .about_button:active {
+  filter: brightness(0.7); 
+  transform: scale(0.95); 
+}
+
+.about_actions .about_item {
+  text-decoration: none;
+  font-size: 36px;
+  margin: 0 5px;
+  margin-left: 20px;
+  position: relative;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.about_actions {
+  margin-top: 30px;
+}
+
+.about_actions .about_item:hover {
+  transform: scale(1.2);
+}
+
+.about_actions .about_item:active {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+.about_actions .about_item img  {
+  max-width: 100%;
+  height: auto;
+}
+
+.about_actions .about-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  
+.about_photo img {
   width: 603px;
   height: 350px;
+  vertical-align: middle;
   border-radius: 28px;
 }
 
-.about_button{
+.about_photo {
+  box-sizing: border-box;
+  padding-left: 150px;
   position: relative;
 }
 
-.about_button img{
-  position: absolute;
-  right: -90px;
-  top:5px;
-}
-
-.about_footer{
+.about_second {
   display: flex;
   justify-content: space-between;
-  width:1300px;
+  align-items: center;
+  padding: 0px 0px 150px 0px;
+}
+
+/* ------------------------------------------------ */
+
+/* about_footer - нижняя часть блока "О компании" */
+  
+.about_footer {
+  display: flex;
+  justify-content: space-between;
   height: 104px;
+  width: 100%;
   padding-top: 32px;
+  margin-top: -130px;
 }
 
-.about_stag_footer{
-  width:132px;
+.about_footer::before {
+  content: "";
+  position: absolute;
+  margin-top: -20px;
+  left: 70px;
+  right: 70px;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+  
+.about_stag_footer {
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
   height: 69px;
-  font-size: 48px;
+  font-size: 40px;
   color: #FD554B;
+  text-align: center;
 }
-
-.about_stag_footer p{
+  
+.about_stag_footer p {
+  font-family: "Inter", serif;
   font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  text-align: center;
   color: rgba(255, 255, 255, 0.5);
 }
-
-.about_like_footer{
-  width: 183px;
+  
+.about_like_footer {
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
   height: 69px;
-  font-size: 48px;
+  font-size: 40px;
   color: #FD554B;
+  text-align: center;
 }
-
-.about_like_footer p{
+  
+.about_like_footer p {
+  font-family: "Inter", serif;
   font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  text-align: center;
   color: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
 }
-
-.about_footer_1{
+  
+.about_footer_1 {
   width: 377px;
   height: 72px;
-  font-size: 16px;
-  color: #fff;
   display: flex;
   justify-content: space-between;
   padding-top: 10px;
+  margin-right: -10px;
 }
-
-.about_footer_1 span{
+  
+.about_footer_1 span {
   width: 313px;
-  height: auto;
-
+  font-family: "Inter", serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: rgba(255, 255, 255);
 }
-
-.about_like{
+  
+.about_like {
   width: 40px;
   height: 40px;
 }
 
-.about_like img{
+.about_like img {
   width: 100%;
   height:100%;
   object-fit: cover;
 }
-
-
-.about_footer_2{
+   
+.about_footer_2 {
   width: 344px;
   height: 72px;
-  font-size: 16px;
-  color:#fff;
   display: flex;
   justify-content: space-between;
   padding-top: 10px;
+  margin-right: 10px;
 }
-
-.about_footer_2 span{
+  
+.about_footer_2 span {
   width: 280px;
+  font-family: "Inter", serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: rgba(255, 255, 255);width: 280px;
   height: auto;
 }
-
-.about_doc{
+  
+.about_doc {
   width: 40px;
   height: 40px;
 }
-
-.about_doc img{
+  
+.about_doc img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
-.about_footer_3{
+  
+.about_footer_3 {
   width:179px;
   height: 72px;
-  font-size: 16px;
-  color:#fff;
   display: flex;
   justify-content: space-between;
   padding-top: 10px;
+  margin-right: 20px;
 }
-
-.about_footer_3 span{
+  
+.about_footer_3 span {
   width: 115px;
-  height: auto;
+  font-family: "Inter", serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: rgba(255, 255, 255);
 }
 
-.about_rukopogatie{
+.about_rukopogatie {
   width: 40px;
   height: 40px;
 }
-
-.about_rukopogatie img{
+  
+.about_rukopogatie img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+
 
 .reviews_up{
   width: 1300px;
