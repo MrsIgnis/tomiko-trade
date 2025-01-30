@@ -16,5 +16,4 @@ $(function() {
    var introH = $("#intro").innerHeight();
    console.log(introH);
  });
-
 });
