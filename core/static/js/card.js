@@ -44,5 +44,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
   updateActiveThumbnail();
 
-});
+  // Код для модального окна
+  var modal = document.getElementById("myModal");
+  var btn = document.getElementById("openModalBtn");
+  var span = document.getElementsByClassName("close")[0];
 
+  if (btn) {
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+  }
+
+  if (span) {
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  var form = document.getElementById("applicationForm");
+  if (form) {
+    form.onsubmit = function(event) {
+      event.preventDefault();
+      // Здесь можно добавить код для отправки данных формы
+      alert("Заявка отправлена!");
+      modal.style.display = "none";
+    }
+  }
+});
