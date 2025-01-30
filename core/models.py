@@ -64,7 +64,20 @@ class Feedback(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'feedbacks'
         verbose_name = 'Пользовательская заявка'
         verbose_name_plural = 'Пользовательские заявки'
+
+
+class Currency(models.Model):
+    code = models.CharField(max_length=3, unique=True, verbose_name='Код валюты')
+    buy_rate = models.DecimalField(max_digits=6, decimal_places=2, verbose_name='Курс покупки валюты') # Банк продаёт
+    sell_rate = models.DecimalField(max_digits=6, decimal_places=2, verbose_name='Курс продажи валюты') # Банк покупает
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Время обновления')
+
+    class Meta:
+        managed = False
+        db_table = 'currencies'
+        verbose_name = 'Валюта'
+        verbose_name_plural = 'Валюты'

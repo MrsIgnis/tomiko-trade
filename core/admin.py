@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Brands, Cars, CarImage, Feedback
+from .models import Brands, Cars, CarImage, Feedback, Currency
 
 @admin.register(Brands)
 class BrandAdmin(admin.ModelAdmin):
@@ -20,3 +20,8 @@ class CarImageAdmin(admin.ModelAdmin):
 class FeedbackAdmin(admin.ModelAdmin):
     list_display = ['name', 'phone_number', 'message', 'created_at']
     search_fields = ['name', 'phone_number', 'message', 'created_at']
+
+@admin.register(Currency)
+class CurrencyAdmin(admin.ModelAdmin):
+    list_display = ['code', 'sell_rate', 'buy_rate', 'updated_at']
+    search_fields = ['code', 'sell_rate', 'buy_rate', 'updated_at']
