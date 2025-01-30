@@ -1,4 +1,4 @@
- window.addEventListener('load', function() {
+window.addEventListener('load', function() {
         const popUp = document.getElementById('custom-pop-up');
         const popUpClose = document.getElementById('custom-pop-up-close');
 
@@ -14,11 +14,5 @@
                        }
                    }
             });
-
-            popUpClose.addEventListener('click', () => {
-                popUp.classList.remove('active');
-            });
-        } else {
-            console.error("Один или несколько элементов pop-up не найдены!");
-        }
-       });
+        });
+        });

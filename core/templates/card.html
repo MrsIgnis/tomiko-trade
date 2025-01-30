@@ -68,11 +68,27 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
           <div class="card_price">
             1 315 000 ₽
           </div>
-          <div class="but_card custom-open-pop-up">
+          <div class="but_card">
             Оставить заявку
               <div class = "whatsapp_card"><img src = "{% static 'images/WhatsApp.png' %}"></div>
           </div>
+            <div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <form id="applicationForm">
+            <label for="name">Имя:</label>
+            <input type="text" id="na" name="name" required>
 
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="ph" name="phone" required>
+
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+</div>
           <p class = "down_but_card">Экономия до 30% от рынка авто в наличии <span><img src = "https://tomiko-trade.com/static/img/info.svg"></span></p>
           <div class="specifications_car">
             <div class="specifications_car_1">

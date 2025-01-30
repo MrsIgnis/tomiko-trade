@@ -681,35 +681,5 @@ ul.breadcrumb li a:hover {
     margin-top: 20px;
 }
 
-.custom-pop-up-body .input_field_data p {
-  font-size : 14px;
-}
-
-.custom-pop-up-close{
-  position: absolute;
-  left: 1040px;
-  top:60px;
-  cursor: pointer;
-}
-
-.custom-pop-up-close i{
-  width: 24px;
-  height: 24px;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.custom-pop-up-body p{
-  padding-top: 20px;
-  transform: translate(-8em,0);
-  font-size: 24px;
-  font-weight: 400;
-  padding-left: 100px;
-   color: white;
-}
-
-
-
-
-
 
 

@@ -1077,45 +1077,69 @@
                 </div>
 
                 <div class="reviews_down">
-                    <div class="comment_rov">
-                        {% for review in reviews %}
-                        <div class="comment_item">
-                            <div class="commnet_photo">
-
-
-                                {% if review.avatar|url_startswith:"http" %}
-                                    <img src="{{ review.avatar }}" alt="Аватар пользователя">
-                                {% else %}
-                                    <img src="{% static 'images/human.png' %}" alt="Аватар по умолчанию">
-                                {% endif %}
-
-                            </div>
-                            <div class="comment_name">
-                                {{ review.username }}
-                            </div>
-                            <div class="comment_mark">
-                                <div class="comment_star">
-                                    <span>
-
-                                        {% for i in review.rating|get_range %}
-                                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                                        {% endfor %}
-
-                                        {% for i in review.rating|get_empty_range %}
-                                        <i class="fa-regular fa-star" style="color: #FFD43B;"></i>
-                                        {% endfor %}
-                                    </span>
-
-
-                                    <div class="comment_data">
-                                        {{ review.date }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <div class="comment_rov">
+        {% for review in reviews|slice:":4" %}
+        <div class="comment_item">
+            <div class="commnet_photo">
+                {% if review.avatar|url_startswith:"http" %}
+                    <img src="{{ review.avatar }}" alt="Аватар пользователя">
+                {% else %}
+                    <img src="{% static 'images/human.png' %}" alt="Аватар по умолчанию">
+                {% endif %}
+            </div>
+            <div class="comment_name">
+                {{ review.username }}
+            </div>
+            <div class="comment_mark">
+                <div class="comment_star">
+                    <span>
+                        {% for i in review.rating|get_range %}
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
                         {% endfor %}
+                        {% for i in review.rating|get_empty_range %}
+                            <i class="fa-regular fa-star" style="color: #FFD43B;"></i>
+                        {% endfor %}
+                    </span>
+                    <div class="comment_data">
+                        {{ review.date }}
                     </div>
                 </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="comment_rov">
+        {% for review in reviews|slice:"4:" %}
+        <div class="comment_item">
+            <div class="commnet_photo">
+                {% if review.avatar|url_startswith:"http" %}
+                    <img src="{{ review.avatar }}" alt="Аватар пользователя">
+                {% else %}
+                    <img src="{% static 'images/human.png' %}" alt="Аватар по умолчанию">
+                {% endif %}
+            </div>
+            <div class="comment_name">
+                {{ review.username }}
+            </div>
+            <div class="comment_mark">
+                <div class="comment_star">
+                    <span>
+                        {% for i in review.rating|get_range %}
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        {% endfor %}
+                        {% for i in review.rating|get_empty_range %}
+                            <i class="fa-regular fa-star" style="color: #FFD43B;"></i>
+                        {% endfor %}
+                    </span>
+                    <div class="comment_data">
+                        {{ review.date }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 
             </div>
         </section>
