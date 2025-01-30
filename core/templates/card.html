@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="{% static 'css/bee.css' %}">
     <link rel="stylesheet" href="{% static 'js/card.js' %}">
+
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
@@ -12,6 +14,8 @@
 rel="stylesheet"
 href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 />
+      <link rel="stylesheet" href="/examples/libs/simple-adaptive-slider/simple-adaptive-slider.min.css">
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/2eb1ff35d2.js" crossorigin="anonymous"></script>
     <title></title>
@@ -58,7 +62,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
       <div class = "container">
         <div class = "hard_slider">
         <div class="card_description">
-          <div class="card_suptitle">
+          <div class="card_sup">
             <p>SUBARE LEVORG VN5, 2021 г.</p>
           </div>
           <div class="card_price">
@@ -66,8 +70,9 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
           </div>
           <div class="but_card">
             Оставить заявку
+              <div class = "whatsapp_card"><img src = "{% static 'images/WhatsApp.png' %}"></div>
           </div>
-          <p class = "down_but_card">Экономия до 30% от рынка авто в наличии <span><img src = "{% static 'images/Savings Icon Container.png' %}"></span></p>
+          <p class = "down_but_card">Экономия до 30% от рынка авто в наличии <span><img src = "https://tomiko-trade.com/static/img/info.svg"></span></p>
           <div class="specifications_car">
             <div class="specifications_car_1">
               <p>Год выпуска:</p>
@@ -97,153 +102,93 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     <div class="slider-container">
   <div class="main-slider swiper-container">
     <div class="swiper-wrapper">
+      <!-- Ваши слайды -->
       <div class="swiper-slide">
         <div class="main-image-container">
           <div class="image-wraper">
             <img src="https://tomiko-trade.com/media/images/2024/11/14/2024-11-14_16_5p4Rpgc.webp" alt="Картинка 1">
           </div>
-
-
         </div>
       </div>
+      <!-- Повторите для других слайдов -->
+
       <div class="swiper-slide">
         <div class="main-image-container">
           <div class="image-wraper">
             <img src="https://tomiko-trade.com/media/images/2024/11/14/2024-11-14_16_5p4Rpgc.webp" alt="Картинка 1">
           </div>
-
-
         </div>
       </div>
-      <div class="swiper-slide">
-        <div class="main-image-container">
-          <div class="image-wraper">
-            <img src="https://tomiko-trade.com/media/images/2024/11/14/2024-11-14_16_5p4Rpgc.webp" alt="Картинка 1">
-          </div>
-
-
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="main-image-container">
-          <div class="image-wraper">
-            <img src="https://tomiko-trade.com/media/images/2024/11/14/2024-11-14_16_5p4Rpgc.webp" alt="Картинка 1">
-          </div>
-
-
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="main-image-container">
-          <div class="image-wraper">
-            <img src="https://tomiko-trade.com/media/images/2024/11/14/2024-11-14_16_5p4Rpgc.webp" alt="Картинка 1">
-          </div>
-
-
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="main-image-container">
-          <div class="image-wraper">
-            <img src="https://tomiko-trade.com/media/images/2024/11/14/2024-11-14_16_5p4Rpgc.webp" alt="Картинка 1">
-          </div>
-
-
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="main-image-container">
-          <div class="image-wraper">
-            <img src="https://tomiko-trade.com/media/images/2024/11/14/2024-11-14_16_5p4Rpgc.webp" alt="Картинка 1">
-          </div>
-
-
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="main-image-container">
-          <div class="image-wraper">
-            <img src="https://tomiko-trade.com/media/images/2024/11/14/2024-11-14_16_5p4Rpgc.webp" alt="Картинка 1">
-          </div>
-          <div class="slider-button-prev"></div>
-          <div class="slider-button-next"></div>
-
-        </div>
-      </div>
-
-
-      <!-- ... другие слайды ... -->
     </div>
-     <div class="inactive-slides"></div>
-    <span class="close-button">&times;</span>
     <div class="slider-button-prev"></div>
     <div class="slider-button-next"></div>
   </div>
 
-  <div class="thumbnail-list">
-            <div class="thumbnail-item" data-slide-index="0">
-                <img src="https://tomiko-trade.com/media/images/2024/11/14/2024-11-14_16_5p4Rpgc.webp" alt="миниатюра">
-            </div>
-            <div class="thumbnail-item" data-slide-index="1">
-              <img src="https://tomiko-trade.com/media/images/2024/11/14/2024-11-14_16_5p4Rpgc.webp" alt="миниатюра">
-            </div>
-           <div class="thumbnail-item" data-slide-index="2">
-              <img src="https://tomiko-trade.com/media/images/2024/11/14/2024-11-14_16_5p4Rpgc.webp" alt="миниатюра">
-            </div>
-           <div class="thumbnail-item" data-slide-index="3">
-               <img src="https://tomiko-trade.com/media/images/2024/11/14/2024-11-14_16_5p4Rpgc.webp" alt="миниатюра">
-           </div>
-            <div class="thumbnail-item" data-slide-index="4">
-              <img src="https://tomiko-trade.com/media/images/2024/11/14/2024-11-14_16_5p4Rpgc.webp" alt="миниатюра">
-          </div>
-          <div class="thumbnail-item" data-slide-index="5">
-              <img src="https://tomiko-trade.com/media/images/2024/11/14/2024-11-14_16_5p4Rpgc.webp" alt="миниатюра">
-          </div>
-          <div class="thumbnail-item" data-slide-index="6">
-               <img src="https://tomiko-trade.com/media/images/2024/11/14/2024-11-14_16_5p4Rpgc.webp" alt="миниатюра">
-          </div>
-      </div>
-
-
-
+  <!-- Миниатюры -->
+  <div class="thumbnails">
+    <div class="thumbnail-item" data-slide-index="0">
+      <img src="https://tomiko-trade.com/media/images/2024/11/14/2024-11-14_16_5p4Rpgc.webp" alt="Миниатюра 1">
+    </div>
+    <div class="thumbnail-item" data-slide-index="1">
+      <img src="https://tomiko-trade.com/media/images/2024/11/14/2024-11-14_16_5p4Rpgc.webp" alt="Миниатюра 2">
+    </div>
+    <!-- Повторите для других миниатюр -->
+  </div>
 </div>
 </div>
 </div>
 </section>
-
+    <div class="custom-pop-up" id="custom-pop-up">
+                    <div class="custom-pop-up-container">
+                        <div class="custom-pop-up-body" id="custom-pop-up-body">
+                            <div class="custom-pop-up-close" id="custom-pop-up-close">
+                                <i class="fa-solid fa-xmark"></i>
+                            </div>
+                            <div class="request_blank">
+                                <div class = "suptitle_request_blank"><p>Оставить заявку</p></div>
+                                <div class="subtitle_request_blank">
+                                    Оставьте заявку и менеджер отправит Вам актуальные варианты автомобилей под Ваши требования
+                                </div>
+                                <div class="input_field_data">
+                                    <label>
+                                        <p class = "field_text_1">Имя</p>
+                                        <input type="text" name="" value="Введите имя" class = "field1">
+                                    </label>
+                                    <label>
+                                        <p class = "field_text_2">Телефон</p>
+                                        <input value="+7" class = "field2">
+                                    </label>
+                                </div>
+                                <div class="text_requestes">
+                                    <textarea name="name" placeholder="Введите текст сообщения, укажите страну, марку и год машины."></textarea>
+                                </div>
+                                <div class = "button_requests_share"><button type="button" name="button">Отправить</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
     <section class = "section">
                 <div class="container">
                     <div class="cnt">
 
                     <div class="contact">
-                        <div class="contact_text">Контактная <br> информация <img src="{% static 'images/hi.webp' %}"></div>
+                        <div class="contact_text">Контактная <br> информация <img src="{% static 'images/hi.webp' %}" class = "hi_contact"></div>
                         <div class="sub_contact_text">Оставьте свою заявку и наш менеджер <br> свяжется с Вами для уточнения деталей.</div>
                         <div class="contact_info">
                             <div class="contact_left">
-                                <p>Адрес</p>
-                                <div>690088, г. Владивосток, ул. Жигура 9в</div>
+
                                 <p>Звонок по России бесплатный</p>
                                 <div>8 (800) 775-67-29</div>
-                                <div>8 (924) 123-45-67</div>
-                                <div class="contact_sosceti">
-                                    <a class="contact_social_item" href="#" target="_blank"><i class="fa-brands fa-telegram"></i>
-                                    </a>
-                                    <a class="contact_social_item" href="https://wa.me/79244202432" target="_blank"><i class="fa-brands fa-whatsapp"></i>
-                                    </a>
-                                    <a class="contact_social_item" href="https://vk.com/tomiko_trade" target="_blank"><i class="fa-brands fa-vk"></i>
-                                    </a>
-                                    <a class="contact_social_item" href="https://www.instagram.com/praviyrul.jp?igsh=N3VucnNibWsyZzVk" target="_blank"><i class="fa-brands fa-instagram"></i>
-                                    </a>
-                                </div>
+
+                                <p>WhatsApp</p>
+                                <div>8 (800) 775-67-29</div>
+                                <p>Офис</p>
+                                <div>г. Владивосток, ул. Тополевая 6</div>
+
+
+
                             </div>
-                            <div class="contact_right">
-                                <p>Компания</p>
-                                <div>ООО "АВТОЦЕНТР-ВЛ"</div>
-                                <p>ИНН / КПП</p>
-                                <div>2536263238 / 253601001</div>
-                                <p>ОГРН</p>
-                                <div>1132536004622</div>
-                            </div>
+
                         </div>
                     </div>
 
@@ -266,6 +211,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
                             <div class="cch">
                                 <input type="checkbox" class="checkbox" id="checkbox">
                                 <label class="text_checkbox" for="checkbox">
+
                                     С <span class="confeditional_form">правилами политики конфиденциальности</span>
                                     ознакомлён
                                  </label>
@@ -276,6 +222,11 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
                     </div>
                 </div>
             </section>
+
+
+
+
+
     <footer class="footer">
             <div class="container">
                 <div class="ot">
@@ -327,5 +278,6 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
         </footer>
 
   <script src="{% static 'js/card.js' %}"></script>
+
   </body>
 </html>
