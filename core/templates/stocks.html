@@ -57,6 +57,36 @@
         </div>
     </header>
 
+    <div class="custom-pop-up" id="custom-pop-up">
+                    <div class="custom-pop-up-container">
+                        <div class="custom-pop-up-body" id="custom-pop-up-body">
+                            <div class="custom-pop-up-close" id="custom-pop-up-close">
+                                <i class="fa-solid fa-xmark"></i>
+                         <div class="request_blank">
+                                <div class = "suptitle_request_blank"><p>Оставить заявку</p></div>
+                                <div class="subtitle_request_blank">
+                                    Оставьте заявку и менеджер отправит Вам актуальные варианты автомобилей под Ваши требования
+                                </div>
+                                <div class="input_field_data">
+                                    <label>
+                                        <p class = "field_text_1">Имя</p>
+                                        <input type="text" name="" value="Введите имя" class = "field1">
+                                    </label>
+                                    <label>
+                                        <p class = "field_text_2">Телефон</p>
+                                        <input value="+7" class = "field2">
+                                    </label>
+                                </div>
+                                <div class="text_requestes">
+                                    <textarea name="name" placeholder="Введите текст сообщения, укажите страну, марку и год машины."></textarea>
+                                </div>
+                                <div class = "button_requests_share"><button type="button" name="button">Отправить</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         </div>
+
     <div class="intro">
         <div class="container">
             <ul class="breadcrumb">
@@ -67,7 +97,7 @@
                 <h1 class="intro_title">Акции</h1>
                 <section class="promo-section">
                     <div class="promo-item">
-                        <div class="promo-text">
+                        <div class="promo-text" id="money_surprise">
                             <h3>Приведи друга 👍</h3>
                             <p>Каждый третий клиент обращается к нам по рекомендации знакомых, <br> друзей, родственников.  Этот факт нас безумно радует, и в знак <br> благодарности мы запустили акцию "Приведи друга".</p>
                             <ol>
@@ -82,15 +112,15 @@
                             <img src="{% static 'images/stocks/screen.png' %}" alt="Отзывы">
                         </div>
                     </div>
-                    <div class="promo-item">
+                    <div class="promo-item" id = "opt_zak">
                         <h3>Оптовые заказы 🚗 🚙</h3>
                         <p>Если вы планируете заказать сразу более 1 автомобиля, то для вас действует <br> система лояльности - 10% скидка на комиссию компании на каждый <br> последующий автомобиль в заказе.</p>
-                        <a class="promo-button" href="#">Оставить заявку</a>
+                        <div class = "reaa custom-open-pop-up"><a class="promo-button" href="#">Оставить заявку</a></div>
                         <div class="car_img">
                             <img src="{% static 'images/stocks/cars.png' %}" alt="Машины">
                         </div>
                     </div>
-                    <div class="promo-item">
+                    <div class="promo-item" id = "two_deposit">
                         <h3>Оплата депозита двумя частями 🤝 </h3>
                         <p>За долгие годы работы мы выработали для вас идеальную схему работы. <br>
                             Представьте, что Мы нашли для вас идеальный вариант автомобиля, но у вас <br>
@@ -100,7 +130,7 @@
                             - после покупки автомобиля. <br> <br> 
                             Важно уточнить, что конечная цена от этого не изменится. <br>
                             Делаем все для вашего удобства и доверия.</p>
-                        <a class="promo-button" href="#">Оставить заявку</a>
+                        <a class="promo-button custom-open-pop-up" href="#">Оставить заявку</a>
                         <div class="price_img">
                             <img src="{% static 'images/stocks/price.png' %}" alt="Пример">
                         </div>
@@ -167,5 +197,6 @@
             </div>
         </div>
     </footer>
+
 </body>
 </html>
