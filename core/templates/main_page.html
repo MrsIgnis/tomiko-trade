@@ -1044,15 +1044,11 @@
         </div>
     </div>
 
-
-
-
-
         <section class="section section--reviews">
             <div class="container">
                 <div class="reviews_up">
                     <div class="reviews_title">
-                        Отзывы <span>⭐</span> 4.9
+                        Отзывы <span><img src="{% static 'images/main_page/star.png' %}"></span> 4.9
                     </div>
 
                     <div class="reviews_link">
@@ -1065,6 +1061,9 @@
                 </div>
 
                 <div class="reviews_down">
+
+                    
+
     <div class="comment_rov">
         {% for review in reviews|slice:":4" %}
         <div class="comment_item">
@@ -1086,6 +1085,7 @@
                         {% endfor %}
                         {% for i in review.rating|get_empty_range %}
                             <i class="fa-regular fa-star" style="color: #FFD43B;"></i>
+
                         {% endfor %}
                     </span>
                     <div class="comment_data">
@@ -1144,8 +1144,9 @@
                         </div>
 
                         <div class="clip_button">
-                            <i class="fa-brands fa-vk"></i>
-                            <button type="button" name="button">Подписаться</button>
+                            
+                            <img src="{% static 'images/VK Logo 1.png' %}">
+                            <span><button type="button" name="button">Подписаться</button><span>
                         </div>
                     </div>
 
@@ -1196,112 +1197,129 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class = "section">
             <div class="container">
                 <div class="cnt">
                     <div class="contact">
                         <div class="contact_text">
-                            КОНТАКТНАЯ ИНФОРМАЦИЯ
+                            Контактная <br> информация <img src="{% static 'images/contacts/hi.webp' %}">
                         </div>
-
                         <div class="sub_contact_text">
-                            Оставьте свою заявку и наш менеджер свяжется с Вами для уточнения деталей.
+                            Оставьте свою заявку и наш менеджер <br> свяжется с Вами для уточнения деталей.
                         </div>
-
                         <div class="contact_info">
-                            <p>Звонок по России бесплатно</p>
-                            <div>
-                                8 800 550 48 3
+                            <div class="contact_left">
+                                <p>Адрес</p>
+                                <div>
+                                    690088, г. Владивосток, ул. Жигура 9в
+                                </div>
+                                <p>Звонок по России бесплатный</p>
+                                <div>
+                                    8 (800) 775-67-29
+                                </div>
+                                <div>
+                                    8 (924) 123-45-67
+                                </div>
+                                <div class="contact_sosceti">
+                                    <a class="contact_social_item" href="#" target="_blank"><img src="{% static 'images/contacts/TG.png' %}"></a>
+                                    <a class="contact_social_item" href="#" target="_blank"><img src="{% static 'images/contacts/WTA.png' %}"></a>
+                                    <a class="contact_social_item" href="#" target="_blank"><img src="{% static 'images/contacts/VK.png' %}"></a>
+                                    <a class="contact_social_item" href="#" target="_blank"><img src="{% static 'images/contacts/Insta.svg' %}"></a>
+                                </div>
                             </div>
-                            <p>Whatsapp</p>
-                            <div>
-                                +7 (924) 420-24-3
-                            </div>
-                            <p>Офис</p>
-                            <div>
-                                г. Владивосток, ул. Тополевая
+                            <div class="contact_right">
+                                <p>Компания</p>
+                                <div>
+                                    ООО "АВТОЦЕНТР-ВЛ"
+                                </div>
+                                <p>ИНН / КПП</p>
+                                <div>
+                                    2536263238 / 253601001
+                                </div>
+                                <p>ОГРН</p>
+                                <div>
+                                    1132536004622
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="form-container">
-        <form class = "contact_main">
-            <div class="form-row">
-                <div class="form-group">
-                   <label for="name">Имя</label>
-                   <input type="text" id="name" placeholder="Введите имя" class = "form_name">
-                </div>
-                <div class="form-group">
-                   <label for="phone">Телефон</label>
-                    <input type="tel" id="phone" placeholder="+7">
-                </div>
-            </div>
-
-            <div class="form-group">
-               <label for="question">Уточните свой вопрос</label>
-                <textarea id="question" placeholder="Введите текст сообщения, укажите страну, марку и год машины"></textarea>
-            </div>
-
-            <div class="form-group checkbox-group">
-                <input type="checkbox" id="privacy" name="privacy">
-                <label for="privacy"><span>С правилами политики конфиденциальности</span> ознакомлён</label>
-            </div>
-
-            <button type="submit" class = "post">Отправить</button>
-        </form>
-    </div>
+                    <div class="form_contact">
+                        <form class="form_to_contact">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Имя</label>
+                                    <input type="text" id="name" placeholder="Введите имя">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone_number">Телефон</label>
+                                    <input type="text" id="phone_number" placeholder="+7">
+                                </div>
+                            </div>
+                            <div  iv class="textarea">
+                                <label for="textarea">Уточните свой вопрос</label>
+                                <textarea class="text_form_contact" id="textarea" placeholder="Введите текст сообщения, укажите страну, марку и год машины"></textarea>
+                            </div>
+                            <div class="cch">
+                                <input type="checkbox" class="checkbox" id="checkbox">
+                                <label class="text_checkbox" for="checkbox">
+                                    С <span class="confeditional_form">правилами политики конфиденциальности</span>
+                                    ознакомлён
+                                </label>
+                            </div>
+                            <button type="submit" class="button_form">Отправить</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <footer class="footer">
+        <footer class = "footer">
             <div class="container">
-                <div class="ot">
-                    <div class="footer_info">
-                        <div class="footer_logo">
-                            <img src="{% static 'images/logo2.png' %}">
-                        </div>
-
-                        <div class="footer_catalog">
-                            <span class="katalog">КАТАЛОГ</span>
-                            <div class="catalog_text">
-                                <div class="links_footer">
-                                    <a href="#">Авто из Кореи</a>
-                                    <a href="#">Авто из Китая</a>
-                                    <a href="#">Авто из Японии</a>
+                <div class="container">
+                    <div class="ot">
+                        <div class="footer_info">
+                            <div class="footer_logo">
+                                <a href="#">
+                                    <img src="{% static 'images/footer/logo.png' %}" alt="Tomiko Trade" class="logo_foot">
+                                </a>
+                            </div>
+                            <div class="footer_catalog">
+                                <span class="katalog">Каталог</span>
+                                <div class="catalog_text">
+                                    <div class="links_footer">
+                                        <a href="#">Авто из Кореи</a>
+                                        <a href="#">Авто из Китая</a>
+                                        <a href="#">Авто из Японии</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="footer_company">
+                                <span>Компания</span>
+                                <div class="company_text">
+                                    <div class="links_footer">
+                                        <a href="#">О компании</a>
+                                        <a href="#">Клипы</a>
+                                        <a href="#">Отзывы</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="footer_company">
-                            <span>КОМПАНИЯ</span>
-                            <div class="company_text">
-                                <div class="links_footer">
-                                    <a href="#">О компании</a>
-                                    <a href="#">Доставка</a>
-                                    <a href="#">Отзывы</a>
-                                </div>
+                        <div class="footer_contact">
+                            <span>Звонок по России бесплатный</span>
+                            <div class="number_foot">8 800 550 48 32</div>
+                            <div class="footer_sosceti">
+                                <a class="footer_social_item" href="#" target="_blank"><img src="{% static 'images/footer/TG.png' %}"></a>
+                                <a class="footer_social_item" href="#" target="_blank"><img src="{% static 'images/footer/WTA.png' %}"></a>
+                                <a class="footer_social_item" href="#" target="_blank"><img src="{% static 'images/footer/VK.png' %}"></a>
+                                <a class="footer_social_item" href="#" target="_blank"><img src="{% static 'images/footer/Insta.svg' %}"></a>
                             </div>
                         </div>
-
                     </div>
-                    <div class = "uslovie_work"><a href = "http://127.0.0.1:8000/work_cond/">Условия работы</a></div>
-
-                    <div class="footer_contact">
-                        <span>Звонок по России бесплатный</span>
-                        <div class="number">88005504832</div>
-                        <div class="footer_sosceti">
-                            <i class="fa-brands fa-instagram"></i>
-                            <i class="fa-brands fa-facebook-f"></i>
-                            <i class="fa-brands fa-twitter"></i>
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </div>
+    
+                    <div class="politic">
+                        <p>© 2024 ООО «Правый руль» Автомобили под заказ из Кореи, Китая и Японии</p>
+                        <p>Политика конфиденциальности</p>
                     </div>
-                </div>
-
-                <div class="politic">
-                    <p>© 2024 ООО «Правый руль» Автомобили под заказ из Кореи, Китая и Японии</p>
-                    <p>Политика конфиденциальности</p>
                 </div>
             </div>
         </footer>
