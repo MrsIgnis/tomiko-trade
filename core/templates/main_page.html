@@ -23,7 +23,7 @@
                 <div class="header_inner">
                     <div class="header_left">
                         <div class="header_logo">
-                            <a href="#">
+                            <a href="{% url 'main'%}">
                                 <img src="{% static 'images/header/logo.png' %}"
                                      alt="Tomiko Trade"
                                      class="logo">
@@ -1287,9 +1287,9 @@
                                 <span class="katalog">Каталог</span>
                                 <div class="catalog_text">
                                     <div class="links_footer">
-                                        <a href="#">Авто из Кореи</a>
-                                        <a href="#">Авто из Китая</a>
-                                        <a href="#">Авто из Японии</a>
+                                        <a href="{% url 'cars_catalog' country='korea' %}">Авто из Кореи</a>
+                                        <a href="{% url 'cars_catalog' country='china' %}">Авто из Китая</a>
+                                        <a href="{% url 'cars_catalog' country='japan' %}">Авто из Японии</a>
                                     </div>
                                 </div>
                             </div>

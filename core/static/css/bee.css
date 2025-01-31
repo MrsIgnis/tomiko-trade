@@ -713,12 +713,17 @@ body {
     height:267px;
 }
 
+
+
 .specifications_car_1{
     display: inline-block;
     width:142px;
     height:267px;
     color: rgba(255, 255, 255, 0.5);
+    font-family: 'Inter', serif;
     font-size: 16px;
+    font-weight: 400;
+    line-height: 19.36px;
 }
 
 .specifications_car_2{
@@ -727,6 +732,8 @@ body {
     height:267px;
     color: #fff;
     font-size: 16px;
+    font-family: 'Inter', serif;
+    line-height: 19.36px;
 }
 
 .card_sup{
@@ -2164,6 +2171,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding-right: 140px;
+  margin-top: 100px;
 }
 
 .slogan_socseti_item span{
@@ -2736,6 +2744,7 @@ body {
   height: 40px;
   font-size: 24px;
   color:#fff;
+  font-family: 'Inter', sans-serif;
 }
 
 .sup_title_catalog *{

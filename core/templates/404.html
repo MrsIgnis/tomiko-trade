@@ -20,14 +20,16 @@
 </head>
 
 <body>
-    <header class="header">
+    <header class="header" id="header">
         <div class="container">
-
             <div class="header_inner">
                 <div class="header_left">
-
                     <div class="header_logo">
-                        <a href="{% url 'main' %}"><img src="{% static 'images/logo.png' %}" alt="Tomiko Trade" class="logo"></a>
+                        <a href="{% url 'main'%}">
+                            <img src="{% static 'images/header/logo.png' %}"
+                                 alt="Tomiko Trade"
+                                 class="logo">
+                        </a>
                     </div>
 
                     <nav class="nav">
@@ -45,9 +47,10 @@
                     </div>
 
                     <div class="social">
-                        <a class="social_item" href="#" target="_blank"><i class="fa-brands fa-telegram"></i>
+                        <a class="social_item" href="#" target="_blank"><img src="{% static 'images/header/cta_button_TG.png' %}" alt="">
                         </a>
-                        <a class="social_item" href="https://wa.me/79244202432" target="_blank"><i class="fa-brands fa-whatsapp"></i>
+                        <a class="social_item" href="#" target="_blank"><img src="{% static 'images/header/cta_button_WTA.png' %}" alt="">
+                        </a>
                         </a>
                     </div>
                 </div>
@@ -79,7 +82,9 @@
                 <div class="ot">
                     <div class="footer_info">
                         <div class="footer_logo">
-                            <a href="{% url 'main'%}"><img src="{% static 'images/logo.png' %}"></a>
+                            <a href="#">
+                                <img src="{% static 'images/footer/logo.png' %}" alt="Tomiko Trade" class="logo_foot">
+                            </a>
                         </div>
                         <div class="footer_catalog">
                             <span class="katalog">Каталог</span>
@@ -102,30 +107,22 @@
                             </div>
                         </div>
                     </div>
-    
                     <div class="footer_contact">
                         <span>Звонок по России бесплатный</span>
                         <div class="number_foot">8 800 550 48 32</div>
-                            <div class="footer_sosceti">
-                                <a class="foot_social_item" href="#" target="_blank"><i class="fa-brands fa-telegram"></i>
-                                </a>
-                                <a class="foot_social_item" href="https://wa.me/79244202432" target="_blank"><i class="fa-brands fa-whatsapp"></i>
-                                </a>
-                                <a class="foot_social_item" href="https://vk.com/tomiko_trade" target="_blank"><i class="fa-brands fa-vk"></i>
-                                </a>
-                                <a class="foot_social_item" href="https://www.instagram.com/praviyrul.jp?igsh=N3VucnNibWsyZzVk" target="_blank"><i class="fa-brands fa-instagram"></i>
-                                </a>
-                            </div>
+                        <div class="footer_sosceti">
+                            <a class="footer_social_item" href="#" target="_blank"><img src="{% static 'images/footer/TG.png' %}"></a>
+                            <a class="footer_social_item" href="#" target="_blank"><img src="{% static 'images/footer/WTA.png' %}"></a>
+                            <a class="footer_social_item" href="#" target="_blank"><img src="{% static 'images/footer/VK.png' %}"></a>
+                            <a class="footer_social_item" href="#" target="_blank"><img src="{% static 'images/footer/Insta.svg' %}"></a>
                         </div>
                     </div>
-    
-                    <div class="politic">
-                        <div class="politic-inner">
-                            <p>© 2024 ООО «Правый руль» Автомобили под заказ из Кореи, Китая и Японии</p>
-                            <p>Политика конфиденциальности</p>
-                        </div>
-                    </div>
-                </div> 
+                </div>
+
+                <div class="politic">
+                    <p>© 2024 ООО «Правый руль» Автомобили под заказ из Кореи, Китая и Японии</p>
+                    <p>Политика конфиденциальности</p>
+                </div>
             </div>
         </div>
     </footer>

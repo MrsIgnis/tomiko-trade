@@ -26,14 +26,18 @@
     </head>
 
     <body>
-        <header class="header">
+        <header class="header" id="header">
             <div class="container">
                 <div class="header_inner">
                     <div class="header_left">
                         <div class="header_logo">
-                            <a href="{% url 'main'%}"><img src="{% static 'images/logo.png' %}" alt="Tomiko Trade" class="logo"></a>
+                            <a href="{% url 'main'%}">
+                                <img src="{% static 'images/header/logo.png' %}"
+                                     alt="Tomiko Trade"
+                                     class="logo">
+                            </a>
                         </div>
-
+      
                         <nav class="nav">
                             <a class="nav_link" href="{% url 'cars_catalog' country='korea' %}">Авто из Кореи</a>
                             <a class="nav_link" href="{% url 'cars_catalog' country='china' %}">Авто из Китая</a>
@@ -42,14 +46,18 @@
                             <a class="nav_link" href="{% url 'contacts'%}">Контакты</a>
                         </nav>
                     </div>
-
+      
                     <div class="header_right">
                         <div class="number">
                             <p>8 (800) 500-49-46</p>
                         </div>
-
+      
                         <div class="social">
-                            <a class="social_item" href="#" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a class="social_item" href="#" target="_blank"><img src="{% static 'images/header/cta_button_TG.png' %}" alt="">
+                            </a>
+                            <a class="social_item" href="#" target="_blank"><img src="{% static 'images/header/cta_button_WTA.png' %}" alt="">
+                            </a>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -58,15 +66,15 @@
 
         <section class="section">
             <div class="container">
-                <div class="sup_title_catalog">
-                    <p>АВТОМОБИЛИ ИЗ
-                        {% if current_country == 'japan' %}ЯПОНИИ
-                        {% elif current_country == 'korea' %}КОРЕИ
-                        {% elif current_country == 'china' %}КИТАЯ
-                        {% endif %}
-                    </p>
-                    <img src="{% static 'images/' %}{{ current_country }}.png" alt="{{ current_country|upper }}">
-                </div>
+                    <div class="sup_title_catalog">
+                        <p>АВТОМОБИЛИ ИЗ
+                            {% if current_country == 'japan' %}ЯПОНИИ
+                            {% elif current_country == 'korea' %}КОРЕИ
+                            {% elif current_country == 'china' %}КИТАЯ
+                            {% endif %}
+                        </p>
+                        <img src="{% static 'images/' %}{{ current_country }}.png" alt="{{ current_country|upper }}">
+                    </div>
 
                 <form method="GET" action="{% url 'cars_catalog' country=current_country %}">
                     <div class="catalog">
@@ -363,63 +371,81 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class = "section">
             <div class="container">
                 <div class="cnt">
                     <div class="contact">
                         <div class="contact_text">
-                            КОНТАКТНАЯ ИНФОРМАЦИЯ
+                            Контактная <br> информация <img src="{% static 'images/contacts/hi.webp' %}">
                         </div>
-
                         <div class="sub_contact_text">
-                            Оставьте свою заявку и наш менеджер свяжется с Вами для уточнения деталей.
+                            Оставьте свою заявку и наш менеджер <br> свяжется с Вами для уточнения деталей.
                         </div>
-
                         <div class="contact_info">
-                            <p>Звонок по России бесплатно</p>
-                            <div>
-                                8 800 550 48 3
+                            <div class="contact_left">
+                                <p>Адрес</p>
+                                <div>
+                                    690088, г. Владивосток, ул. Жигура 9в
+                                </div>
+                                <p>Звонок по России бесплатный</p>
+                                <div>
+                                    8 (800) 775-67-29
+                                </div>
+                                <div>
+                                    8 (924) 123-45-67
+                                </div>
+                                <div class="contact_sosceti">
+                                    <a class="contact_social_item" href="#" target="_blank"><img src="{% static 'images/contacts/TG.png' %}"></a>
+                                    <a class="contact_social_item" href="#" target="_blank"><img src="{% static 'images/contacts/WTA.png' %}"></a>
+                                    <a class="contact_social_item" href="#" target="_blank"><img src="{% static 'images/contacts/VK.png' %}"></a>
+                                    <a class="contact_social_item" href="#" target="_blank"><img src="{% static 'images/contacts/Insta.svg' %}"></a>
+                                </div>
                             </div>
-                            <p>Whatsapp</p>
-                            <div>
-                                +7 (924) 420-24-3
-                            </div>
-                            <p>Офис</p>
-                            <div>
-                                г. Владивосток, ул. Тополевая
+                            <div class="contact_right">
+                                <p>Компания</p>
+                                <div>
+                                    ООО "АВТОЦЕНТР-ВЛ"
+                                </div>
+                                <p>ИНН / КПП</p>
+                                <div>
+                                    2536263238 / 253601001
+                                </div>
+                                <p>ОГРН</p>
+                                <div>
+                                    1132536004622
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="form-container">
-        <form class = "contact_main">
-            <div class="form-row">
-                <div class="form-group">
-                   <label for="name">Имя</label>
-                   <input type="text" id="name" placeholder="Введите имя" class = "form_name">
+                    <div class="form_contact">
+                        <form class="form_to_contact">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Имя</label>
+                                    <input type="text" id="name" placeholder="Введите имя">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone_number">Телефон</label>
+                                    <input type="text" id="phone_number" placeholder="+7">
+                                </div>
+                            </div>
+                            <div  iv class="textarea">
+                                <label for="textarea">Уточните свой вопрос</label>
+                                <textarea class="text_form_contact" id="textarea" placeholder="Введите текст сообщения, укажите страну, марку и год машины"></textarea>
+                            </div>
+                            <div class="cch">
+                                <input type="checkbox" class="checkbox" id="checkbox">
+                                <label class="text_checkbox" for="checkbox">
+                                    С <span class="confeditional_form">правилами политики конфиденциальности</span>
+                                    ознакомлён
+                                </label>
+                            </div>
+                            <button type="submit" class="button_form">Отправить</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="form-group">
-                   <label for="phone">Телефон</label>
-                    <input type="tel" id="phone" placeholder="+7">
-                </div>
             </div>
-
-            <div class="form-group">
-               <label for="question">Уточните свой вопрос</label>
-                <textarea id="question" placeholder="Введите текст сообщения, укажите страну, марку и год машины"></textarea>
-            </div>
-
-            <div class="form-group checkbox-group">
-                <input type="checkbox" id="privacy" name="privacy">
-                <label for="privacy"><span>С правилами политики конфиденциальности</span> ознакомлён</label>
-            </div>
-
-            <button type="submit" class = "post">Отправить</button>
-        </form>
-    </div>
-                </div>
-            </div>
-        </section>
+          </section>
 
         <section class="section">
             <div class="container">
@@ -451,52 +477,53 @@
             </div>
         </section>
 
-        <footer class="footer">
+        <footer class = "footer">
             <div class="container">
-                <div class="ot">
-                    <div class="footer_info">
-                        <div class="footer_logo">
-                            <a href="{% url 'main'%}"><img src="{% static 'images/logo2.png' %}"></a>
-                        </div>
-
-                        <div class="footer_catalog">
-                            <span class="katalog">КАТАЛОГ</span>
-                            <div class="catalog_text">
-                                <div class="links_footer">
-                                    <a href="{% url 'cars_catalog' country='korea' %}">Авто из Кореи</a>
-                                    <a href="{% url 'cars_catalog' country='china' %}">Авто из Китая</a>
-                                    <a href="{% url 'cars_catalog' country='japan' %}">Авто из Японии</a>
+                <div class="container">
+                    <div class="ot">
+                        <div class="footer_info">
+                            <div class="footer_logo">
+                                <a href="#">
+                                    <img src="{% static 'images/footer/logo.png' %}" alt="Tomiko Trade" class="logo_foot">
+                                </a>
+                            </div>
+                            <div class="footer_catalog">
+                                <span class="katalog">Каталог</span>
+                                <div class="catalog_text">
+                                    <div class="links_footer">
+                                        <a href="{% url 'cars_catalog' country='korea' %}">Авто из Кореи</a>
+                                        <a href="{% url 'cars_catalog' country='china' %}">Авто из Китая</a>
+                                        <a href="{% url 'cars_catalog' country='japan' %}">Авто из Японии</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="footer_company">
+                                <span>Компания</span>
+                                <div class="company_text">
+                                    <div class="links_footer">
+                                        <a href="#">О компании</a>
+                                        <a href="#">Клипы</a>
+                                        <a href="#">Отзывы</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="footer_company">
-                            <span>КОМПАНИЯ</span>
-                            <div class="company_text">
-                                <div class="links_footer">
-                                    <a href="#">О компании</a>
-                                    <a href="#">Доставка</a>
-                                    <a href="#">Отзывы</a>
-                                </div>
+                        <div class="footer_contact">
+                            <span>Звонок по России бесплатный</span>
+                            <div class="number_foot">8 800 550 48 32</div>
+                            <div class="footer_sosceti">
+                                <a class="footer_social_item" href="#" target="_blank"><img src="{% static 'images/footer/TG.png' %}"></a>
+                                <a class="footer_social_item" href="#" target="_blank"><img src="{% static 'images/footer/WTA.png' %}"></a>
+                                <a class="footer_social_item" href="#" target="_blank"><img src="{% static 'images/footer/VK.png' %}"></a>
+                                <a class="footer_social_item" href="#" target="_blank"><img src="{% static 'images/footer/Insta.svg' %}"></a>
                             </div>
                         </div>
                     </div>
-
-                    <div class="footer_contact">
-                        <span>Звонок по России бесплатный</span>
-                        <div class="number">88005504832</div>
-                        <div class="footer_sosceti">
-                            <i class="fa-brands fa-instagram"></i>
-                            <i class="fa-brands fa-facebook-f"></i>
-                            <i class="fa-brands fa-twitter"></i>
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </div>
+      
+                    <div class="politic">
+                        <p>© 2024 ООО «Правый руль» Автомобили под заказ из Кореи, Китая и Японии</p>
+                        <p>Политика конфиденциальности</p>
                     </div>
-                </div>
-
-                <div class="politic">
-                    <p>© 2024 ООО «Правый руль» Автомобили под заказ из Кореи, Китая и Японии</p>
-                    <p>Политика конфиденциальности</p>
                 </div>
             </div>
         </footer>

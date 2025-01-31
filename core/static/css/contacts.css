@@ -12,19 +12,6 @@ body {
     margin: 0 auto;
 }
 
-/* ------------------------------------------------ */
-
-/* Header - шапка */
-.header {
-    width: 100%;
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    padding-top: 24px;
-}
-
 .header::after {
     content: "";
     position: absolute;
@@ -35,83 +22,130 @@ body {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-.header_inner {
+/* ------------------------------------------------ */
+
+.header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding-top: 24px;
+    background-color: #011224;
+  }
+  
+  .header_inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-/* Header_logo - логотип в шапке */
-.header_logo .logo {
-    height: 76px;
-    width: 76px;
-    transition: filter 0.3s ease;
-}
-
-.header_logo .logo:hover {
-    filter: drop-shadow(0 0 15px rgb(255, 0, 0));
-}
-
-/* Header_left - левая часть шапки (логотип и каталог) */
-.header_left {
+    position: relative;
+    top: -10px;
+  }
+  
+  /* Header_logo - логотип в шапке */
+  .header_logo .logo {
+    height: 60px;
+    width: 70px;
+    transition: filter 10s ease, transform 0.3s ease;
+  }
+  
+  .header_logo .logo:hover {
+    transform: scale(1.2);
+  }
+  
+  .header_logo .logo:active {
+    transform: scale(0.95); 
+    box-shadow: 0 1px 2px rgba(0,0,0, 0.3); 
+    opacity: 0.8; 
+  }
+  
+  .header_logo .logo img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Header_left - левая часть шапки (логотип и каталог) */
+  .header_left {
     display: flex;
     justify-content: left;
     align-items: center;
-}
-
-/* Header_right - правая часть шапки (номер и соцю сети) */
-.header_right {
+  }
+  
+  /* Header_right - правая часть шапки (номер и соцю сети) */
+  .header_right {
     display: flex;
     justify-content: right;
     align-items: center;
-}
-
-/* Nav - навигация в шапке */
-.nav {
+  }
+  
+  /* Nav - навигация в шапке */
+  .nav {
     font-size: 16px;
-}
-
-.nav_link {
-    font-family: "Inter", serif;
-    font-weight: 400;
+  }
+  
+  .nav_link {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
     word-spacing: 3px;
-    display: inline block;
+    display: inline-block;
     vertical-align: top;
     margin: 0 30px;
     color: #fff;
     opacity: 0.7;
     text-decoration: none;
     transition: color 0.3s ease;
-}
-
-.nav_link:hover {
+  }
+  
+  .nav_link:hover {
     color: #fff;
     opacity: 1;
-}
-
-/* Header_social - социальные сети в шапке */
-.social_item {
-    color: #fff;
-    opacity: 0.5;
+  }
+  
+  /* Header_social - социальные сети в шапке */
+  .social_item {
     text-decoration: none;
     font-size: 36px;
     margin: 0 5px;
-}
-
-.social_item:hover {
-    color: #fff;
-    opacity: 1;
-    transition: color 0.3s ease;
-}
-
-/* Number - номер */
-.number {
-    font-family: "Bebas Neue", sans-serif;
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .social_item a {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .social_item:hover {
+    transform: scale(1.2);
+  }
+  
+  .social_item:active {
+    transform: scale(0.95); 
+    opacity: 0.8; 
+  }
+  
+  .social_item img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Number - номер */
+  .number {
+    font-family: "Oswald", sans-serif;
     font-size: 24px;
     font-weight: 400;
     color: #fff;
     margin: 0 24px;
-}
+  }
+  
+  .number p {
+    font-size: 24px;
+  }
 
 
 /* ------------------------------------------------ */

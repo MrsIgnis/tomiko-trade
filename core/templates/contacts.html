@@ -23,14 +23,16 @@
 </head>
 
 <body>
-    <header class="header">
+    <header class="header" id="header">
         <div class="container">
-
             <div class="header_inner">
                 <div class="header_left">
-
                     <div class="header_logo">
-                        <a href="{% url 'main' %}"><img src="{% static 'images/logo.png' %}" alt="Tomiko Trade" class="logo"></a>
+                        <a href="{% url 'main'%}">
+                            <img src="{% static 'images/header/logo.png' %}"
+                                 alt="Tomiko Trade"
+                                 class="logo">
+                        </a>
                     </div>
 
                     <nav class="nav">
@@ -48,9 +50,10 @@
                     </div>
 
                     <div class="social">
-                        <a class="social_item" href="#" target="_blank"><i class="fa-brands fa-telegram"></i>
+                        <a class="social_item" href="#" target="_blank"><img src="{% static 'images/header/cta_button_TG.png' %}" alt="">
                         </a>
-                        <a class="social_item" href="https://wa.me/79244202432" target="_blank"><i class="fa-brands fa-whatsapp"></i>
+                        <a class="social_item" href="#" target="_blank"><img src="{% static 'images/header/cta_button_WTA.png' %}" alt="">
+                        </a>
                         </a>
                     </div>
                 </div>
