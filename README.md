@@ -1,4 +1,4 @@
-# Webbin: Car Marketplace Backend
+# Tomiko Trade: Car Marketplace Backend
 
 Этот проект представляет собой серверную часть (backend) для автомобильного маркетплейса, разработанную на фреймворке **Django**.
 
